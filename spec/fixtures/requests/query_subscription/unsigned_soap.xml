@@ -1,0 +1,26 @@
+<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
+xmlns:sub="http://integration.sprint.com/interfaces/wholesaleQuerySubscription/v4/wholesaleQuerySubscriptionV4.xsd">
+<soapenv:Header>
+<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+</wsse:Security>
+<v2:wsMessageHeader>
+<v2:trackingMessageHeader>
+<v2:applicationId>2013020701</v2:applicationId>
+<v2:applicationUserId>MOBILENET</v2:applicationUserId>
+<v2:messageId>72993214</v2:messageId>
+<v2:timeToLive>0</v2:timeToLive>
+<v2:messageDateTimeStamp>2014-06-24T13:19:16.0Z</v2:messageDateTimeStamp>
+</v2:trackingMessageHeader>
+</v2:wsMessageHeader>
+</soapenv:Header>
+<soapenv:Body>
+<sub:wholesaleQuerySubscriptionV4>
+<sub:searchCriteria>
+<sub:mdn>5555555555</sub:mdn>
+</sub:searchCriteria>
+<sub:historyInd>false</sub:historyInd>
+</sub:wholesaleQuerySubscriptionV4>
+</soapenv:Body>
+</soapenv:Envelope>
