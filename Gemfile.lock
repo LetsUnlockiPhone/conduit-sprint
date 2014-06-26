@@ -3,6 +3,7 @@ PATH
   specs:
     conduit-sprint (0.1.0)
       conduit (~> 0.4)
+      excon (~> 0.21.0)
       savon
       signer
 
@@ -28,7 +29,7 @@ GEM
       excon
       tilt
     diff-lcs (1.2.5)
-    excon (0.37.0)
+    excon (0.21.0)
     gyoku (1.1.1)
       builder (>= 2.1.2)
     httpi (2.1.0)

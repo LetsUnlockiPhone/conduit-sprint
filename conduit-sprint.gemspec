@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
 
   # Dependencies
   #
+  s.add_dependency 'excon',   '~> 0.21.0'
   s.add_dependency 'conduit', '~> 0.4'
   s.add_dependency 'savon'
   s.add_dependency 'signer'

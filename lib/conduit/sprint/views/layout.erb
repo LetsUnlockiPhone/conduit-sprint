@@ -7,11 +7,11 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleQuerySubscription/v
 </wsse:Security>
 <v2:wsMessageHeader>
 <v2:trackingMessageHeader>
-<v2:applicationId>2013020701</v2:applicationId>
-<v2:applicationUserId>MOBILENET</v2:applicationUserId>
-<v2:messageId>72993214</v2:messageId>
+<v2:applicationId><%= application_id %></v2:applicationId>
+<v2:applicationUserId><%= application_user_id %></v2:applicationUserId>
+<v2:messageId></v2:messageId>
 <v2:timeToLive>0</v2:timeToLive>
-<v2:messageDateTimeStamp>2014-06-24T13:19:16.0Z</v2:messageDateTimeStamp>
+<v2:messageDateTimeStamp><%= Time.now.utc.strftime("%Y-%m-%dT%H:%M:%S.0Z") %></v2:messageDateTimeStamp>
 </v2:trackingMessageHeader>
 </v2:wsMessageHeader>
 </soapenv:Header>
