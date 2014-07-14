@@ -58,7 +58,8 @@ describe QuerySubscription do
   end
 
   context 'a successful query subscription response is returned' do
-    let(:response) do
+    let(:today) { Date.today }
+    let(:response) do 
       {
         :reseller_partner_id => '2013020701',
         :device_detail_list => {
@@ -69,8 +70,8 @@ describe QuerySubscription do
             :lte_imsi             => '310120011729158',
             :lte_icc_id           => '89011200000117291582',
             :effective_date       => Date.new(2013,11,29),
-            :effective_time       => Time.new(2014,6,26,14,58,44),
-            :expiration_time      => Time.new(2014,6,26,14,58,48)
+            :effective_time       => Time.new(today.year,today.month,today.day,14,58,44,"-04:00"),
+            :expiration_time      => Time.new(today.year,today.month,today.day,14,58,48,"-04:00")
           }
         },
         :are_more_devices => false,
@@ -78,7 +79,7 @@ describe QuerySubscription do
           :mdn_record => {
             :mdn                => '5555555555',
             :effective_date     => Date.new(2014,5,1),
-            :effective_time     => Time.new(2014,6,26,14,10,19),
+            :effective_time     => Time.new(today.year,today.month,today.day,14,10,19,"-04:00"),
             :msid               => '000002812511206',
             :switch_status_code => 'A'
           }
