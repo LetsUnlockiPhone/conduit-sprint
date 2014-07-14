@@ -1,6 +1,6 @@
 require 'savon'
 require 'signer'
-require 'conduit/sprint/parsers/provider_errors'
+require 'conduit/sprint/parsers/soap_fault_parser'
 
 module Conduit::Driver::Sprint
   class Base < Conduit::Core::Action
@@ -19,6 +19,17 @@ module Conduit::Driver::Sprint
         @operation = operation unless operation.nil?
         @operation
       end
+
+      def xsd(xsd = nil)
+        @xsd = xsd unless xsd.nil?
+        @xsd
+      end
+    end
+
+    def view_context
+      super.tap do |view_context|
+        view_context.xsd = self.class.xsd
+      end
     end
 
     def perform
@@ -26,7 +37,7 @@ module Conduit::Driver::Sprint
       response  = client.call(self.class.operation, xml: signed_soap_xml)
       parse_response(response)
     rescue Savon::SOAPFault => soap_fault
-      ProviderErrorParser.parse(soap_fault)
+      SoapFaultParser.parse(soap_fault)
     end
 
     def soap_xml
