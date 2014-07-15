@@ -1,7 +1,4 @@
-require 'conduit/sprint'
-require 'conduit/sprint/driver'
 require 'savon/mock/spec_helper'
-
 include Savon::SpecHelper
 
 RSpec.configure do |config|
