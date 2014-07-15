@@ -1,13 +1,15 @@
 <sub:queryCsa>
-<% if zip.nil? %>
-<sub:geoCode>CityState</sub:geoCode>
-<sub:city><%= city %></sub:city>
-<sub:state><%= state %></sub:state>
+<% if !!zip %>
+  <sub:geoCode>Zip</sub:geoCode>
+  <sub:zip>
+  <sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
+  <% if !!zip4 %>
+    <sub:uspsPostalCdExtension><%= zip4 %></sub:uspsPostalCdExtension>
+  <% end %>
+  </sub:zip>
 <% else %>
-<sub:geoCode>Zip</sub:geoCode>
-<sub:zip>
-<sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
-<sub:uspsPostalCdExtension><%= zip4 %></sub:uspsPostalCdExtension>
-</sub:zip>
+  <sub:geoCode>CityState</sub:geoCode>
+  <sub:city><%= city %></sub:city>
+  <sub:state><%= state %></sub:state>
 <% end %>
 </sub:queryCsa>
