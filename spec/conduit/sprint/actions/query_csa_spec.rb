@@ -2,20 +2,8 @@ require 'spec_helper'
 include Conduit::Driver::Sprint
 
 describe QueryCSA do
-  let(:zip)   { '33415'}
-  let(:zip4)  { '5555'}
-
   let(:query_csa) do
-    QueryCSA.new(
-      city: 'Palm Beach',
-      state: 'FL',
-      zip: zip,
-      zip4: zip4,
-      application_id: '2013020701',
-      application_user_id: 'MOBILENET',
-      cert: File.read('./spec/fixtures/security/cert.pem'),
-      key: File.read('./spec/fixtures/security/key.pem')
-    )
+    QueryCSA.new(credentials.merge(zip: '33415', zip4: '5555'))
   end
 
   let(:unsigned_zipcode_soap) do
@@ -39,21 +27,11 @@ describe QueryCSA do
   end
 
   describe 'soap_xml' do
-    before  do
-      Time.stub_chain(:now, :utc).and_return(Time.utc(2014,6,24,13,19,16))
-      SecureRandom.stub(base64: "9999999999")
-    end
-    
     subject { query_csa.soap_xml }
     it      { should eq unsigned_zipcode_soap }
   end
 
   describe 'signed_soap_xml' do
-    before  do
-      Time.stub_chain(:now, :utc).and_return(Time.utc(2014,6,24,13,19,16))
-      SecureRandom.stub(base64: "9999999999")
-    end
-    
     subject { query_csa.signed_soap_xml }
     it      { should eq signed_zipcode_soap }
   end
@@ -92,7 +70,8 @@ describe QueryCSA do
     end
 
     subject { query_csa.perform }
-    it      { should eq response }
+    it      { should be_an_instance_of QueryCSA::Parser }
+    pending 'test the parser methods'
   end
 
   context 'a successful city state query csa response is returned' do
@@ -120,8 +99,9 @@ describe QueryCSA do
       }
     end
 
-    let(:zip)   { nil }
-    let(:zip4)  { nil }
+    let(:query_csa) do
+      QueryCSA.new(credentials.merge(city: 'Palm Beach', state: 'FL'))
+    end
 
     before(:example) do
       savon.expects(:query_csa).
@@ -129,6 +109,7 @@ describe QueryCSA do
     end
 
     subject { query_csa.perform }
-    it      { should eq response }
+    it      { should be_an_instance_of QueryCSA::Parser }
+    pending 'test the parser methods'
   end 
 end
