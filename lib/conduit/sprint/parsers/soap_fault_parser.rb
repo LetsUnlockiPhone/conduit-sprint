@@ -25,11 +25,7 @@ class SoapFaultParser
   end
 
   def parse_generic_fault
-    wrap
-      {
-        code: fault_hash[:faultcode],
-        message: fault_hash[:faultstring]
-      }
+    wrap({ code: fault_hash[:faultcode], message: fault_hash[:faultstring] })
   end
 
   def has_provider_errors?
@@ -39,11 +35,11 @@ class SoapFaultParser
   private
 
   def fault_hash
-    @fault.to_hash[:fault]
+    @faul_hash ||= @fault.to_hash[:fault]
   end
 
   def unparsed_provider_errors
-    wrap fault_hash[:detail][:error_detail_item][:provider_error]
+    wrap(fault_hash[:detail][:error_detail_item][:provider_error])
   end
 
   def wrap(object)
