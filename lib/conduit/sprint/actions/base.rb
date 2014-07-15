@@ -1,6 +1,5 @@
 require 'savon'
 require 'signer'
-require 'conduit/sprint/parsers/soap_fault_parser'
 
 module Conduit::Driver::Sprint
   class Base < Conduit::Core::Action
@@ -26,6 +25,11 @@ module Conduit::Driver::Sprint
       end
     end
 
+    def credentials
+      credential_keys = Conduit::Driver::Sprint.credentials
+      @options.select { |key| credential_keys.include?(key) }
+    end
+
     def view_context
       super.tap do |view_context|
         view_context.xsd = self.class.xsd
@@ -33,11 +37,9 @@ module Conduit::Driver::Sprint
     end
 
     def perform
-      client    = Savon.client(wsdl: wsdl)
+      client    = Savon.client(wsdl: wsdl, raise_errors: false)
       response  = client.call(self.class.operation, xml: signed_soap_xml)
-      parse_response(response)
-    rescue Savon::SOAPFault => soap_fault
-      SoapFaultParser.parse(soap_fault)
+      parser.new(response.xml)
     end
 
     def soap_xml
@@ -69,9 +71,12 @@ module Conduit::Driver::Sprint
       end
     end
 
-    def parse_response(response)
-      operation_response_node = "#{self.class.operation}_response".to_sym
-      response.hash[:envelope][:body][operation_response_node]
+    def action_name
+      ActiveSupport::Inflector.demodulize(self.class)
+    end
+
+    def parser
+      "Conduit::Driver::Sprint::#{action_name}::Parser".constantize
     end
   end
 end
