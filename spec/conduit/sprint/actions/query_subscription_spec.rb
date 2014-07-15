@@ -29,13 +29,21 @@ describe QuerySubscription do
   end
 
   describe 'soap_xml' do
-    before  { Time.stub_chain(:now, :utc).and_return(Time.utc(2014,6,24,13,19,16)) }
+    before  do
+      Time.stub_chain(:now, :utc).and_return(Time.utc(2014,6,24,13,19,16))
+      SecureRandom.stub(base64: "9999999999")
+    end
+
     subject { query_subscription.soap_xml }
     it      { should eq unsigned_soap }
   end
 
   describe 'signed_soap_xml' do
-    before  { Time.stub_chain(:now, :utc).and_return(Time.utc(2014,6,24,13,19,16)) }
+    before  do
+      Time.stub_chain(:now, :utc).and_return(Time.utc(2014,6,24,13,19,16))
+      SecureRandom.stub(base64: "9999999999")
+    end
+
     subject { query_subscription.signed_soap_xml }
     it      { should eq signed_soap }
   end

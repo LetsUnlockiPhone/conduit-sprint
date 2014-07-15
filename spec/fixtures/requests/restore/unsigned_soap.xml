@@ -1,21 +1,22 @@
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
-xmlns:sub="http://integration.sprint.com/interfaces/<%= xsd %>">
+xmlns:sub="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd">
 <soapenv:Header>
 <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
 </wsse:Security>
 <v2:wsMessageHeader>
 <v2:trackingMessageHeader>
-<v2:applicationId><%= application_id %></v2:applicationId>
-<v2:applicationUserId><%= application_user_id %></v2:applicationUserId>
-<v2:messageId><%= SecureRandom.base64(20) %></v2:messageId>
+<v2:applicationId>2013020701</v2:applicationId>
+<v2:applicationUserId>MOBILENET</v2:applicationUserId>
+<v2:messageId>9999999999</v2:messageId>
 <v2:timeToLive>0</v2:timeToLive>
-<v2:messageDateTimeStamp><%= Time.now.utc.strftime("%Y-%m-%dT%H:%M:%S.0Z") %></v2:messageDateTimeStamp>
+<v2:messageDateTimeStamp>2014-06-24T13:19:16.0Z</v2:messageDateTimeStamp>
 </v2:trackingMessageHeader>
 </v2:wsMessageHeader>
 </soapenv:Header>
 <soapenv:Body>
-<%= yield %>
-</soapenv:Body>
+<sub:restoreSubscription>
+<sub:mdn>5555555555</sub:mdn>
+</sub:restoreSubscription></soapenv:Body>
 </soapenv:Envelope>
