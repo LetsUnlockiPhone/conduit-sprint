@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Conduit::Driver::Sprint
 
 describe Suspend do
   let(:suspend) { Suspend.new(credentials.merge(mdn: '5555555555')) }

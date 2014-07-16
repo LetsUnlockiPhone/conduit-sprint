@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Conduit::Driver::Sprint
 
 describe Hotline do
   let(:hotline) { Hotline.new(credentials.merge(mdn: '5555555555')) }

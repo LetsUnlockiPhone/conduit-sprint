@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Conduit::Driver::Sprint
 
 describe Restore do
   let(:restore) { Restore.new(credentials.merge(mdn: '5555555555')) }

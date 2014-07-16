@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Conduit::Driver::Sprint
 
 describe QuerySubscription do
   let(:query_subscription) do
@@ -33,7 +32,7 @@ describe QuerySubscription do
   end
 
   context 'a SOAP fault is returned' do
-    let(:serializable_hash) do
+    let(:response_errors) do
       [
         { code: '210820012', message: 'The subscriber does not belong to the 2013020701 Major Account/MVNO' },
         { code: 'Server.704', message: 'Application processing error' }
@@ -48,9 +47,8 @@ describe QuerySubscription do
     subject                  { query_subscription.perform }
     it                      { should be_an_instance_of QuerySubscription::Parser }
     its(:xml)               { should eq soap_fault }
-    its(:response_status)   { should eq 'failure' }  
-    its(:response_errors)   { should_not be_empty }
-    its(:response_errors)   { should eq serializable_hash }
+    its(:response_status)   { should eq 'failure' }    
+    its(:response_errors)   { should eq response_errors }
   end
 
   context 'a successful query subscription response is returned' do

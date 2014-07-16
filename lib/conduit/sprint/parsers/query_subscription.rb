@@ -56,7 +56,7 @@ module Conduit::Driver::Sprint
     end
 
     attribute :service_records do
-      root.xpath('//serviceRecord').map do | service_record |
+      root.xpath('//serviceRecord').map do |service_record|
         service_record_attributes(service_record)
       end
     end
