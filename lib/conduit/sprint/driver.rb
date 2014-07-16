@@ -15,6 +15,7 @@ module Conduit
       action :query_subscription
       action :restore
       action :suspend
+      action :transfer_ownership
     end
   end
 end
