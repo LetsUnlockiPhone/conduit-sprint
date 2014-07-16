@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Conduit::Driver::Sprint
 
 describe QueryCSA do
   let(:query_csa) do
