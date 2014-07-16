@@ -5,6 +5,13 @@ module Conduit::Driver::Sprint
     class Base < Conduit::Core::Parser
       attr_accessor :xml
 
+      def self.attribute(attr_name, &block)
+        block ||= lambda do
+          content_for "//#{ActiveSupport::Inflector.camelize(attr_name, false)}"
+        end
+        super(attr_name, &block)
+      end
+
       def initialize(xml)
         self.xml = xml
       end

@@ -37,30 +37,26 @@ describe QueryCSA do
   end
 
   context 'a successful zip code query csa response is returned' do
-    let(:response) do 
+    let(:serializable_hash) do 
       {
-        :zip =>
-        {
-          :usps_postal_cd           => "33415",
-          :usps_postal_cd_extension => "5555"
-        }, 
+        :zip                    => '33415',
+        :zip4                   => '5555',
+        :city                   => nil,
+        :state                  => nil,
         :longitude              => '-80.1257',
         :latitude               => '26.66',
         :confidence             => 'Z1',
         :csa                    => 'MIAWPB561',
-        :is3g                   => true,
-        :evdo                   => true,
-        :iden                   => false,
-        :hybrid                 => false,
+        :is3g                   => 'true',
+        :evdo                   => 'true',
+        :iden                   => 'false',
+        :hybrid                 => 'false',
         :coverage_quality_cdma  => 'Best Coverage',
         :coverage_quality_iden  => 'No Coverage',
-        :roam_digital           => true,
-        :upcoming_coverage_cdma => false,
-        :upcoming_coverage_iden => false,
+        :roam_digital           => 'true',
         :npa                    => '561',
         :nxx                    => '242',
         :affiliate_name         => 'Sprint PCS',
-        :'@xmlns:ns0'           => 'http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope.xsd'
       }
     end
 
@@ -69,33 +65,35 @@ describe QueryCSA do
         with(signed_soap: signed_zipcode_soap).returns(successful_zipcode_response)
     end
 
-    subject { query_csa.perform }
-    it      { should be_an_instance_of QueryCSA::Parser }
-    pending 'test the parser methods'
+    subject                 { query_csa.perform }
+    it                      { should be_an_instance_of QueryCSA::Parser }
+    its(:xml)               { should eq successful_zipcode_response }
+    its(:response_status)   { should eq 'success'}
+    its(:response_errors)   { should be_empty }
+    its(:serializable_hash) { should eq serializable_hash }
   end
 
   context 'a successful city state query csa response is returned' do
-    let(:response) do 
+    let(:serializable_hash) do 
       {
+        :zip                    => nil,
+        :zip4                   => nil,
         :city                   => 'Palm Beach',
         :state                  => 'FL',
         :longitude              => '-80.036669',
         :latitude               => '26.705279',
         :confidence             => 'G3',
         :csa                    => 'MIAWPB561',
-        :is3g                   => true,
-        :evdo                   => true,
-        :iden                   => false,
-        :hybrid                 => false,
+        :is3g                   => 'true',
+        :evdo                   => 'true',
+        :iden                   => 'false',
+        :hybrid                 => 'false',
         :coverage_quality_cdma  => 'Good Coverage',
         :coverage_quality_iden  => 'No Coverage',
-        :roam_digital           => true,
-        :upcoming_coverage_cdma => false,
-        :upcoming_coverage_iden => false,
+        :roam_digital           => 'true',        
         :npa                    => '561',
         :nxx                    => '206',
-        :affiliate_name         => 'Sprint PCS',
-        :'@xmlns:ns0'           => 'http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope.xsd'
+        :affiliate_name         => 'Sprint PCS'
       }
     end
 
@@ -108,8 +106,11 @@ describe QueryCSA do
         with(signed_soap: signed_city_state_soap).returns(successful_city_state_response)
     end
 
-    subject { query_csa.perform }
-    it      { should be_an_instance_of QueryCSA::Parser }
-    pending 'test the parser methods'
+    subject                 { query_csa.perform }
+    it                      { should be_an_instance_of QueryCSA::Parser }
+    its(:xml)               { should eq successful_city_state_response }
+    its(:response_status)   { should eq 'success'}
+    its(:response_errors)   { should be_empty }
+    its(:serializable_hash) { should eq serializable_hash }
   end 
 end
