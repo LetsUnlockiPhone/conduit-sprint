@@ -62,13 +62,13 @@ describe QuerySubscription do
         :activated_at => '2013-11-29',
         :mdn => '5555555555',
         :msid => '000002812511206',
-        :status => 'A',
+        :status => 'Active',
         :csa => 'HOUHST281',
         :plan_code                 => 'MONPLAN1',
         :plan_description          => 'MRC CASUAL USAGE NO ROAM',
         :plan_effective_date       => '2013-11-29',
         :nai_effective_date        => '2014-05-01',
-        :nai_network_status_code  => 'A',
+        :nai_network_status_code  => 'Active',
         :nai                  => '5555555555@MVNO208.SPRINTPCS.COM',
         :service_records => [
           {
