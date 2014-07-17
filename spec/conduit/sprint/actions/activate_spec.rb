@@ -14,6 +14,10 @@ describe Activate do
     File.read('./spec/fixtures/requests/activate/signed_soap.xml')
   end
 
+  let(:unsigned_new_csa_soap) do
+    File.read('./spec/fixtures/requests/activate/unsigned_new_csa_soap.xml')
+  end
+
   let(:soap_fault) do
     File.read('./spec/fixtures/responses/activate/soap_fault.xml')
   end
@@ -55,5 +59,27 @@ describe Activate do
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }
+  end
+
+  context 'a activate with just zip should fetch a csa' do
+    let(:signed_zipcode_soap) do
+      File.read('./spec/fixtures/requests/query_csa/signed_zipcode_soap.xml')
+    end
+
+    let(:successful_zipcode_response) do
+      File.read('./spec/fixtures/responses/query_csa/successful_zipcode_response.xml')
+    end
+
+    before(:example) do     
+      savon.expects(:query_csa).
+        with(signed_soap: signed_zipcode_soap).returns(successful_zipcode_response)
+    end
+
+    subject do
+      Activate.new \
+        credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', zip: '33415')
+    end
+
+    its(:soap_xml) { should eq unsigned_new_csa_soap }
   end
 end
