@@ -2,6 +2,16 @@ require 'conduit/sprint/parsers/base'
 
 module Conduit::Driver::Sprint
   class QuerySubscription::Parser < Parser::Base
+    STATUS_MAPPING = {
+      'A' => 'Active',
+      'C' => 'Cancelled',
+      'R' => 'Reserved',
+      'S' => 'Suspended',
+      'H' => 'Hotlined',
+      'N' => 'Not Finished, activation in progress',
+      'E' => 'Error in completing the activation'
+    }.freeze
+
     attribute :reseller_partner_id
     attribute :mdn
     attribute :msid
@@ -28,7 +38,7 @@ module Conduit::Driver::Sprint
     end
 
     attribute :status do
-      content_for '//switchStatusCode'
+      translate_status content_for('//switchStatusCode')
     end
 
     attribute :plan_code do
@@ -52,7 +62,7 @@ module Conduit::Driver::Sprint
     end
 
     attribute :nai_network_status_code do
-      content_for '//naiRecord//networkStatusCode'
+      translate_status content_for('//naiRecord//networkStatusCode')
     end
 
     attribute :service_records do
@@ -63,6 +73,10 @@ module Conduit::Driver::Sprint
 
     private
 
+    def translate_status(status)
+      STATUS_MAPPING[status] ? STATUS_MAPPING[status] : status
+    end
+      
     def service_record_attributes(service_record = {})
       {}.tap do |service_record_details|
         service_record_details[:service_code]        = content_for('serviceCode', service_record)
