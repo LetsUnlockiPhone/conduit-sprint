@@ -6,7 +6,7 @@ module Conduit::Driver::Sprint
     xsd                 'wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd'
     operation           :wholesale_activate_subscription_v4
     required_attributes :nid, :plan_code
-    optional_attributes :csa, :zip, :service_codes
+    optional_attributes :csa, :zip, :service_codes, :claim_ownership
 
     def initialize(options = {})
       super
@@ -16,7 +16,8 @@ module Conduit::Driver::Sprint
           'You must provide one of the following attributes: csa, zip'
       end
 
-      @options[:csa] ||= lookup_csa_by_zip      
+      @options[:csa] ||= lookup_csa_by_zip
+      claim_ownership! if @options[:claim_ownership]
     end
 
     private
@@ -38,8 +39,19 @@ module Conduit::Driver::Sprint
       end
     end
 
+    def claim_ownership!
+      response = TransferOwnership.new(transfer_ownership_attributes).perform
+      if response.response_status == 'failure'
+        raise "Unable to claim ownership of ESN: #{@options[:nid]}"
+      end
+    end
+
     def csa_attributes
       credentials.merge(zip: @options[:zip])
+    end
+
+    def transfer_ownership_attributes
+      credentials.merge(nid: @options[:nid])
     end
   end
 end
