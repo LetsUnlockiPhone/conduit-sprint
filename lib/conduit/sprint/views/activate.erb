@@ -1,0 +1,22 @@
+<sub:wholesaleActivateSubscriptionV4>
+<sub:deviceInfoList>
+<sub:deviceInfo>
+<sub:serialNumber><%= nid %></sub:serialNumber>
+<sub:serialType>E</sub:serialType>
+</sub:deviceInfo>
+</sub:deviceInfoList>
+<sub:csa><%= csa %></sub:csa>
+<sub:pricePlan>
+<sub:serviceCode><%= plan_code %></sub:serviceCode>
+</sub:pricePlan>
+<% if service_codes.is_a?(Array) && service_codes.any? %>
+<sub:serviceList>
+<% service_codes.each do |service_code| %>
+<sub:serviceRecord>
+<sub:serviceCode><%= service_code %></sub:serviceCode>
+</sub:serviceRecord>
+<% end %>
+</sub:serviceList>
+<% end %>
+<sub:fetchDeviceDetailInfo>true</sub:fetchDeviceDetailInfo>
+</sub:wholesaleActivateSubscriptionV4>
