@@ -44,7 +44,7 @@ describe QuerySubscription do
         with(signed_soap: signed_soap).returns(soap_fault)
     end
 
-    subject                  { query_subscription.perform }
+    subject                 { query_subscription.perform }
     it                      { should be_an_instance_of QuerySubscription::Parser }
     its(:xml)               { should eq soap_fault }
     its(:response_status)   { should eq 'failure' }    
@@ -52,7 +52,6 @@ describe QuerySubscription do
   end
 
   context 'a successful query subscription response is returned' do
-    let(:today) { Date.today }
     let(:serializable_hash) do 
       {
         :reseller_partner_id => '2013020701',
@@ -65,8 +64,8 @@ describe QuerySubscription do
         :msid => '000002812511206',
         :status => 'A',
         :csa => 'HOUHST281',
-        :plan_service_code         => 'MONPLAN1',
-        :plan_service_description  => 'MRC CASUAL USAGE NO ROAM',
+        :plan_code                 => 'MONPLAN1',
+        :plan_description          => 'MRC CASUAL USAGE NO ROAM',
         :plan_effective_date       => '2013-11-29',
         :nai_effective_date        => '2014-05-01',
         :nai_network_status_code  => 'A',
