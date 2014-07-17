@@ -32,6 +32,15 @@ describe TransferOwnership do
   end
 
   context 'a successful transfer_ownership response is returned' do
+    let(:serializable_hash) do
+      {
+        phone_ownership_code: 'PLBL',
+        manufacturer_name: 'SAMSUNG',
+        model_name: 'SAMSUNG M330 1X SLIDER',
+        model_number: 'SPHM330ZWS'
+      }
+    end
+
     before(:example) do
       savon.expects(:manage_device_phone_ownership).
         with(signed_soap: signed_soap).returns(successful_response)
@@ -42,7 +51,7 @@ describe TransferOwnership do
     its(:xml)               { should eq successful_response }
     its(:response_status)   { should eq 'success'}
     its(:response_errors)   { should be_empty }
-    its(:serializable_hash) { should be_empty }
+    its(:serializable_hash) { should eq serializable_hash }
   end
 
   context 'a failed transfer_ownership response is returned' do
