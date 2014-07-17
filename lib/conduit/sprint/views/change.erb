@@ -1,0 +1,26 @@
+<sub:wholesaleChangeServicePlansV3>
+<sub:mdn><%= mdn %></sub:mdn>
+<% if plan_code %>
+<sub:pricePlan>
+<sub:serviceCode><%= plan_code %></sub:serviceCode>
+</sub:pricePlan>
+<% end %>
+<% if services_to_add.is_a?(Array) && services_to_add.any? %>
+<sub:serviceList>
+<% services_to_add.each do |service_code| %>
+<sub:serviceRecord>
+<sub:serviceCode><%= service_code %></sub:serviceCode>
+</sub:serviceRecord>
+<% end %>
+</sub:serviceList>
+<% end %>
+<% if services_to_remove.is_a?(Array) && services_to_remove.any? %>
+<sub:oldServiceList>
+<% services_to_remove.each do |service_code| %>
+<sub:serviceRecord>
+<sub:serviceCode><%= service_code %></sub:serviceCode>
+</sub:serviceRecord>
+<% end %>
+</sub:oldServiceList>
+<% end %>
+</sub:wholesaleChangeServicePlansV3>
