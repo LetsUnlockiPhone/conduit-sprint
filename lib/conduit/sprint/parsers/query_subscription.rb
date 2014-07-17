@@ -31,11 +31,11 @@ module Conduit::Driver::Sprint
       content_for '//switchStatusCode'
     end
 
-    attribute :plan_service_code do
+    attribute :plan_code do
       content_for '//pricePlanRecord//serviceCode'
     end
 
-    attribute :plan_service_description do
+    attribute :plan_description do
       content_for '//pricePlanRecord//serviceDescription'
     end
 
