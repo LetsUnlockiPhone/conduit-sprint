@@ -17,7 +17,11 @@ module Conduit::Driver::Sprint
       end
 
       @options[:csa] ||= lookup_csa_by_zip
+    end
+
+    def perform
       claim_ownership! if @options[:claim_ownership]
+      super
     end
 
     private
