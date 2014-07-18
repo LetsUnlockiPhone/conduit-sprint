@@ -7,8 +7,8 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleChangeServicePlans/
 </wsse:Security>
 <v2:wsMessageHeader>
 <v2:trackingMessageHeader>
-<v2:applicationId>2013020701</v2:applicationId>
-<v2:applicationUserId>MOBILENET</v2:applicationUserId>
+<v2:applicationId>2222333344</v2:applicationId>
+<v2:applicationUserId>BEQUICK</v2:applicationUserId>
 <v2:messageId>9999999999</v2:messageId>
 <v2:timeToLive>0</v2:timeToLive>
 <v2:messageDateTimeStamp>2014-01-01T00:00:00.0Z</v2:messageDateTimeStamp>
