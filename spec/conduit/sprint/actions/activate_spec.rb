@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Activate do
   let(:activate) do
     Activate.new \
-      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'HOUHST281')
+      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561', 
+                        service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
   end
 
   let(:unsigned_soap) do
@@ -42,7 +43,7 @@ describe Activate do
         mdn: '5555555555',
         msid: '000001234567890',
         nai: '5555555555@MVNO123.SPRINTPCS.COM',
-        csa: 'HOUHST281',
+        csa: 'MIAWPB561',
         esn_dec: '12345678901',
         msl: '123456'
       }
@@ -91,7 +92,7 @@ describe Activate do
     let(:activate) do
       Activate.new \
         credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN',
-                          csa: 'HOUHST281', claim_ownership: true)
+                          csa: 'MIAWPB561', claim_ownership: true)
     end
 
     it 'should request to transfer ownership' do

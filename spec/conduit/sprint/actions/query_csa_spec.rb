@@ -6,7 +6,7 @@ describe QueryCSA do
   end
 
   let(:unsigned_zipcode_soap) do
-    File.read('./spec/fixtures/requests/query_csa/unsigned_soap.xml')
+    File.read('./spec/fixtures/requests/query_csa/unsigned_zipcode_soap.xml')
   end
 
   let(:signed_zipcode_soap) do

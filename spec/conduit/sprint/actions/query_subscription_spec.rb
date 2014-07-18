@@ -63,7 +63,7 @@ describe QuerySubscription do
         :mdn => '5555555555',
         :msid => '000002812511206',
         :status => 'Active',
-        :csa => 'HOUHST281',
+        :csa => 'MIAWPB561',
         :plan_code                 => 'MONPLAN1',
         :plan_description          => 'MRC CASUAL USAGE NO ROAM',
         :plan_effective_date       => '2013-11-29',
