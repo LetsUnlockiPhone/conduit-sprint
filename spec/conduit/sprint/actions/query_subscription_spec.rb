@@ -34,7 +34,7 @@ describe QuerySubscription do
   context 'a SOAP fault is returned' do
     let(:response_errors) do
       [
-        { code: '210820012', message: 'The subscriber does not belong to the 2013020701 Major Account/MVNO' },
+        { code: '210820012', message: 'The subscriber does not belong to the 2222333344 Major Account/MVNO' },
         { code: 'Server.704', message: 'Application processing error' }
       ]
     end
@@ -54,7 +54,7 @@ describe QuerySubscription do
   context 'a successful query subscription response is returned' do
     let(:serializable_hash) do 
       {
-        :reseller_partner_id => '2013020701',
+        :reseller_partner_id => '2222333344',
         :esn_dec => '256691457605767761',
         :esn_hex => '99000210580251',
         :imsi => '310120011729158',

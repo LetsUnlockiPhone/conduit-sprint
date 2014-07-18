@@ -1,8 +1,8 @@
 module Helpers
   def credentials
     {}.tap do |credentials|
-      credentials[:application_id] = '2013020701'
-      credentials[:application_user_id] = 'MOBILENET'
+      credentials[:application_id] = '2222333344'
+      credentials[:application_user_id] = 'BEQUICK'
       credentials[:cert] = File.read('./spec/fixtures/security/cert.pem')
       credentials[:key] = File.read('./spec/fixtures/security/key.pem')
     end
