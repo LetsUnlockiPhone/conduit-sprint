@@ -61,7 +61,7 @@ describe Activate do
     its(:serializable_hash) { should eq serializable_hash }
   end
 
-  context 'a activate with just zip should fetch a csa' do
+  context 'an activate with just zip should fetch a csa' do
     let(:signed_zipcode_soap) do
       File.read('./spec/fixtures/requests/query_csa/signed_zipcode_soap.xml')
     end
@@ -81,5 +81,48 @@ describe Activate do
     end
 
     its(:soap_xml) { should eq unsigned_new_csa_soap }
+  end
+
+  context 'an activate with transfer ownership' do
+    let(:transfer_ownership_attributes) do
+      credentials.merge(nid: '12345678901')
+    end
+
+    let(:activate) do
+      Activate.new \
+        credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN',
+                          csa: 'HOUHST281', claim_ownership: true)
+    end
+
+    it 'should request to transfer ownership' do
+      response            = Struct.new(:response_status).new('success')
+      transfer_ownership  = Struct.new(:perform).new(response)
+
+      expect(TransferOwnership).to receive(:new).
+        with(transfer_ownership_attributes).
+        and_return(transfer_ownership)
+
+      expect(transfer_ownership).to receive(:perform).
+        and_return(response)
+
+      savon.expects(:wholesale_activate_subscription_v4).
+        with(signed_soap: signed_soap).returns(success)
+
+      activate.perform
+    end
+
+    it 'should raise exeception if transfer ownership fails' do
+      response            = Struct.new(:response_status).new('failure')
+      transfer_ownership  = Struct.new(:perform).new(response)
+
+      expect(TransferOwnership).to receive(:new).
+        with(transfer_ownership_attributes).
+        and_return(transfer_ownership)
+
+      expect(transfer_ownership).to receive(:perform).
+        and_return(response)
+
+      expect { activate.perform }.to raise_error
+    end
   end
 end
