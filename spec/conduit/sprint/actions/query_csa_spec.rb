@@ -1,8 +1,12 @@
 require 'spec_helper'
 
 describe QueryCSA do
-  let(:query_csa) do
+  let(:query_csa_zip) do
     QueryCSA.new(credentials.merge(zip: '33415', zip4: '5555'))
+  end
+
+  let(:query_csa_city_state) do
+    QueryCSA.new(credentials.merge(city: 'Palm Beach', state: 'FL'))
   end
 
   let(:unsigned_zipcode_soap) do
@@ -17,22 +21,25 @@ describe QueryCSA do
     File.read('./spec/fixtures/requests/query_csa/signed_city_state_soap.xml')
   end
 
-  let(:successful_zipcode_response) do
-    File.read('./spec/fixtures/responses/query_csa/successful_zipcode_response.xml')
-  end
-
-  let(:successful_city_state_response) do
-    File.read('./spec/fixtures/responses/query_csa/successful_city_state_response.xml')
-  end
-
-  describe 'soap_xml' do
-    subject { query_csa.soap_xml }
+  describe 'soap_xml_zip' do
+    subject { query_csa_zip.soap_xml }
     it      { should eq unsigned_zipcode_soap }
   end
 
-  describe 'signed_soap_xml' do
-    subject { query_csa.signed_soap_xml }
+  describe 'signed_soap_xml_zip' do
+    subject { query_csa_zip.signed_soap_xml }
     it      { should eq signed_zipcode_soap }
+  end
+
+  describe 'signed_soap_xml_city_state' do
+    subject { query_csa_city_state.signed_soap_xml }
+    it      { should eq signed_city_state_soap }
+  end
+
+  it_should_behave_like 'a 500 error' do
+    let(:action) do
+      QueryCSA.new(credentials.merge(zip: '33415', zip4: '5555', mock_status: :error))
+    end
   end
 
   context 'a successful zip code query csa response is returned' do
@@ -59,14 +66,8 @@ describe QueryCSA do
       }
     end
 
-    before(:example) do
-      savon.expects(:query_csa).
-        with(signed_soap: signed_zipcode_soap).returns(successful_zipcode_response)
-    end
-
-    subject                 { query_csa.perform }
+    subject                 { query_csa_zip.perform }
     it                      { should be_an_instance_of QueryCSA::Parser }
-    its(:xml)               { should eq successful_zipcode_response }
     its(:response_status)   { should eq 'success'}
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }
@@ -96,20 +97,10 @@ describe QueryCSA do
       }
     end
 
-    let(:query_csa) do
-      QueryCSA.new(credentials.merge(city: 'Palm Beach', state: 'FL'))
-    end
-
-    before(:example) do
-      savon.expects(:query_csa).
-        with(signed_soap: signed_city_state_soap).returns(successful_city_state_response)
-    end
-
-    subject                 { query_csa.perform }
+    subject                 { query_csa_city_state.perform }
     it                      { should be_an_instance_of QueryCSA::Parser }
-    its(:xml)               { should eq successful_city_state_response }
     its(:response_status)   { should eq 'success'}
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }
-  end 
+  end
 end

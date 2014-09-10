@@ -37,6 +37,15 @@ module Conduit::Driver::Sprint
     end
 
     def perform
+      if mock_mode?
+        mocker = request_mocker.new(self, @options)
+        mocker.with_mocking { perform_request }
+      else
+        perform_request
+      end
+    end
+
+    def perform_request
       client    = Savon.client(wsdl: wsdl, raise_errors: false)
       response  = client.call(self.class.operation, xml: signed_soap_xml)
       parser.new(response.xml)
@@ -77,6 +86,14 @@ module Conduit::Driver::Sprint
 
     def parser
       "Conduit::Driver::Sprint::#{action_name}::Parser".constantize
+    end
+
+    def request_mocker
+      "Conduit::Sprint::RequestMocker::#{action_name}".constantize
+    end
+
+    def mock_mode?
+      @options[:mode] == :mock
     end
   end
 end

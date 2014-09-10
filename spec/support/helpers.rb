@@ -5,6 +5,7 @@ module Helpers
       credentials[:application_user_id] = 'BEQUICK'
       credentials[:cert] = File.read('./spec/fixtures/security/cert.pem')
       credentials[:key] = File.read('./spec/fixtures/security/key.pem')
+      credentials[:mode] = :mock
     end
   end
 end

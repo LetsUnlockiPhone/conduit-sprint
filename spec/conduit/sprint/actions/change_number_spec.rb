@@ -11,10 +11,6 @@ describe ChangeNumber do
     File.read('./spec/fixtures/requests/change_number/signed_soap.xml')
   end
 
-  let(:success) do
-    File.read('./spec/fixtures/responses/change_number/success.xml')
-  end
-
   describe 'soap_xml' do
     subject { change_number.soap_xml }
     it      { should eq unsigned_soap }
@@ -25,21 +21,18 @@ describe ChangeNumber do
     it      { should eq signed_soap }
   end
 
+  it_should_behave_like 'a 500 error' do
+    let(:action) do
+      ChangeNumber.new \
+        credentials.merge(credentials.merge(mdn: '5555555555', mock_status: :error))
+    end
+  end
+
   context 'a successful change number response is returned' do
-    let(:serializable_hash) do
-      { :new_mdn => "1234567891", :msid => "00000888883888" }
-    end
-
-    before(:example) do
-      savon.expects(:swap_mdn).
-        with(signed_soap: signed_soap).returns(success)
-    end
-
     subject                 { change_number.perform }
     it                      { should be_an_instance_of ChangeNumber::Parser }
-    its(:xml)               { should eq success }
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
-    its(:serializable_hash) { should eq serializable_hash }
+    its(:serializable_hash) { should_not eq be_empty }
   end
 end

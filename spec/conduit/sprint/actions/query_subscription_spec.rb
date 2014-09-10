@@ -13,14 +13,6 @@ describe QuerySubscription do
     File.read('./spec/fixtures/requests/query_subscription/signed_soap.xml')
   end
 
-  let(:soap_fault) do
-    File.read('./spec/fixtures/responses/query_subscription/soap_fault.xml')
-  end
-
-  let(:success) do
-    File.read('./spec/fixtures/responses/query_subscription/success.xml')
-  end
-
   describe 'soap_xml' do
     subject { query_subscription.soap_xml }
     it      { should eq unsigned_soap }
@@ -31,7 +23,17 @@ describe QuerySubscription do
     it      { should eq signed_soap }
   end
 
+  it_should_behave_like 'a 500 error' do
+    let(:action) do
+      QuerySubscription.new(credentials.merge(mdn: '5555555555', mock_status: :error))
+    end
+  end
+
   context 'a SOAP fault is returned' do
+    let(:query_subscription) do
+      QuerySubscription.new(credentials.merge(mdn: '5555555555', mock_status: :fault))
+    end
+
     let(:response_errors) do
       [
         { code: '210820012', message: 'The subscriber does not belong to the 2222333344 Major Account/MVNO' },
@@ -39,14 +41,8 @@ describe QuerySubscription do
       ]
     end
 
-    before(:example) do
-      savon.expects(:wholesale_query_subscription_v4).
-        with(signed_soap: signed_soap).returns(soap_fault)
-    end
-
     subject                 { query_subscription.perform }
     it                      { should be_an_instance_of QuerySubscription::Parser }
-    its(:xml)               { should eq soap_fault }
     its(:response_status)   { should eq 'failure' }    
     its(:response_errors)   { should eq response_errors }
   end
@@ -90,14 +86,8 @@ describe QuerySubscription do
       }
     end
 
-    before(:example) do
-      savon.expects(:wholesale_query_subscription_v4).
-        with(signed_soap: signed_soap).returns(success)
-    end
-
     subject                 { query_subscription.perform }
     it                      { should be_an_instance_of QuerySubscription::Parser }
-    its(:xml)               { should eq success }
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }

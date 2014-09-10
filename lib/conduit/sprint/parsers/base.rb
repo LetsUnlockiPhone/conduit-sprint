@@ -32,13 +32,21 @@ module Conduit::Driver::Sprint
       end
 
       def response_errors
-        if fault.nil?
-          []
-        elsif provider_errors.any?
-          normalized_provider_errors
+        if response_content?
+          if fault.nil?
+            []
+          elsif provider_errors.any?
+            normalized_provider_errors
+          else
+            [normalized_fault]
+          end
         else
-          [normalized_fault]
+          { message: 'Unexpected response from server.' }
         end
+      end
+
+      def response_content?
+        root.at_xpath('//Body')
       end
 
       def fault
