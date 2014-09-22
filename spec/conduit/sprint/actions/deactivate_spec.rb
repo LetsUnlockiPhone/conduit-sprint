@@ -13,11 +13,7 @@ describe Deactivate do
     File.read('./spec/fixtures/requests/deactivate/signed_soap.xml')
   end
 
-  let(:success) do
-    File.read('./spec/fixtures/responses/deactivate/success.xml')
-  end
-
-  describe 'soap_xml' do    
+  describe 'soap_xml' do
     subject { deactivate.soap_xml }
     it      { should eq unsigned_soap }
   end
@@ -27,15 +23,15 @@ describe Deactivate do
     it      { should eq signed_soap }
   end
 
-  context 'a successful deactivate response is returned' do
-    before(:example) do
-      savon.expects(:expire_subscription).
-        with(signed_soap: signed_soap).returns(success)
+  it_should_behave_like 'a 500 error' do
+    let(:action) do
+      Deactivate.new(credentials.merge(mdn: '5555555555', mock_status: :error))
     end
+  end
 
+  context 'a successful deactivate response is returned' do
     subject                 { deactivate.perform }
     it                      { should be_an_instance_of Deactivate::Parser }
-    its(:xml)               { should eq success }
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should be_empty }

@@ -11,10 +11,6 @@ describe Suspend do
     File.read('./spec/fixtures/requests/suspend/signed_soap.xml')
   end
 
-  let(:success) do
-    File.read('./spec/fixtures/responses/suspend/success.xml')
-  end
-
   describe 'soap_xml' do
     subject { suspend.soap_xml }
     it      { should eq unsigned_soap }
@@ -25,15 +21,15 @@ describe Suspend do
     it      { should eq signed_soap }
   end
 
-  context 'a successful suspend response is returned' do
-    before(:example) do
-      savon.expects(:suspend_subscription).
-        with(signed_soap: signed_soap).returns(success)
+  it_should_behave_like 'a 500 error' do
+    let(:action) do
+      Suspend.new(credentials.merge(mdn: '5555555555', mock_status: :error))
     end
+  end
 
+  context 'a successful suspend response is returned' do
     subject                 { suspend.perform }
     it                      { should be_an_instance_of Suspend::Parser }
-    its(:xml)               { should eq success }
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should be_empty }
