@@ -11,7 +11,7 @@ module Conduit
       action :change_number
       action :deactivate
       action :hotline
-      action :query_csa
+      action :check_coverage
       action :query_subscription
       action :restore
       action :suspend

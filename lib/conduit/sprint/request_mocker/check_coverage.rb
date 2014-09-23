@@ -1,10 +1,10 @@
 require 'conduit/sprint/request_mocker/base'
 
 module Conduit::Sprint::RequestMocker
-  class QueryCSA < Base
+  class CheckCoverage < Base
 
     def fixture
-      FIXTURE_PREFIX + "/query_csa/#{determine_success_xml}.xml.erb"
+      FIXTURE_PREFIX + "/check_coverage/#{determine_success_xml}.xml.erb"
     end
 
     def determine_success_xml

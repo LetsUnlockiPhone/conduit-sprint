@@ -35,7 +35,7 @@ module Conduit::Driver::Sprint
     end
 
     def lookup_csa_by_zip
-      response = QueryCSA.new(csa_attributes).perform
+      response = CheckCoverage.new(csa_attributes).perform
       if response.response_status == 'success'
         response.csa
       else
