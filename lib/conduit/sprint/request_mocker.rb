@@ -1,7 +1,7 @@
 require 'conduit/sprint/request_mocker/activate'
 require 'conduit/sprint/request_mocker/deactivate'
 require 'conduit/sprint/request_mocker/suspend'
-require 'conduit/sprint/request_mocker/query_csa'
+require 'conduit/sprint/request_mocker/check_coverage'
 require 'conduit/sprint/request_mocker/hotline'
 require 'conduit/sprint/request_mocker/change'
 require 'conduit/sprint/request_mocker/change_device'
