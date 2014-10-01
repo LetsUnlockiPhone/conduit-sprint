@@ -3,12 +3,12 @@ require 'forwardable'
 require 'erb'
 require 'tilt'
 
-module Conduit::Sprint::RequestMocker  
+module Conduit::Sprint::RequestMocker
   class Base
     include Savon::SpecHelper
     extend Forwardable
 
-    FIXTURE_PREFIX = './lib/conduit/sprint/request_mocker/fixtures/responses'.freeze
+    FIXTURE_PREFIX = File.dirname(__FILE__) + '/fixtures/responses'.freeze
 
     def initialize(base, options = nil)
       @base = base

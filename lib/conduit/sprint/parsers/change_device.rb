@@ -5,7 +5,7 @@ module Conduit::Driver::Sprint
     attribute :mdn
     attribute :msid
 
-    attribute :esn_dec do
+    attribute :nid do
       content_for '//serialNumber'
     end
 

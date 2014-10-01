@@ -93,7 +93,7 @@ module Conduit::Driver::Sprint
     end
 
     def mock_mode?
-      @options[:mode] == :mock
+      @options[:mode].to_sym == :mock
     end
   end
 end

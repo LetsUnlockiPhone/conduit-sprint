@@ -49,6 +49,10 @@ module Conduit::Driver::Sprint
         root.at_xpath('//Body')
       end
 
+      def body
+        root.at_xpath('//Body').to_s
+      end
+
       def fault
         @fault ||= root.at_xpath('//Fault')
       end
