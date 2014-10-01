@@ -90,7 +90,7 @@ describe CheckCoverage do
         :hybrid                 => 'false',
         :coverage_quality_cdma  => 'Good Coverage',
         :coverage_quality_iden  => 'No Coverage',
-        :roam_digital           => 'true',        
+        :roam_digital           => 'true',
         :npa                    => '561',
         :nxx                    => '206',
         :affiliate_name         => 'Sprint PCS'
