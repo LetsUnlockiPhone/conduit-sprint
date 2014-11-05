@@ -51,11 +51,11 @@ module Conduit::Driver::Sprint
     end
 
     def csa_attributes
-      credentials.merge(zip: @options[:zip], mode: @options[:mode])
+      credentials.merge(zip: @options[:zip], mock_status: @options[:mock_status])
     end
 
     def transfer_ownership_attributes
-      credentials.merge(nid: @options[:nid], mode: @options[:mode])
+      credentials.merge(nid: @options[:nid], mock_status: @options[:mock_status])
     end
   end
 end

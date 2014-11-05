@@ -13,7 +13,7 @@ module Conduit::Sprint::RequestMocker
     def initialize(base, options = nil)
       @base = base
       @options = options
-      @mock_status = options[:mock_status] || :success
+      @mock_status = options[:mock_status].to_sym
     end
 
     def mock

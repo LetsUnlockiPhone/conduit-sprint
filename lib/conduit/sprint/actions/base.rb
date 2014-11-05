@@ -93,7 +93,7 @@ module Conduit::Driver::Sprint
     end
 
     def mock_mode?
-      @options[:mode].to_sym == :mock
+      @options.has_key?(:mock_status) && (!@options[:mock_status].empty? && !@options[:mock_status].nil?)
     end
   end
 end

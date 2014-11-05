@@ -3,7 +3,8 @@ module Conduit
     module Sprint
       extend Conduit::Core::Driver
 
-      required_credentials :application_id, :application_user_id, :cert, :key, :mode
+      required_credentials :application_id, :application_user_id, :cert, :key
+      optional_attributes  :mock_status
 
       action :activate
       action :change

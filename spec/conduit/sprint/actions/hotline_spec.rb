@@ -23,7 +23,7 @@ describe Hotline do
 
   it_should_behave_like 'a 500 error' do
     let(:action) do
-      Hotline.new(credentials.merge(mdn: '5555555555', mode: :mock, mock_status: :error))
+      Hotline.new(credentials.merge(mdn: '5555555555', mock_status: :error))
     end
   end
 

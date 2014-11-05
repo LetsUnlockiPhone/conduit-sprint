@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   #
   s.name     = 'conduit-sprint'
   s.version  = Conduit::Sprint::VERSION
-  s.authors  = ['Pedro Martinez']
-  s.email    = ['pedro.martinez@bqsoft.com']
-  s.homepage = 'https://github.com/bqsoft/conduit-sprint'
+  s.authors  = ['Pedro Martinez', 'Doug Perez']
+  s.email    = ['pedro.martinez@hellolabs.com', 'doug.perez@hellolabs.com']
+  s.homepage = 'https://github.com/conduit/conduit-sprint'
   s.summary  = 'BeQuick Sprint Driver for Conduit'
 
   # Files
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   # Dependencies
   #
   s.add_dependency 'excon',   '~> 0.21.0'
-  s.add_dependency 'conduit', '~> 0.4'
+  s.add_dependency 'conduit', '~> 0.6.0'
   s.add_dependency 'savon'
   s.add_dependency 'signer'
 
