@@ -69,7 +69,7 @@ class MockHelpers
   end
 
   def serial_number
-     @serial_number ||= 12.times.map { rand(0..9) }.join
+     @serial_number ||= 18.times.map { rand(0..9) }.join
   end
 
   def today
