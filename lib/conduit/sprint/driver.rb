@@ -17,6 +17,7 @@ module Conduit
       action :restore
       action :suspend
       action :transfer_ownership
+      action :query_device_info
     end
   end
 end

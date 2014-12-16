@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2" xmlns:sub="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd"><soapenv:Header>
+<v2:wsMessageHeader>
+<v2:trackingMessageHeader>
+<v2:applicationId><%= application_id %></v2:applicationId>
+<v2:applicationUserId><%= application_user_id %></v2:applicationUserId>
+<v2:messageId></v2:messageId>
+<v2:timeToLive>0</v2:timeToLive>
+<v2:messageDateTimeStamp>2014-12-16T15:57:56.0Z</v2:messageDateTimeStamp></v2:trackingMessageHeader></v2:wsMessageHeader><wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsu:Timestamp wsu:Id="Timestamp-9739b691-4cde-444e-88d6-3d72e8f04417" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsu:Created>2014-12-16T15:57:56Z</wsu:Created><wsu:Expires>2014-12-16T16:02:56Z</wsu:Expires></wsu:Timestamp><wsse:BinarySecurityToken wsu:Id="SecurityToken-8e9ea81f-4f8e-43bd-9f65-ce60a72299dc" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">MIIDmTCCAwKgAwIBAgIERxqCLDANBgkqhkiG9w0BAQUFADAeMQswCQYDVQQGEwJVUzEPMA0GA1UEChMGU3ByaW50MB4XDTExMDgwMjIwMDc0OVoXDTE4MDgwNDA0MDAwMFowYjELMAkGA1UEBhMCVVMxDzANBgNVBAoTBlNwcmludDERMA8GA1UECxMIUHJvamVjdHMxDDAKBgNVBAsTA0JNUDEMMAoGA1UECxMDVFBBMRMwEQYDVQQDEwpzcHJpbnQtbXNvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCG2yDWPQBNG9bjt+sVMzlaooX3jON7tOoqtIxPkXl7XCEvbzZpXL2tYtHXqxVfPo9h1weulbj0dE4LlVjlTjzW4upBI92StqDVYdzTLvZWie1fEslIThHDoX7paQpnrSew3TZ6fk4qVnF4h44J/rLnFt3jLEO6IyRhddganpoOowIDAQABo4IBnjCCAZowCwYDVR0PBAQDAgWgMCsGA1UdEAQkMCKADzIwMTEwODAyMjAwNzQ5WoEPMjAxODA4MDQwNDAwMDBaMBEGCWCGSAGG+EIBAQQEAwIFoDCB5AYDVR0fBIHcMIHZMDagNKAypDAwLjELMAkGA1UEBhMCVVMxDzANBgNVBAoTBlNwcmludDEOMAwGA1UEAxMFQ1JMMjkwgZ6ggZuggZiGSmxkYXA6Ly9jYXg1MDAxLnNwcmludC5jb206Mzg5L289U3ByaW50LGM9VVM/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlhkpsZGFwOi8vY2F4NTAwMi5zcHJpbnQuY29tOjM4OS9vPVNwcmludCxjPVVTP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZTAfBgNVHSMEGDAWgBRFTY</wsse:BinarySecurityToken><Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+  <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+  <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+  <Reference URI="#Timestamp-9739b691-4cde-444e-88d6-3d72e8f04417">
+    <Transforms>
+      <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    </Transforms>
+    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <DigestValue>ev4jJlf5xJQr1dLyFCXsbxCnNB8=</DigestValue>
+  </Reference>
+  <Reference URI="#Body-274e7e3d-f965-4b58-bd5f-3dc9123cc2a4">
+    <Transforms>
+      <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    </Transforms>
+    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <DigestValue>ZY/GUiLG1H0oLOJ3GuJOGIpzGCg=</DigestValue>
+  </Reference>
+</SignedInfo>
+    <SignatureValue>Cdl8SnK2wBHIxp12dD3PoQG57KE5/iYbWiFnFpuWSTSplOjwAOKdckqzCCIJCr/xJvO20z36aclPgO4KvGT+fscdVmPskUWdZ/O35G9x+iUVUS4jYFKCkWPB7ZfbXBk7vYB5Nik54lY76dkLsbiEg6D3nOR4CBQi5vHCnD0j7XI=</SignatureValue><KeyInfo><wsse:SecurityTokenReference xmlns=""><wsse:Reference URI="#SecurityToken-8e9ea81f-4f8e-43bd-9f65-ce60a72299dc" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/></wsse:SecurityTokenReference></KeyInfo></Signature></wsse:Security></soapenv:Header><soapenv:Body wsu:Id="Body-274e7e3d-f965-4b58-bd5f-3dc9123cc2a4" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><tns:wholesaleValidateDeviceResponse xmlns:tns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd"><tns:availabilityTypeCode>1</tns:availabilityTypeCode><tns:notAvailableReasonCode>0</tns:notAvailableReasonCode><tns:validationMessage>Device is valid and cleared for use</tns:validationMessage><tns:manufacturerName>SAMSUNG</tns:manufacturerName><tns:modelName>SAM L720T BLK XCVR SGL</tns:modelName><tns:freqMode>C</tns:freqMode><tns:equipmentFreqTypeCode>H</tns:equipmentFreqTypeCode><tns:modelNumber>SPHL720TB1</tns:modelNumber><tns:deviceSerialNumber>99000470382044</tns:deviceSerialNumber><tns:deviceType>U</tns:deviceType><tns:iccId>89011200000403604860</tns:iccId><tns:imsi>310120040360486</tns:imsi><tns:uiccSku>CZ2102LWR</tns:uiccSku><tns:uiccAvailabilityCode>1</tns:uiccAvailabilityCode><tns:uiccNotAvailableReasonCode>0</tns:uiccNotAvailableReasonCode><tns:uiccCompatibility>Y</tns:uiccCompatibility><tns:uiccType>U</tns:uiccType></tns:wholesaleValidateDeviceResponse></soapenv:Body></soapenv:Envelope>
