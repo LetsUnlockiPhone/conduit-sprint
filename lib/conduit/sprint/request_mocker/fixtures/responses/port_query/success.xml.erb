@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><SOAP-ENV:Header><m:wsMessageHeader xmlns:m="http://integration.sprint.com/common/header/WSMessageHeader/v2"><m:trackingMessageHeader><m:applicationId><%= application_id %></m:applicationId><m:applicationUserId><%= application_user_id %></m:applicationUserId><m:consumerId/><m:messageId></m:messageId><m:conversationId/><m:timeToLive>0</m:timeToLive><m:replyCompletionCode>0</m:replyCompletionCode><m:messageDateTimeStamp>2014-12-16T15:14:35-06:00</m:messageDateTimeStamp></m:trackingMessageHeader></m:wsMessageHeader><wsse:Security SOAP-ENV:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsu:Timestamp wsu:Id="Timestamp-520193ca-4b1e-4df3-93fc-0b90d13d5177" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsu:Created>2014-12-16T21:14:35Z</wsu:Created><wsu:Expires>2014-12-16T21:19:35Z</wsu:Expires></wsu:Timestamp><wsse:BinarySecurityToken wsu:Id="SecurityToken-0794d2b2-b6b9-4383-9cdc-d78cda3e3d75" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">MIIDmTCCAwKgAwIBAgIERxqCLDANBgkqhkiG9w0BAQUFADAeMQswCQYDVQQGEwJVUzEPMA0GA1UEChMGU3ByaW50MB4XDTExMDgwMjIwMDc0OVoXDTE4MDgwNDA0MDAwMFowYjELMAkGA1UEBhMCVVMxDzANBgNVBAoTBlNwcmludDERMA8GA1UECxMIUHJvamVjdHMxDDAKBgNVBAsTA0JNUDEMMAoGA1UECxMDVFBBMRMwEQYDVQQDEwpzcHJpbnQtbXNvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCG2yDWPQBNG9bjt+sVMzlaooX3jON7tOoqtIxPkXl7XCEvbzZpXL2tYtHXqxVfPo9h1weulbj0dE4LlVjlTjzW4upBI92StqDVYdzTLvZWie1fEslIThHDoX7paQpnrSew3TZ6fk4qVnF4h44J/rLnFt3jLEO6IyRhddganpoOowIDAQABo4IBnjCCAZowCwYDVR0PBAQDAgWgMCsGA1UdEAQkMCKADzIwMTEwODAyMjAwNzQ5WoEPMjAxODA4MDQwNDAwMDBaMBEGCWCGSAGG+EIBAQQEAwIFoDCB5AYDVR0fBIHcMIHZMDagNKAypDAwLjELMAkGA1UEBhMCVVMxDzANBgNVBAoTBlNwcmludDEOMAwGA1UEAxMFQ1JMMjkwgZ6ggZuggZiGSmxkYXA6Ly9jYXg1MDAxLnNwcmludC5jb206Mzg5L289U3ByaW50LGM9VVM/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlhkpsZGFwOi8vY2F4NTAwMi5zcHJpbnQuY29tOjM4OS9vPVNwcmludCxjPVVTP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZTAfBgNVHSMEGDAWgBRFTY2yujBdccYEb58W/Dt7VY3NHzAdBgNVHQ4EFgQUzUEoNuQ9ummaIU8K6h28izpV2YUwCQYDVR0TBAIwADAZBgkqhkiG9n0HQQAEDDAKGwRWNy4xAwIDKDANBgkqhkiG9w0BAQUFAAOBgQCTDjwpnYdx9JZpBrIwm4qIF4tZmXCCUIBEcoER1oUw/NSdgbbRjpU5AxUR/aK1K3taa27HS+WBQYTeMw+Y/LFhp8m+UjHBx/O1kfk4JAz201Kk0HeGgFvt9sscLfK8YD0aavdDJ6Z0rMpHBlcv8VQ7P+1zqJLay3TY+atl9wuD/Q==</wsse:BinarySecurityToken><Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+  <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+  <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+  <Reference URI="#Timestamp-520193ca-4b1e-4df3-93fc-0b90d13d5177">
+    <Transforms>
+      <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    </Transforms>
+    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <DigestValue>ZWkiLt5OHV51IWOjXQrEiJtoWFk=</DigestValue>
+  </Reference>
+  <Reference URI="#Body-0fbe402b-82c0-4b8e-9245-19f8aafc7926">
+    <Transforms>
+      <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    </Transforms>
+    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+    <DigestValue>hOQjsxXy8EcdnnBSMmoJoRzscOE=</DigestValue>
+  </Reference>
+</SignedInfo>
+    <SignatureValue>DsXNmIjHhiv+MIiz+PJadis/RdrFbESJARZLjxYag9U/DVboFQP0uqlsOIDs4RRpX8/oJJloLBrQ0okP7Ny5JkstFUmsnGqr19fEsJJaxB8Za27qX5T/U2T0QnLgPwP0k9YVAlYUEh0EqL8RcxlaEDRraPejm9+lWPQrlFtGjFQ=</SignatureValue><KeyInfo><wsse:SecurityTokenReference xmlns=""><wsse:Reference URI="#SecurityToken-0794d2b2-b6b9-4383-9cdc-d78cda3e3d75" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/></wsse:SecurityTokenReference></KeyInfo></Signature></wsse:Security></SOAP-ENV:Header><SOAP-ENV:Body wsu:Id="Body-0fbe402b-82c0-4b8e-9245-19f8aafc7926" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><quer1:queryPortMessageResponse xmlns:quer="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPortMessageBtV1.xsd" xmlns:quer1="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPortMessage.xsd">
+      <quer1:wholesalePortMessageList>
+        <quer1:areMoreRecords>false</quer1:areMoreRecords>
+        <quer1:wholesalePortMessageTypeList>
+          <quer1:wholesalePortMessageTypeInfo>
+            <quer1:messageTypeCode>PTS</quer1:messageTypeCode>
+            <quer1:messageTypeDesc>Port Status</quer1:messageTypeDesc>
+            <quer1:messageStatusCode>M</quer1:messageStatusCode>
+            <quer1:messageStatusDesc>Message Stored</quer1:messageStatusDesc>
+            <quer1:mdn><%= mdn %></quer1:mdn>
+            <quer1:portId>44461996</quer1:portId>
+            <quer1:resellerPartnerIdInfo>
+              <quer1:resellerPartnerId>test</quer1:resellerPartnerId>
+            </quer1:resellerPartnerIdInfo>
+            <quer1:newNetWorkServiceProviderInfo>
+              <quer1:networkServiceProviderId>6664</quer1:networkServiceProviderId>
+              <quer1:localServiceProviderId>6664</quer1:localServiceProviderId>
+              <quer1:serviceProviderName>Sprint-Nxtl CDMA</quer1:serviceProviderName>
+            </quer1:newNetWorkServiceProviderInfo>
+            <quer1:oldNetWorkServiceProviderInfo>
+              <quer1:networkServiceProviderId>6214</quer1:networkServiceProviderId>
+              <quer1:localServiceProviderId>ZZZZ</quer1:localServiceProviderId>
+              <quer1:serviceProviderName>CINGULAR</quer1:serviceProviderName>
+            </quer1:oldNetWorkServiceProviderInfo>
+            <quer1:portDueDateTimeInfo>
+              <quer1:dueDateTime>2014-10-17T08:45:00-05:00</quer1:dueDateTime>
+            </quer1:portDueDateTimeInfo>
+            <quer1:actionCode>ACT</quer1:actionCode>
+            <quer1:messageCreationTime>2014-10-17T08:46:00-05:00</quer1:messageCreationTime>
+          </quer1:wholesalePortMessageTypeInfo>
+          <quer1:wholesalePortMessageTypeInfo>
+            <quer1:messageTypeCode>DDT</quer1:messageTypeCode>
+            <quer1:messageTypeDesc>Due Date and Time</quer1:messageTypeDesc>
+            <quer1:messageStatusCode>M</quer1:messageStatusCode>
+            <quer1:messageStatusDesc>Message Stored</quer1:messageStatusDesc>
+            <quer1:mdn><%= mdn %></quer1:mdn>
+            <quer1:portId>44461996</quer1:portId>
+            <quer1:portRequestNumber>6664014290201405</quer1:portRequestNumber>
+            <quer1:resellerPartnerIdInfo>
+              <quer1:portResellerPartnerInfo>
+                <quer1:portInResellerPartnerId>test</quer1:portInResellerPartnerId>
+              </quer1:portResellerPartnerInfo>
+            </quer1:resellerPartnerIdInfo>
+            <quer1:newNetWorkServiceProviderInfo>
+              <quer1:networkServiceProviderId>6664</quer1:networkServiceProviderId>
+              <quer1:localServiceProviderId>6664</quer1:localServiceProviderId>
+              <quer1:serviceProviderName>Sprint-Nxtl CDMA</quer1:serviceProviderName>
+            </quer1:newNetWorkServiceProviderInfo>
+            <quer1:oldNetWorkServiceProviderInfo>
+              <quer1:networkServiceProviderId>6214</quer1:networkServiceProviderId>
+              <quer1:localServiceProviderId>ZZZZ</quer1:localServiceProviderId>
+              <quer1:serviceProviderName>CINGULAR</quer1:serviceProviderName>
+            </quer1:oldNetWorkServiceProviderInfo>
+            <quer1:portDueDateTimeInfo>
+              <quer1:dueDateTimeChangesInfo>
+                <quer1:originalDueDateTime>2014-10-17T11:41:00-05:00</quer1:originalDueDateTime>
+                <quer1:revisedDueDateTime>2014-10-17T08:45:00-05:00</quer1:revisedDueDateTime>
+              </quer1:dueDateTimeChangesInfo>
+            </quer1:portDueDateTimeInfo>
+            <quer1:messageCode>SOA1010I</quer1:messageCode>
+            <quer1:messageText>Due Date Change by NSP 6664 - new date 201410170845A, OSP 6214 - due date 201410171141A,</quer1:messageText>
+            <quer1:messageCreationTime>2014-10-17T08:45:17-05:00</quer1:messageCreationTime>
+          </quer1:wholesalePortMessageTypeInfo>
+          <quer1:wholesalePortMessageTypeInfo>
+            <quer1:messageTypeCode>PIR</quer1:messageTypeCode>
+            <quer1:messageTypeDesc>PortIn Response</quer1:messageTypeDesc>
+            <quer1:messageStatusCode>M</quer1:messageStatusCode>
+            <quer1:messageStatusDesc>Message Stored</quer1:messageStatusDesc>
+            <quer1:mdn><%= mdn %></quer1:mdn>
+            <quer1:portId>44461996</quer1:portId>
+            <quer1:portRequestNumber>6664014290201405</quer1:portRequestNumber>
+            <quer1:resellerPartnerIdInfo>
+              <quer1:resellerPartnerId>test</quer1:resellerPartnerId>
+            </quer1:resellerPartnerIdInfo>
+            <quer1:supplementalCode>0</quer1:supplementalCode>
+            <quer1:oldNetWorkServiceProviderInfo>
+              <quer1:networkServiceProviderId>6214</quer1:networkServiceProviderId>
+              <quer1:localServiceProviderId>ZZZZ</quer1:localServiceProviderId>
+              <quer1:serviceProviderName>CINGULAR</quer1:serviceProviderName>
+            </quer1:oldNetWorkServiceProviderInfo>
+            <quer1:implementationPartnerInfo>
+              <quer1:contactName>Port ACT Center</quer1:contactName>
+              <quer1:contactPhone>888-898-7685</quer1:contactPhone>
+            </quer1:implementationPartnerInfo>
+            <quer1:portDueDateTimeInfo>
+              <quer1:dueDateTime>2014-10-17T11:41:00-05:00</quer1:dueDateTime>
+            </quer1:portDueDateTimeInfo>
+            <quer1:responseType>C</quer1:responseType>
+            <quer1:messageCreationTime>2014-10-17T08:41:05-05:00</quer1:messageCreationTime>
+          </quer1:wholesalePortMessageTypeInfo>
+        </quer1:wholesalePortMessageTypeList>
+      </quer1:wholesalePortMessageList>
+    </quer1:queryPortMessageResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
