@@ -27,7 +27,7 @@ describe QueryDeviceInfo do
     end
   end
 
-  context 'a successful hotline response is returned' do
+  context 'a successful query device response is returned' do
     let(:serializable_hash) do 
       {
         :model_name             => "SAM L720T BLK XCVR SGL",
