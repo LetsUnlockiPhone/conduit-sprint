@@ -18,6 +18,7 @@ module Conduit
       action :suspend
       action :transfer_ownership
       action :query_device_info
+      action :query_port_message
     end
   end
 end
