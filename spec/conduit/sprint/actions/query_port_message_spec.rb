@@ -28,18 +28,43 @@ describe QueryPortMessage do
   end
 
   context 'a successful port query response is returned' do
-    let(:serializable_hash) do 
+    let(:serializable_hash) do
       {
-        :message_type_code          => "PTS",
-        :message_type_description   => "Port Status",
-        :message_code               => "SOA1010I",
-        :action_code                => "ACT",
-        :response_type              => "C",
-        :delay_code                 => nil,
-        :reason_code                => nil,
-        :reason_text                => nil
+      :messages =>
+        [
+          {
+            :message_type_code        => "PTS",
+            :message_type_description => "Port Status",
+            :message_code             => nil,
+            :action_code              => "ACT",
+            :response_type            => nil,
+            :delay_code               => nil,
+            :reason_code              => nil,
+            :reason_text              => nil
+          },
+          {
+            :message_type_code        => "DDT",
+            :message_type_description => "Due Date and Time",
+            :message_code             => "SOA1010I",
+            :action_code              => nil,
+            :response_type            => nil,
+            :delay_code               => nil,
+            :reason_code              => nil,
+            :reason_text              => nil
+          },
+          {
+            :message_type_code        => "PIR",
+            :message_type_description => "PortIn Response",
+            :message_code             => nil,
+            :action_code              => nil,
+            :response_type            => "C",
+            :delay_code               => nil,
+            :reason_code              => nil,
+            :reason_text              => nil
+          }
+        ]
       }
-    end    
+    end
 
     subject                 { query_port.perform }
     it                      { should be_an_instance_of QueryPortMessage::Parser }
