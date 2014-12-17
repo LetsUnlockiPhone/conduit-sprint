@@ -1,29 +1,29 @@
 require 'spec_helper'
 
-describe PortQuery do
-  let(:port_query) { PortQuery.new(credentials.merge(mdn: '5555555555')) }
+describe QueryPortMessage do
+  let(:query_port) { QueryPortMessage.new(credentials.merge(mdn: '5555555555')) }
 
   let(:unsigned_soap) do
-    File.read('./spec/fixtures/requests/port_query/unsigned_soap.xml')
+    File.read('./spec/fixtures/requests/query_port_message/unsigned_soap.xml')
   end
 
   let(:signed_soap) do
-    File.read('./spec/fixtures/requests/port_query/signed_soap.xml')
+    File.read('./spec/fixtures/requests/query_port_message/signed_soap.xml')
   end
 
   describe 'soap_xml' do
-    subject { port_query.soap_xml }
+    subject { query_port.soap_xml }
     it      { should eq unsigned_soap }
   end
 
   describe 'signed_soap_xml' do
-    subject { port_query.signed_soap_xml }
+    subject { query_port.signed_soap_xml }
     it      { should eq signed_soap }
   end
 
   it_should_behave_like 'a 500 error' do
     let(:action) do
-      PortQuery.new(credentials.merge(mdn: '5555555555', mock_status: :error))
+      QueryPortMessage.new(credentials.merge(mdn: '5555555555', mock_status: :error))
     end
   end
 
@@ -41,8 +41,8 @@ describe PortQuery do
       }
     end    
 
-    subject                 { port_query.perform }
-    it                      { should be_an_instance_of PortQuery::Parser }
+    subject                 { query_port.perform }
+    it                      { should be_an_instance_of QueryPortMessage::Parser }
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }

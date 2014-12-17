@@ -1,7 +1,7 @@
 require 'conduit/sprint/parsers/base'
 
 module Conduit::Driver::Sprint
-  class PortQuery::Parser < Parser::Base
+  class QueryPortMessage::Parser < Parser::Base
     attribute :message_type_code do
       content_for '//messageTypeCode'
     end
