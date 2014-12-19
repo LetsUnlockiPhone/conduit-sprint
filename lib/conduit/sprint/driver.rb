@@ -8,6 +8,7 @@ module Conduit
 
       action :activate
       action :activate_port
+      action :cancel_port
       action :change
       action :change_device
       action :change_number
