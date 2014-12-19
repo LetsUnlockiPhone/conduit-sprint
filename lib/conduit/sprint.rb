@@ -1,5 +1,6 @@
 require 'conduit/sprint/version'
 require 'conduit/sprint/request_mocker'
+require 'conduit/sprint/decorators'
 require 'conduit'
 
 Conduit.configure do |config|

@@ -31,8 +31,18 @@ module Conduit::Driver::Sprint
     end
 
     def view_context
-      super.tap do |view_context|
-        view_context.xsd = self.class.xsd
+      view_decorator.new(
+        OpenStruct.new(attributes_with_values)
+      )
+    end
+
+    def attributes_with_values
+      attributes.inject({}) do |hash, attribute|
+        hash.tap do |h|
+          h[attribute] = @options[attribute]
+        end
+      end.tap do |h|
+        h[:xsd] = self.class.xsd
       end
     end
 
@@ -92,8 +102,12 @@ module Conduit::Driver::Sprint
       "Conduit::Sprint::RequestMocker::#{action_name}".constantize
     end
 
+    def view_decorator
+      "Conduit::Sprint::Decorators::#{action_name}Decorator".constantize
+    end
+
     def mock_mode?
-      @options.has_key?(:mock_status) && (!@options[:mock_status].empty? && !@options[:mock_status].nil?)
+      @options.has_key?(:mock_status) && (!@options[:mock_status].nil? && !@options[:mock_status].empty?)
     end
   end
 end
