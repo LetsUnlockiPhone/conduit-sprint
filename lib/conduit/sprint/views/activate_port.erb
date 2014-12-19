@@ -1,0 +1,54 @@
+<sub:wholesaleActivateSubscriptionWithPortInV4>
+<sub:portInfo>
+<sub:authorizedBy><%= authorized_by %></sub:authorizedBy>
+<sub:nameInfo>
+<% if business_name %>
+<sub:businessName><%= business_name %></sub:businessName>
+<% else %>
+<sub:individualNameInfo>
+<sub:billFirstName><%= first_name %></sub:billFirstName>
+<sub:billLastName><%= last_name %></sub:billLastName>
+</sub:individualNameInfo>
+<% end %>
+</sub:nameInfo>
+<sub:billStreetNumber><%= street_number %></sub:billStreetNumber>
+<sub:billStreetName><%= street_name %></sub:billStreetName>
+<sub:billStreetDirectionIndicator><%= street_direction %></sub:billStreetDirectionIndicator>
+<sub:billCityName><%= city %></sub:billCityName>
+<sub:billStateCode><%= state %></sub:billStateCode>
+<sub:zip>
+<sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
+</sub:zip>
+<% if ssn %>
+<sub:ssn><%= ssn %></sub:ssn>
+<% end %>
+<% if tax_id %>
+<sub:taxId><%= tax_id %></sub:taxId>
+<% end %>
+<sub:accountNumber><%= account_number %></sub:accountNumber>
+<sub:passwordPin><%= password %></sub:passwordPin>
+</sub:portInfo>
+<sub:subscriberInfo>
+<sub:mdn><%= mdn %></sub:mdn>
+<sub:deviceInfoList>
+<sub:deviceInfo>
+<sub:serialNumber><%= nid %></sub:serialNumber>
+<sub:serialType>E</sub:serialType>
+</sub:deviceInfo>
+</sub:deviceInfoList>
+<sub:csa><%= csa %></sub:csa>
+<sub:pricePlan>
+<sub:serviceCode><%= plan_code %></sub:serviceCode>
+</sub:pricePlan>
+<% if service_codes.is_a?(Array) && service_codes.any? %>
+<sub:serviceList>
+<% service_codes.each do |service_code| %>
+<sub:serviceRecord>
+<sub:serviceCode><%= service_code %></sub:serviceCode>
+</sub:serviceRecord>
+<% end %>
+</sub:serviceList>
+<% end %>
+<sub:fetchDeviceDetailInfo>true</sub:fetchDeviceDetailInfo>
+</sub:subscriberInfo>
+</sub:wholesaleActivateSubscriptionWithPortInV4>

@@ -7,6 +7,7 @@ module Conduit
       optional_attributes  :mock_status
 
       action :activate
+      action :activate_port
       action :change
       action :change_device
       action :change_number
@@ -19,6 +20,7 @@ module Conduit
       action :transfer_ownership
       action :query_device_info
       action :query_port_message
+      action :validate_port
     end
   end
 end
