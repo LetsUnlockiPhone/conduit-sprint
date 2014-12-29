@@ -1,0 +1,48 @@
+require_relative 'base'
+
+module Conduit::Driver::Sprint
+  class ActivatePort < Conduit::Driver::Sprint::Base
+    wsdl_service        'WholesaleWnpService/v1'
+    xsd                 'wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd'
+    operation           :wholesale_activate_subscription_with_port_in_v4
+    required_attributes :nid, :mdn, :city, :state, :zip, :street_name, :account_number, :plan_code
+    optional_attributes :first_name, :last_name, :business_name, :street_number, :street_direction,
+                        :ssn, :tax_id, :password, :csa, :service_codes
+
+    def initialize(options = {})
+      super
+      @options[:csa] ||= lookup_csa_by_port_mdn
+    end
+
+    def perform
+      claim_ownership! if @options[:claim_ownership]
+      super
+    end
+
+    private
+
+    def lookup_csa_by_port_mdn      
+      response = ValidatePort.new(validate_port_attributes).perform
+      if response.response_status == 'success'
+        response.csa
+      else
+        raise "Unable to lookup CSA by Mdn: #{@options[:mdn]}"
+      end
+    end
+
+    def claim_ownership!
+      response = TransferOwnership.new(transfer_ownership_attributes).perform
+      if response.response_status == 'failure'
+        raise "Unable to claim ownership of ESN: #{@options[:nid]}"
+      end
+    end
+
+    def transfer_ownership_attributes
+      credentials.merge(nid: @options[:nid], mock_status: @options[:mock_status])
+    end
+
+    def validate_port_attributes
+      credentials.merge(mdn: @options[:mdn], mock_status: @options[:mock_status])
+    end    
+  end
+end

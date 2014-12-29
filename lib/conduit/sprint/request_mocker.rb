@@ -1,13 +1,2 @@
-require 'conduit/sprint/request_mocker/activate'
-require 'conduit/sprint/request_mocker/deactivate'
-require 'conduit/sprint/request_mocker/suspend'
-require 'conduit/sprint/request_mocker/check_coverage'
-require 'conduit/sprint/request_mocker/hotline'
-require 'conduit/sprint/request_mocker/change'
-require 'conduit/sprint/request_mocker/change_device'
-require 'conduit/sprint/request_mocker/change_number'
-require 'conduit/sprint/request_mocker/restore'
-require 'conduit/sprint/request_mocker/query_subscription'
-require 'conduit/sprint/request_mocker/transfer_ownership'
-require 'conduit/sprint/request_mocker/query_device_info'
-require 'conduit/sprint/request_mocker/query_port_message'
+mocks = File.join(File.dirname(__FILE__), 'request_mocker', '*.rb')
+Dir.glob(mocks) { |fname| require fname }
