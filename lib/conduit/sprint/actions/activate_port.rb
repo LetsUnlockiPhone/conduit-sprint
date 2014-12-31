@@ -5,9 +5,9 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleWnpService/v1'
     xsd                 'wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd'
     operation           :wholesale_activate_subscription_with_port_in_v4
-    required_attributes :nid, :mdn, :city, :state, :zip, :street_name, :account_number, :plan_code
-    optional_attributes :first_name, :last_name, :business_name, :street_number, :street_direction,
-                        :ssn, :tax_id, :password, :csa, :service_codes
+    required_attributes :nid, :mdn, :city, :state, :zip, :carrier_account, :plan_code
+    optional_attributes :address1, :first_name, :last_name, :business_name,
+                        :ssn, :tax_id, :carrier_password, :csa, :service_codes
 
     def initialize(options = {})
       super
@@ -21,7 +21,7 @@ module Conduit::Driver::Sprint
 
     private
 
-    def lookup_csa_by_port_mdn      
+    def lookup_csa_by_port_mdn
       response = ValidatePort.new(validate_port_attributes).perform
       if response.response_status == 'success'
         response.csa
@@ -43,6 +43,6 @@ module Conduit::Driver::Sprint
 
     def validate_port_attributes
       credentials.merge(mdn: @options[:mdn], mock_status: @options[:mock_status])
-    end    
+    end
   end
 end

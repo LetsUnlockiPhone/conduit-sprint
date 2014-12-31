@@ -3,9 +3,8 @@ require 'spec_helper'
 describe ModifyPort do
   let(:modify_port) do
     ModifyPort.new \
-      credentials.merge(mdn: '5555555555', first_name:'new first', last_name: 'new last', street_number: 1, street_direction: 'W',
-                        street_name: 'street', city: 'city', state: 'state', zip: '99999', account_number: '999', ssn: '999999999',
-                        password: 'password', remark: 'remark', zip: 'new zip')
+      credentials.merge(mdn: '5555555555', first_name:'new first', last_name: 'new last', address1: '123 W Test St', city: 'city', state: 'state', zip: '99999', carrier_account: '999', ssn: '999999999',
+                        carrier_password: 'password', remark: 'remark', zip: 'new zip')
   end
 
   let(:unsigned_soap) do
