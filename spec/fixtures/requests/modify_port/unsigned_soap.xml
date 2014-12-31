@@ -22,8 +22,8 @@ xmlns:sub="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope
 <sub:billFirstName>new first</sub:billFirstName>
 <sub:billLastName>new last</sub:billLastName>
 <sub:businessName></sub:businessName>
-<sub:billStreetNumber>1</sub:billStreetNumber>
-<sub:billStreetName>street</sub:billStreetName>
+<sub:billStreetNumber>123</sub:billStreetNumber>
+<sub:billStreetName>Test St</sub:billStreetName>
 <sub:billStreetDirectionIndicator>W</sub:billStreetDirectionIndicator>
 <sub:billCityName>city</sub:billCityName>
 <sub:billStateCode>state</sub:billStateCode>

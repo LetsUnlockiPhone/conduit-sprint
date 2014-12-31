@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    conduit-sprint (0.2.1)
+    conduit-sprint (0.2.2)
+      StreetAddress
       conduit (~> 0.6.0)
       excon (~> 0.21.0)
       savon
@@ -10,6 +11,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    StreetAddress (1.0.5)
     activesupport (4.1.1)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -19,9 +21,9 @@ GEM
     akami (1.2.2)
       gyoku (>= 0.4.0)
       nokogiri
-    aws-sdk (1.56.0)
-      aws-sdk-v1 (= 1.56.0)
-    aws-sdk-v1 (1.56.0)
+    aws-sdk (1.60.1)
+      aws-sdk-v1 (= 1.60.1)
+    aws-sdk-v1 (1.60.1)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     builder (3.2.2)
@@ -32,20 +34,21 @@ GEM
       tilt
     diff-lcs (1.2.5)
     excon (0.21.0)
-    gyoku (1.1.1)
+    gyoku (1.2.2)
       builder (>= 2.1.2)
-    httpi (2.2.7)
+    httpi (2.3.0)
       rack
     i18n (0.6.9)
     json (1.8.1)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    mini_portile (0.6.0)
+    mime-types (1.25.1)
+    mini_portile (0.6.1)
     minitest (5.3.5)
-    nokogiri (1.6.3.1)
-      mini_portile (= 0.6.0)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     nori (2.4.0)
-    rack (1.5.2)
+    rack (1.6.0)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -61,18 +64,18 @@ GEM
     rspec-mocks (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.2)
-    savon (2.7.2)
-      akami (~> 1.2.0)
+    savon (2.8.0)
+      akami (~> 1.2)
       builder (>= 2.1.2)
-      gyoku (~> 1.1.0)
-      httpi (~> 2.2.3)
+      gyoku (~> 1.2)
+      httpi (~> 2.3)
       nokogiri (>= 1.4.0)
-      nori (~> 2.4.0)
+      nori (~> 2.4)
       uuid (~> 2.3.7)
-      wasabi (~> 3.3.0)
+      wasabi (= 3.3.0)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
-    signer (1.4.1)
+    signer (1.4.2)
       nokogiri (>= 1.5.1)
     systemu (2.6.4)
     thread_safe (0.3.4)
@@ -81,8 +84,9 @@ GEM
       thread_safe (~> 0.1)
     uuid (2.3.7)
       macaddr (~> 1.0)
-    wasabi (3.3.1)
+    wasabi (3.3.0)
       httpi (~> 2.0)
+      mime-types (< 2.0.0)
       nokogiri (>= 1.4.0)
 
 PLATFORMS
