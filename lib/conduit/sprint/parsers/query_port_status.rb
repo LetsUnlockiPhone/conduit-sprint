@@ -46,7 +46,7 @@ module Conduit::Driver::Sprint
           elsif response_type == 'R'
             @status = 'RESOLUTION REQUIRED'
             @description = content_for('reasonCode', port_message)
-            @message_code = content_for('reason_text', port_message)
+            @message_code = content_for('reasonText', port_message)
           elsif response_type == 'C'
             port_request_number = content_for('portRequestNumber', port_message)
 
