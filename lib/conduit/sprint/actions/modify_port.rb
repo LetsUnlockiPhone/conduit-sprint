@@ -6,7 +6,6 @@ module Conduit::Driver::Sprint
     xsd                 'WholesaleWnp/v1/PortEnvelope.xsd'
     operation           :modify_port_in
     optional_attributes :mdn, :port_id, :desired_due_date_time, :address1, :first_name, :last_name,
-                        :business_name, :city, :state, :ssn, :tax_id, :carrier_account, :carrier_password, :zip
-    required_attributes :remark
+                        :business_name, :city, :state, :ssn, :tax_id, :carrier_account, :carrier_password, :zip, :remark
   end
 end
