@@ -26,7 +26,7 @@ module Conduit::Driver::Sprint
           port_result[:ppv_status_text]                        = content_for('ppvStatusText', attribute)
           port_result[:port_in_status]                         = content_for('portInStatus', attribute)        
           port_result[:port_in_status_text]                    = content_for('portInStatusText', attribute)
-          port_result[:port_id]                                = content_for('portId', attribute)
+          port_result[:external_port_number]                   = content_for('portId', attribute)
           port_result[:old_service_provider]                   = content_for('oldServiceProvider', attribute)
           port_result[:csa]                                    = content_for('portCsa', attribute)
           port_result[:desired_due_date_time]                  = content_for('desiredDueDateTime', attribute)

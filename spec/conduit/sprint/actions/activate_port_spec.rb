@@ -54,7 +54,7 @@ describe ActivatePort do
           :ppv_status_text                        => "PTN is eligible for Porting In",
           :port_in_status                         => "0000",
           :port_in_status_text                    => "SUCCESS (0000)",
-          :port_id                                => "44461996",
+          :external_port_number                   => "44461996",
           :old_service_provider                   => "AT&T WIRELESS",
           :csa                                    => "MIAWPB561",
           :desired_due_date_time                  => "2014-10-17T11:41:02",
