@@ -5,6 +5,6 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleQueryDeviceInfoService/v1'
     xsd                 'wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd'
     operation           :wholesale_validate_device
-    required_attributes :nid
+    required_attributes :device_serial_number
   end
 end

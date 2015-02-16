@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QueryDeviceInfo do
-  let(:query_device) { QueryDeviceInfo.new(credentials.merge(nid: '12345678901')) }
+  let(:query_device) { QueryDeviceInfo.new(credentials.merge(device_serial_number: '12345678901')) }
 
   let(:unsigned_soap) do
     File.read('./spec/fixtures/requests/query_device_info/unsigned_soap.xml')
@@ -23,7 +23,7 @@ describe QueryDeviceInfo do
 
   it_should_behave_like 'a 500 error' do
     let(:action) do
-      QueryDeviceInfo.new(credentials.merge(nid: '12345678901', mock_status: :error))
+      QueryDeviceInfo.new(credentials.merge(device_serial_number: '12345678901', mock_status: :error))
     end
   end
 
