@@ -6,7 +6,7 @@ module Conduit::Driver::Sprint
     xsd                 'wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd'
     operation           :wholesale_activate_subscription_v4
     required_attributes :nid, :plan_code
-    optional_attributes :csa, :zip, :service_codes, :claim_ownership
+    optional_attributes :csa, :zip, :service_codes, :claim_ownership, :iccid
 
     def initialize(options = {})
       super

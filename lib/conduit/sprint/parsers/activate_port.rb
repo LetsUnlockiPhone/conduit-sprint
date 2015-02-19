@@ -7,7 +7,16 @@ module Conduit::Driver::Sprint
     attribute :effective_date
     attribute :csa
     attribute :esn_dec do
-      content_for '//serialNumber'
+      parent_node = containing_node_content('serialType', 'E')
+      content_for('//serialNumber', parent_node)
+    end
+    attribute :iccid do
+      return nil unless parent_node = containing_node_content('serialType', 'U')
+      content_for('//serialNumber', parent_node)
+    end
+    attribute :imsi do
+      return nil unless parent_node = containing_node_content('serialType', 'U')
+      content_for('//lteImsi', parent_node)
     end
 
     attribute :esn_type do

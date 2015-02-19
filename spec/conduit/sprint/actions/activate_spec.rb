@@ -7,8 +7,18 @@ describe Activate do
                         service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
   end
 
+  let(:activate_lte) do
+    Activate.new \
+      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561', 
+                        iccid: '90123456789', service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
+  end
+
   let(:unsigned_soap) do
     File.read('./spec/fixtures/requests/activate/unsigned_soap.xml')
+  end
+
+  let(:unsigned_lte_soap) do
+    File.read('./spec/fixtures/requests/activate/unsigned_lte_soap.xml')
   end
 
   let(:signed_soap) do
@@ -18,6 +28,11 @@ describe Activate do
   describe 'soap_xml' do
     subject { activate.soap_xml }
     it      { should eq unsigned_soap }
+
+    context 'with iccid' do
+      subject { activate_lte.soap_xml }
+      it      { should eq unsigned_lte_soap.strip }
+    end
   end
 
   describe 'signed_soap_xml' do

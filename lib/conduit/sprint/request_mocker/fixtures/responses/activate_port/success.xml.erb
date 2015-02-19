@@ -27,6 +27,13 @@
             <whol1:serialNumber><%= nid %></whol1:serialNumber>
             <whol1:serialType>E</whol1:serialType>
           </whol1:deviceInfo>
+          <% unless iccid.nil? %>
+          <whol1:deviceInfo>
+            <whol1:serialNumber><%= iccid %></whol1:serialNumber>
+            <whol1:serialType>U</whol1:serialType>
+            <whol1:lteImsi>54321</whol1:lteImsi>
+          </whol1:deviceInfo>
+          <% end %>
         </whol1:deviceInfoList>
         <whol1:csa><%= csa %></whol1:csa>
         <whol1:effectiveDate>2014-10-17</whol1:effectiveDate>
