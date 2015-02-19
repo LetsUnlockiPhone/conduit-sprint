@@ -35,6 +35,12 @@
 <sub:serialNumber><%= nid %></sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
+<% unless iccid.nil? %>
+<sub:deviceInfo>
+<sub:serialNumber><%= iccid %></sub:serialNumber>
+<sub:serialType>U</sub:serialType>
+</sub:deviceInfo>
+<% end %>
 </sub:deviceInfoList>
 <sub:csa><%= csa %></sub:csa>
 <sub:pricePlan>

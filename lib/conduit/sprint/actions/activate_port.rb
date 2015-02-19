@@ -7,7 +7,8 @@ module Conduit::Driver::Sprint
     operation           :wholesale_activate_subscription_with_port_in_v4
     required_attributes :nid, :mdn, :city, :state, :zip, :carrier_account, :plan_code
     optional_attributes :address1, :first_name, :last_name, :business_name,
-                        :ssn, :tax_id, :carrier_password, :csa, :service_codes
+                        :ssn, :tax_id, :carrier_password, :csa, :service_codes,
+                        :iccid
 
     def initialize(options = {})
       super

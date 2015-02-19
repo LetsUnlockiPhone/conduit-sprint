@@ -61,5 +61,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 </sub:serviceList>
 <sub:fetchDeviceDetailInfo>true</sub:fetchDeviceDetailInfo>
 </sub:subscriberInfo>
-</sub:wholesaleActivateSubscriptionWithPortInV4></soapenv:Body>
+</sub:wholesaleActivateSubscriptionWithPortInV4>
+</soapenv:Body>
 </soapenv:Envelope>
+

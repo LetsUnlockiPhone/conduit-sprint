@@ -22,6 +22,11 @@ module Conduit::Driver::Sprint
         end
       end
 
+      def containing_node_content(path, content, doc = root)
+        node = doc.at("#{path}:contains(\"#{content}\")")
+        node.nil? ? nil : node.parent
+      end
+
       def content_for(path, doc = root)
         node = doc.at_xpath(path)
         node.content if node

@@ -21,7 +21,7 @@ describe ActivatePort do
 
   describe 'soap_xml' do
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap }
+    it      { should eq unsigned_soap.strip }
   end
 
   describe 'signed_soap_xml' do
@@ -45,6 +45,8 @@ describe ActivatePort do
         :csa            => "MIAWPB561",
         :esn_dec        => "12345678901",
         :esn_type       => "E",
+        :iccid          => nil,
+        :lte_imsi       => nil,
         :msl            => "311063",
         :plan_code      =>"TESTPLAN",
         :port_result    =>
@@ -91,7 +93,7 @@ describe ActivatePort do
       ActivatePort.new port_attributes
     end
 
-    its(:soap_xml) { should eq validate_port }
+    its(:soap_xml) { should eq validate_port.strip }
   end
 
   context 'an activate port with transfer ownership' do

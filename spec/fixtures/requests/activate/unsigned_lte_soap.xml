@@ -1,7 +1,7 @@
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
-xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd">
+xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd">
 <soapenv:Header>
 <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
 </wsse:Security>
@@ -16,35 +16,18 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 </v2:wsMessageHeader>
 </soapenv:Header>
 <soapenv:Body>
-<sub:wholesaleActivateSubscriptionWithPortInV4>
-<sub:portInfo>
-<sub:authorizedBy>test tester</sub:authorizedBy>
-<sub:nameInfo>
-<sub:individualNameInfo>
-<sub:billFirstName>test</sub:billFirstName>
-<sub:billLastName>tester</sub:billLastName>
-</sub:individualNameInfo>
-</sub:nameInfo>
-<sub:billStreetNumber>123</sub:billStreetNumber>
-<sub:billStreetName>Test St</sub:billStreetName>
-<sub:billStreetDirectionIndicator></sub:billStreetDirectionIndicator>
-<sub:billCityName>city</sub:billCityName>
-<sub:billStateCode>state</sub:billStateCode>
-<sub:zip>
-<sub:uspsPostalCd>99999</sub:uspsPostalCd>
-</sub:zip>
-<sub:accountNumber>999999</sub:accountNumber>
-<sub:passwordPin></sub:passwordPin>
-</sub:portInfo>
-<sub:subscriberInfo>
-<sub:mdn>5555555555</sub:mdn>
+<sub:wholesaleActivateSubscriptionV4>
 <sub:deviceInfoList>
 <sub:deviceInfo>
 <sub:serialNumber>12345678901</sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
+<sub:deviceInfo>
+<sub:serialNumber>90123456789</sub:serialNumber>
+<sub:serialType>U</sub:serialType>
+</sub:deviceInfo>
 </sub:deviceInfoList>
-<sub:csa>DALIRV214</sub:csa>
+<sub:csa>MIAWPB561</sub:csa>
 <sub:pricePlan>
 <sub:serviceCode>TESTPLAN</sub:serviceCode>
 </sub:pricePlan>
@@ -60,7 +43,6 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 </sub:serviceRecord>
 </sub:serviceList>
 <sub:fetchDeviceDetailInfo>true</sub:fetchDeviceDetailInfo>
-</sub:subscriberInfo>
-</sub:wholesaleActivateSubscriptionWithPortInV4>
+</sub:wholesaleActivateSubscriptionV4>
 </soapenv:Body>
 </soapenv:Envelope>
