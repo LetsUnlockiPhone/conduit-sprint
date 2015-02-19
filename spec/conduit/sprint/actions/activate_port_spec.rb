@@ -46,7 +46,7 @@ describe ActivatePort do
         :esn_dec        => "12345678901",
         :esn_type       => "E",
         :iccid          => nil,
-        :lte_imsi       => nil,
+        :imsi           => nil,
         :msl            => "311063",
         :plan_code      =>"TESTPLAN",
         :port_result    =>

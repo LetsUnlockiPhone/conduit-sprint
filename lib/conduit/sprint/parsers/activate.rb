@@ -14,7 +14,7 @@ module Conduit::Driver::Sprint
       return nil unless parent_node = containing_node_content('serialType', 'U')
       content_for('//serialNumber', parent_node)
     end
-    attribute :lte_imsi do
+    attribute :imsi do
       return nil unless parent_node = containing_node_content('serialType', 'U')
       content_for('//lteImsi', parent_node)
     end
