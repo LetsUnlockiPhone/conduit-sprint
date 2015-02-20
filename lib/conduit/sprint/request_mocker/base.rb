@@ -49,12 +49,12 @@ module Conduit::Sprint::RequestMocker
         return error_response if @mock_status == :error
         render_response
       else
-        raise(ArgumentError, "Mock status must be :success, :fault, or :error")
+        raise(ArgumentError, 'Mock status must be :success, :fault, or :error')
       end
     end
 
     def error_response
-      {:code => 500, :headers => {}, :body => "Internal Server Error"}
+      { code: 500, headers: {}, body: 'Internal Server Error' }
     end
   end
 end
@@ -68,8 +68,12 @@ class MockHelpers
     @msid ||= 15.times.map { rand(0..9) }.join
   end
 
+  def imsi
+    @imsi ||= '310120' << rand(999999999).to_s.rjust(9, '0')
+  end
+
   def serial_number
-     @serial_number ||= 18.times.map { rand(0..9) }.join
+    @serial_number ||= 18.times.map { rand(0..9) }.join
   end
 
   def today
