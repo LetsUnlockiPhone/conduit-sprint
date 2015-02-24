@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleSwapSplit/v1/WholesaleSwapSplit.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleSwapSplit/v1/WholesaleSwapSplit.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetails.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleSwapDevice/v2/wholesaleSwapDeviceV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="faultmessage">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetails.xsd"/></wsdl:message>
+<wsdl:message name="faultmessageV2">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="splitNpaMdnRequest">
+<wsdl:part name="body" element="xsns:splitNpaMdn" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="splitNpaMdnResponse">
+<wsdl:part name="body" element="xsns:splitNpaMdnResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapEsnRequest">
+<wsdl:part name="body" element="xsns:swapEsn" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapEsnResponse">
+<wsdl:part name="body" element="xsns:swapEsnResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapMdnRequest">
+<wsdl:part name="body" element="xsns:swapMdn" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapMdnResponse">
+<wsdl:part name="body" element="xsns:swapMdnResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapMdnWithReserveIdRequest">
+<wsdl:part name="body" element="xsns:swapMdnWithReserveId" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapMdnWithReserveIdResponse">
+<wsdl:part name="body" element="xsns:swapMdnWithReserveIdResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapMsidRequest">
+<wsdl:part name="body" element="xsns:swapMsid" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="swapMsidResponse">
+<wsdl:part name="body" element="xsns:swapMsidResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSwapSplit/v1/SwapSplitEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleSwapDeviceV2">
+<wsdl:part name="body" element="xsns:wholesaleSwapDeviceV2" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleSwapDevice/v2/wholesaleSwapDeviceV2.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleSwapDeviceV2Response">
+<wsdl:part name="body" element="xsns:wholesaleSwapDeviceV2Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleSwapDevice/v2/wholesaleSwapDeviceV2.xsd"/></wsdl:message>
+<wsdl:message name="WsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesaleSwapSplitPortType">
+<wsdl:operation name="SplitNpaMdn">
+<wsdl:input name="SplitNpaMdnRequest" message="ns0:splitNpaMdnRequest"/>
+<wsdl:output name="SplitNpaMdnResponse" message="ns0:splitNpaMdnResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="SwapEsn" parameterOrder="body">
+<wsdl:input name="SwapEsnRequest" message="ns0:swapEsnRequest"/>
+<wsdl:output name="SwapEsnResponse" message="ns0:swapEsnResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="SwapMdn">
+<wsdl:input name="SwapMdnRequest" message="ns0:swapMdnRequest"/>
+<wsdl:output name="SwapMdnResponse" message="ns0:swapMdnResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="SwapMdnWithReserveId">
+<wsdl:input name="SwapMdnWithReserveIdRequest" message="ns0:swapMdnWithReserveIdRequest"/>
+<wsdl:output name="SwapMdnWithReserveIdResponse" message="ns0:swapMdnWithReserveIdResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="SwapMsid">
+<wsdl:input name="SwapMsidRequest" message="ns0:swapMsidRequest"/>
+<wsdl:output name="SwapMsidResponse" message="ns0:swapMsidResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="WholesaleSwapDeviceV2">
+<wsdl:input name="WholesaleSwapDeviceV2Request" message="ns0:wholesaleSwapDeviceV2"/>
+<wsdl:output name="WholesaleSwapDeviceV2Response" message="ns0:wholesaleSwapDeviceV2Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesaleSwapSplitBinding" type="ns0:WholesaleSwapSplitPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="SplitNpaMdn">
+<soap11:operation soapAction="splitNpaMdn" style="document"/>
+<wsdl:input name="SplitNpaMdnRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="SplitNpaMdnResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="SwapEsn">
+<soap11:operation soapAction="swapEsn" style="document"/>
+<wsdl:input name="SwapEsnRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="SwapEsnResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="SwapMdn">
+<soap11:operation soapAction="swapMdn" style="document"/>
+<wsdl:input name="SwapMdnRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="SwapMdnResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="SwapMdnWithReserveId">
+<soap11:operation soapAction="swapMdnWithReserveId" style="document"/>
+<wsdl:input name="SwapMdnWithReserveIdRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="SwapMdnWithReserveIdResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="SwapMsid">
+<soap11:operation soapAction="swapMsid" style="document"/>
+<wsdl:input name="SwapMsidRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="SwapMsidResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleSwapDeviceV2">
+<soap11:operation soapAction="WholesaleSwapDeviceV2" style="document"/>
+<wsdl:input name="WholesaleSwapDeviceV2Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleSwapDeviceV2Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesaleSwapSplit">
+<wsdl:port name="WholesaleSwapSplitPort" binding="ns0:WholesaleSwapSplitBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleSwapSplitService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleSubscription/v1/WholesaleSubscription.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleSubscription/v1/WholesaleSubscription.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetails.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleActivatePendingSubscription/v4/wholesaleActivatePendingSubscriptionV4.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd"/>
+<xsd:import schemaLocation="v1.xsd7.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleReserveSubscription/v3/wholesaleReserveSubscriptionV3.xsd"/>
+<xsd:import schemaLocation="v1.xsd8.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleReserveSubscriptionGeoCode/v3/wholesaleReserveSubscriptionGeoCodeV3.xsd"/>
+<xsd:import schemaLocation="v1.xsd9.xsd" namespace="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="activatePendingSubscriptionRequest">
+<wsdl:part name="body" element="xsns:activatePendingSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activatePendingSubscriptionResponse">
+<wsdl:part name="body" element="xsns:activatePendingSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionMsidRequest">
+<wsdl:part name="body" element="xsns:activateSubscriptionMsid" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionMsidResponse">
+<wsdl:part name="body" element="xsns:activateSubscriptionMsidResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionNpaRequest">
+<wsdl:part name="body" element="xsns:activateSubscriptionNpa" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionNpaResponse">
+<wsdl:part name="body" element="xsns:activateSubscriptionNpaResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionNpaWithRsvIdRequest">
+<wsdl:part name="body" element="xsns:activateSubscriptionNpaWithRsvId" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionNpaWithRsvIdResponse">
+<wsdl:part name="body" element="xsns:activateSubscriptionNpaWithRsvIdResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionRequest">
+<wsdl:part name="body" element="xsns:activateSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionResponse">
+<wsdl:part name="body" element="xsns:activateSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionWithRsvIdRequest">
+<wsdl:part name="body" element="xsns:activateSubscriptionWithRsvId" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionWithRsvIdResponse">
+<wsdl:part name="body" element="xsns:activateSubscriptionWithRsvIdResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="faultmessage">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetails.xsd"/></wsdl:message>
+<wsdl:message name="faultmessageV2">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionGeoCodeNpaRequest">
+<wsdl:part name="body" element="xsns:reserveSubscriptionGeoCodeNpa" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionGeoCodeNpaResponse">
+<wsdl:part name="body" element="xsns:reserveSubscriptionGeoCodeNpaResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionGeoCodeRequest">
+<wsdl:part name="body" element="xsns:reserveSubscriptionGeoCode" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionGeoCodeResponse">
+<wsdl:part name="body" element="xsns:reserveSubscriptionGeoCodeResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionNpaRequest">
+<wsdl:part name="body" element="xsns:reserveSubscriptionNpa" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionNpaResponse">
+<wsdl:part name="body" element="xsns:reserveSubscriptionNpaResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionRequest">
+<wsdl:part name="body" element="xsns:reserveSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionResponse">
+<wsdl:part name="body" element="xsns:reserveSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionWithRsvIdRequest">
+<wsdl:part name="body" element="xsns:reserveSubscriptionWithRsvId" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="reserveSubscriptionWithRsvIdResponse">
+<wsdl:part name="body" element="xsns:reserveSubscriptionWithRsvIdResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscription/v1/SubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleActivatePendingSubscriptionV4">
+<wsdl:part name="body" element="xsns:wholesaleActivatePendingSubscriptionV4" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleActivatePendingSubscription/v4/wholesaleActivatePendingSubscriptionV4.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleActivatePendingSubscriptionV4Response">
+<wsdl:part name="body" element="xsns:wholesaleActivatePendingSubscriptionV4Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleActivatePendingSubscription/v4/wholesaleActivatePendingSubscriptionV4.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleActivateSubscriptionV4">
+<wsdl:part name="body" element="xsns:wholesaleActivateSubscriptionV4" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleActivateSubscriptionV4Response">
+<wsdl:part name="body" element="xsns:wholesaleActivateSubscriptionV4Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleReserveSubscriptionGeoCodeV3">
+<wsdl:part name="body" element="xsns:wholesaleReserveSubscriptionGeoCodeV3" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleReserveSubscriptionGeoCode/v3/wholesaleReserveSubscriptionGeoCodeV3.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleReserveSubscriptionGeoCodeV3Response">
+<wsdl:part name="body" element="xsns:wholesaleReserveSubscriptionGeoCodeV3Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleReserveSubscriptionGeoCode/v3/wholesaleReserveSubscriptionGeoCodeV3.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleReserveSubscriptionV3">
+<wsdl:part name="body" element="xsns:wholesaleReserveSubscriptionV3" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleReserveSubscription/v3/wholesaleReserveSubscriptionV3.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleReserveSubscriptionV3Response">
+<wsdl:part name="body" element="xsns:wholesaleReserveSubscriptionV3Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleReserveSubscription/v3/wholesaleReserveSubscriptionV3.xsd"/></wsdl:message>
+<wsdl:message name="WsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesaleSubscriptionPortType">
+<wsdl:operation name="ActivatePendingSubscription" parameterOrder="body">
+<wsdl:input name="ActivatePendingSubscriptionRequest" message="ns0:activatePendingSubscriptionRequest"/>
+<wsdl:output name="ActivatePendingSubscriptionResponse" message="ns0:activatePendingSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ActivateSubscription">
+<wsdl:input name="ActivateSubscriptionRequest" message="ns0:activateSubscriptionRequest"/>
+<wsdl:output name="ActivateSubscriptionResponse" message="ns0:activateSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionMsid">
+<wsdl:input name="ActivateSubscriptionMsidRequest" message="ns0:activateSubscriptionMsidRequest"/>
+<wsdl:output name="ActivateSubscriptionMsidResponse" message="ns0:activateSubscriptionMsidResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionNpa">
+<wsdl:input name="ActivateSubscriptionNpaRequest" message="ns0:activateSubscriptionNpaRequest"/>
+<wsdl:output name="ActivateSubscriptionNpaResponse" message="ns0:activateSubscriptionNpaResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionNpaWithRsvId">
+<wsdl:input name="ActivateSubscriptionNpaWithRsvIdRequest" message="ns0:activateSubscriptionNpaWithRsvIdRequest"/>
+<wsdl:output name="ActivateSubscriptionNpaWithRsvIdResponse" message="ns0:activateSubscriptionNpaWithRsvIdResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionWithRsvId">
+<wsdl:input name="ActivateSubscriptionWithRsvIdRequest" message="ns0:activateSubscriptionWithRsvIdRequest"/>
+<wsdl:output name="ActivateSubscriptionWithRsvIdResponse" message="ns0:activateSubscriptionWithRsvIdResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ReserveSubscription">
+<wsdl:input name="ReserveSubscriptionRequest" message="ns0:reserveSubscriptionRequest"/>
+<wsdl:output name="ReserveSubscriptionResponse" message="ns0:reserveSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionGeoCode">
+<wsdl:input name="ReserveSubscriptionGeoCodeRequest" message="ns0:reserveSubscriptionGeoCodeRequest"/>
+<wsdl:output name="ReserveSubscriptionGeoCodeResponse" message="ns0:reserveSubscriptionGeoCodeResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionGeoCodeNpa">
+<wsdl:input name="ReserveSubscriptionGeoCodeNpaRequest" message="ns0:reserveSubscriptionGeoCodeNpaRequest"/>
+<wsdl:output name="ReserveSubscriptionGeoCodeNpaResponse" message="ns0:reserveSubscriptionGeoCodeNpaResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionNpa">
+<wsdl:input name="ReserveSubscriptionNpaRequest" message="ns0:reserveSubscriptionNpaRequest"/>
+<wsdl:output name="ReserveSubscriptionNpaResponse" message="ns0:reserveSubscriptionNpaResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionWithRsvId">
+<wsdl:input name="ReserveSubscriptionWithRsvIdRequest" message="ns0:reserveSubscriptionWithRsvIdRequest"/>
+<wsdl:output name="ReserveSubscriptionWithRsvIdResponse" message="ns0:reserveSubscriptionWithRsvIdResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="WholesaleActivatePendingSubscriptionV4">
+<wsdl:input name="WholesaleActivatePendingSubscriptionV4Request" message="ns0:wholesaleActivatePendingSubscriptionV4"/>
+<wsdl:output name="WholesaleActivatePendingSubscriptionV4Response" message="ns0:wholesaleActivatePendingSubscriptionV4Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation>
+<wsdl:operation name="WholesaleActivateSubscriptionV4">
+<wsdl:input name="WholesaleActivateSubscriptionV4Request" message="ns0:wholesaleActivateSubscriptionV4"/>
+<wsdl:output name="WholesaleActivateSubscriptionV4Response" message="ns0:wholesaleActivateSubscriptionV4Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation>
+<wsdl:operation name="WholesaleReserveSubscriptionGeoCodeV3">
+<wsdl:input name="WholesaleReserveSubscriptionGeoCodeV3Request" message="ns0:wholesaleReserveSubscriptionGeoCodeV3"/>
+<wsdl:output name="WholesaleReserveSubscriptionGeoCodeV3Response" message="ns0:wholesaleReserveSubscriptionGeoCodeV3Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation>
+<wsdl:operation name="WholesaleReserveSubscriptionV3">
+<wsdl:input name="WholesaleReserveSubscriptionV3Request" message="ns0:wholesaleReserveSubscriptionV3"/>
+<wsdl:output name="WholesaleReserveSubscriptionV3Response" message="ns0:wholesaleReserveSubscriptionV3Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesaleSubscriptionBinding" type="ns0:WholesaleSubscriptionPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="ActivatePendingSubscription">
+<soap11:operation soapAction="activatePendingSubscription" style="document"/>
+<wsdl:input name="ActivatePendingSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivatePendingSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ActivateSubscription">
+<soap11:operation soapAction="activateSubscription" style="document"/>
+<wsdl:input name="ActivateSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivateSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionMsid">
+<soap11:operation soapAction="activateSubscriptionMsid" style="document"/>
+<wsdl:input name="ActivateSubscriptionMsidRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivateSubscriptionMsidResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionNpa">
+<soap11:operation soapAction="activateSubscriptionNpa" style="document"/>
+<wsdl:input name="ActivateSubscriptionNpaRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivateSubscriptionNpaResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionNpaWithRsvId">
+<soap11:operation soapAction="activateSubscriptionNpaWithRsvId" style="document"/>
+<wsdl:input name="ActivateSubscriptionNpaWithRsvIdRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivateSubscriptionNpaWithRsvIdResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ActivateSubscriptionWithRsvId">
+<soap11:operation soapAction="activateSubscriptionWithRsvId" style="document"/>
+<wsdl:input name="ActivateSubscriptionWithRsvIdRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivateSubscriptionWithRsvIdResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ReserveSubscription">
+<soap11:operation soapAction="reserveSubscription" style="document"/>
+<wsdl:input name="ReserveSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ReserveSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionGeoCode">
+<soap11:operation soapAction="reserveSubscriptionGeoCode" style="document"/>
+<wsdl:input name="ReserveSubscriptionGeoCodeRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ReserveSubscriptionGeoCodeResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionGeoCodeNpa">
+<soap11:operation soapAction="reserveSubscriptionGeoCodeNpa" style="document"/>
+<wsdl:input name="ReserveSubscriptionGeoCodeNpaRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ReserveSubscriptionGeoCodeNpaResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionNpa">
+<soap11:operation soapAction="reserveSubscriptionNpa" style="document"/>
+<wsdl:input name="ReserveSubscriptionNpaRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ReserveSubscriptionNpaResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ReserveSubscriptionWithRsvId">
+<soap11:operation soapAction="reserveSubscriptionWithRsvId" style="document"/>
+<wsdl:input name="ReserveSubscriptionWithRsvIdRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ReserveSubscriptionWithRsvIdResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleActivatePendingSubscriptionV4">
+<soap11:operation soapAction="WholesaleActivatePendingSubscriptionV4" style="document"/>
+<wsdl:input name="WholesaleActivatePendingSubscriptionV4Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleActivatePendingSubscriptionV4Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleActivateSubscriptionV4">
+<soap11:operation soapAction="WholesaleActivateSubscriptionV4" style="document"/>
+<wsdl:input name="WholesaleActivateSubscriptionV4Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleActivateSubscriptionV4Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleReserveSubscriptionGeoCodeV3">
+<soap11:operation soapAction="wholesaleReserveSubscriptionGeoCodeV3" style="document"/>
+<wsdl:input name="WholesaleReserveSubscriptionGeoCodeV3Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleReserveSubscriptionGeoCodeV3Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleReserveSubscriptionV3">
+<soap11:operation soapAction="wholesaleReserveSubscriptionV3" style="document"/>
+<wsdl:input name="WholesaleReserveSubscriptionV3Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleReserveSubscriptionV3Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesaleSubscriptionService">
+<wsdl:port name="WholesaleSubscriptionPort" binding="ns0:WholesaleSubscriptionBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleSubscriptionService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

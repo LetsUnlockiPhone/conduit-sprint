@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesalePortMessageService/v1/WholesalePortMessageService.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesalePortMessageService/v1/WholesalePortMessageService.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPortMessage.xsd"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/replyPortOutRequest/v1/replyPortOutRequest.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/resendPortMessage/v1/resendPortMessage.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="queryPortMessageRequest">
+<wsdl:part name="parameters" element="xsns:queryPortMessage" xmlns:xsns="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPortMessage.xsd"/></wsdl:message>
+<wsdl:message name="queryPortMessageResponse">
+<wsdl:part name="parameters" element="xsns:queryPortMessageResponse" xmlns:xsns="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPortMessage.xsd"/></wsdl:message>
+<wsdl:message name="replyPortOutRequest">
+<wsdl:part name="parameters" element="xsns:replyPortOutRequest" xmlns:xsns="http://integration.sprint.com/interfaces/replyPortOutRequest/v1/replyPortOutRequest.xsd"/></wsdl:message>
+<wsdl:message name="replyPortOutRequestResponse">
+<wsdl:part name="parameters" element="xsns:replyPortOutRequestResponse" xmlns:xsns="http://integration.sprint.com/interfaces/replyPortOutRequest/v1/replyPortOutRequest.xsd"/></wsdl:message>
+<wsdl:message name="resendPortMessageRequest">
+<wsdl:part name="parameters" element="xsns:resendPortMessage" xmlns:xsns="http://integration.sprint.com/interfaces/resendPortMessage/v1/resendPortMessage.xsd"/></wsdl:message>
+<wsdl:message name="resendPortMessageResponse">
+<wsdl:part name="parameters" element="xsns:resendPortMessageResponse" xmlns:xsns="http://integration.sprint.com/interfaces/resendPortMessage/v1/resendPortMessage.xsd"/></wsdl:message>
+<wsdl:message name="SoapFault">
+<wsdl:part name="fault" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="WSMessageHeader">
+<wsdl:part name="header" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesalePortMessageServicePortType">
+<wsdl:operation name="QueryPortMessage">
+<wsdl:input name="QueryPortMessageRequest" message="ns0:queryPortMessageRequest"/>
+<wsdl:output name="QueryPortMessageResponse" message="ns0:queryPortMessageResponse"/>
+<wsdl:fault name="fault" message="ns0:SoapFault"/></wsdl:operation>
+<wsdl:operation name="ReplyPortOutRequest">
+<wsdl:input name="ReplyPortOutRequestRequest" message="ns0:replyPortOutRequest"/>
+<wsdl:output name="ReplyPortOutRequestResponse" message="ns0:replyPortOutRequestResponse"/>
+<wsdl:fault name="fault" message="ns0:SoapFault"/></wsdl:operation>
+<wsdl:operation name="ResendPortMessage">
+<wsdl:input name="ResendPortMessageRequest" message="ns0:resendPortMessageRequest"/>
+<wsdl:output name="ResendPortMessageResponse" message="ns0:resendPortMessageResponse"/>
+<wsdl:fault name="fault" message="ns0:SoapFault"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesalePortMessageServiceBinding" type="ns0:WholesalePortMessageServicePortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="QueryPortMessage">
+<soap11:operation soapAction="QueryPortMessage" style="document"/>
+<wsdl:input name="QueryPortMessageRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WSMessageHeader" part="header" use="literal"/></wsdl:input>
+<wsdl:output name="QueryPortMessageResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WSMessageHeader" part="header" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ReplyPortOutRequest">
+<soap11:operation soapAction="ReplyPortOutRequest" style="document"/>
+<wsdl:input name="ReplyPortOutRequestRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WSMessageHeader" part="header" use="literal"/></wsdl:input>
+<wsdl:output name="ReplyPortOutRequestResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WSMessageHeader" part="header" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ResendPortMessage">
+<soap11:operation soapAction="ResendPortMessage" style="document"/>
+<wsdl:input name="ResendPortMessageRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WSMessageHeader" part="header" use="literal"/></wsdl:input>
+<wsdl:output name="ResendPortMessageResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WSMessageHeader" part="header" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesalePortMessageService">
+<wsdl:port name="SendPortMessagePortType" binding="ns0:WholesalePortMessageServiceBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesalePortMessageService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

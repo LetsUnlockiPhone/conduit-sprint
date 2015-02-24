@@ -74,7 +74,11 @@ module Conduit::Driver::Sprint
     end
 
     def wsdl
-      "https://#{gateway}/#{self.class.wsdl_service}?wsdl"
+      if @options.key?(:gateway)
+        "https://#{gateway}/#{self.class.wsdl_service}?wsdl"
+      else
+        File.expand_path("spec/fixtures/wsdl/#{self.class.wsdl_service}.wsdl")
+      end
     end
 
     private

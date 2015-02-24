@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleSubscriptionDetail/v1/WholesaleSubscriptionDetail.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleSubscriptionDetail/v1/WholesaleSubscriptionDetail.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetails.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleQueryCsaStaticIpNgpInfo/v1/wholesaleQueryCsaStaticIpNgpInfoV1.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleQueryPpSocList/v3/wholesaleQueryPpSocListV3.xsd"/>
+<xsd:import schemaLocation="v1.xsd7.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleQuerySubscription/v4/wholesaleQuerySubscriptionV4.xsd"/>
+<xsd:import schemaLocation="v1.xsd8.xsd" namespace="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="faultmessage">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetails.xsd"/></wsdl:message>
+<wsdl:message name="faultmessageV2">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="queryCsaListRequest">
+<wsdl:part name="body" element="xsns:queryCsaList" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryCsaListResponse">
+<wsdl:part name="body" element="xsns:queryCsaListResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryPpSocListRequest">
+<wsdl:part name="body" element="xsns:queryPpSocList" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryPpSocListResponse">
+<wsdl:part name="body" element="xsns:queryPpSocListResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryReservedSubscriptionRequest">
+<wsdl:part name="body" element="xsns:queryReservedSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryReservedSubscriptionResponse">
+<wsdl:part name="body" element="xsns:queryReservedSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="querySubscriptionRequest">
+<wsdl:part name="body" element="xsns:querySubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="querySubscriptionResponse">
+<wsdl:part name="body" element="xsns:querySubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryValidNpaListRequest">
+<wsdl:part name="body" element="xsns:queryValidNpaList" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryValidNpaListResponse">
+<wsdl:part name="body" element="xsns:queryValidNpaListResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionDetail/v1/SubscriptionDetailEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleQueryCsaStaticIpNgpInfoV1">
+<wsdl:part name="body" element="xsns:wholesaleQueryCsaStaticIpNgpInfoV1" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleQueryCsaStaticIpNgpInfo/v1/wholesaleQueryCsaStaticIpNgpInfoV1.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleQueryCsaStaticIpNgpInfoV1Response">
+<wsdl:part name="body" element="xsns:wholesaleQueryCsaStaticIpNgpInfoV1Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleQueryCsaStaticIpNgpInfo/v1/wholesaleQueryCsaStaticIpNgpInfoV1.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleQueryPpSocListV3">
+<wsdl:part name="body" element="xsns:wholesaleQueryPpSocListV3" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleQueryPpSocList/v3/wholesaleQueryPpSocListV3.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleQueryPpSocListV3Response">
+<wsdl:part name="body" element="xsns:wholesaleQueryPpSocListV3Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleQueryPpSocList/v3/wholesaleQueryPpSocListV3.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleQuerySubscriptionV4">
+<wsdl:part name="body" element="xsns:wholesaleQuerySubscriptionV4" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleQuerySubscription/v4/wholesaleQuerySubscriptionV4.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleQuerySubscriptionV4Response">
+<wsdl:part name="body" element="xsns:wholesaleQuerySubscriptionV4Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleQuerySubscription/v4/wholesaleQuerySubscriptionV4.xsd"/></wsdl:message>
+<wsdl:message name="WsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesaleSubscriptionDetailPortType">
+<wsdl:operation name="QueryCsaList">
+<wsdl:input name="QueryCsaListRequest" message="ns0:queryCsaListRequest"/>
+<wsdl:output name="QueryCsaListResponse" message="ns0:queryCsaListResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="QueryPpSocList">
+<wsdl:input name="QueryPpSocListRequest" message="ns0:queryPpSocListRequest"/>
+<wsdl:output name="QueryPpSocListResponse" message="ns0:queryPpSocListResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="QueryReservedSubscription">
+<wsdl:input name="QueryReservedSubscriptionRequest" message="ns0:queryReservedSubscriptionRequest"/>
+<wsdl:output name="QueryReservedSubscriptionResponse" message="ns0:queryReservedSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="QuerySubscription">
+<wsdl:input name="QuerySubscriptionRequest" message="ns0:querySubscriptionRequest"/>
+<wsdl:output name="QuerySubscriptionResponse" message="ns0:querySubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="QueryValidNpaList">
+<wsdl:input name="QueryValidNpaListRequest" message="ns0:queryValidNpaListRequest"/>
+<wsdl:output name="QueryValidNpaListResponse" message="ns0:queryValidNpaListResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="WholesaleQueryCsaStaticIpNgpInfoV1">
+<wsdl:input name="WholesaleQueryCsaStaticIpNgpInfoV1Request" message="ns0:wholesaleQueryCsaStaticIpNgpInfoV1"/>
+<wsdl:output name="WholesaleQueryCsaStaticIpNgpInfoV1Response" message="ns0:wholesaleQueryCsaStaticIpNgpInfoV1Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation>
+<wsdl:operation name="WholesaleQueryPpSocListV3">
+<wsdl:input name="WholesaleQueryPpSocListV3Request" message="ns0:wholesaleQueryPpSocListV3"/>
+<wsdl:output name="WholesaleQueryPpSocListV3Response" message="ns0:wholesaleQueryPpSocListV3Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation>
+<wsdl:operation name="WholesaleQuerySubscriptionV4">
+<wsdl:input name="WholesaleQuerySubscriptionV4Request" message="ns0:wholesaleQuerySubscriptionV4"/>
+<wsdl:output name="WholesaleQuerySubscriptionV4Response" message="ns0:wholesaleQuerySubscriptionV4Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesaleSubscriptionDetailBinding" type="ns0:WholesaleSubscriptionDetailPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="QueryCsaList">
+<soap11:operation soapAction="queryCsaList" style="document"/>
+<wsdl:input name="QueryCsaListRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryCsaListResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryPpSocList">
+<soap11:operation soapAction="queryPpSocList" style="document"/>
+<wsdl:input name="QueryPpSocListRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryPpSocListResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryReservedSubscription">
+<soap11:operation soapAction="queryReservedSubscription" style="document"/>
+<wsdl:input name="QueryReservedSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryReservedSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QuerySubscription">
+<soap11:operation soapAction="querySubscription" style="document"/>
+<wsdl:input name="QuerySubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QuerySubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryValidNpaList">
+<soap11:operation soapAction="queryValidNpaList" style="document"/>
+<wsdl:input name="QueryValidNpaListRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryValidNpaListResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleQueryCsaStaticIpNgpInfoV1">
+<soap11:operation soapAction="WholesaleQueryCsaStaticIpNgpInfoV1" style="document"/>
+<wsdl:input name="WholesaleQueryCsaStaticIpNgpInfoV1Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleQueryCsaStaticIpNgpInfoV1Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleQueryPpSocListV3">
+<soap11:operation soapAction="WholesaleQueryPpSocListV3" style="document"/>
+<wsdl:input name="WholesaleQueryPpSocListV3Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleQueryPpSocListV3Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleQuerySubscriptionV4">
+<soap11:operation soapAction="WholesaleQuerySubscriptionV4" style="document"/>
+<wsdl:input name="WholesaleQuerySubscriptionV4Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleQuerySubscriptionV4Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesaleSubscriptionDetailService">
+<wsdl:port name="WholesaleSubscriptionDetailPort" binding="ns0:WholesaleSubscriptionDetailBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleSubscriptionDetailService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

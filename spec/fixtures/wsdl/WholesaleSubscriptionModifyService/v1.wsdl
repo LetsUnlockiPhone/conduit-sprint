@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleSubscriptionModify/v1/WholesaleSubscriptionModify.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleSubscriptionModify/v1/WholesaleSubscriptionModify.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetails.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleChangeServicePlans/v3/wholesaleChangeServicePlansV3.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="changeServicePlansRequest">
+<wsdl:part name="body" element="xsns:changeServicePlans" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="changeServicePlansResponse">
+<wsdl:part name="body" element="xsns:changeServicePlansResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="expireSubscriptionRequest">
+<wsdl:part name="body" element="xsns:expireSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="expireSubscriptionResponse">
+<wsdl:part name="body" element="xsns:expireSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="faultmessage">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetails.xsd"/></wsdl:message>
+<wsdl:message name="faultmessageV2">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="restoreSubscriptionRequest">
+<wsdl:part name="body" element="xsns:restoreSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="restoreSubscriptionResponse">
+<wsdl:part name="body" element="xsns:restoreSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="suspendSubscriptionRequest">
+<wsdl:part name="body" element="xsns:suspendSubscription" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="suspendSubscriptionResponse">
+<wsdl:part name="body" element="xsns:suspendSubscriptionResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleChangeServicePlansV3">
+<wsdl:part name="body" element="xsns:wholesaleChangeServicePlansV3" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleChangeServicePlans/v3/wholesaleChangeServicePlansV3.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleChangeServicePlansV3Response">
+<wsdl:part name="body" element="xsns:wholesaleChangeServicePlansV3Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleChangeServicePlans/v3/wholesaleChangeServicePlansV3.xsd"/></wsdl:message>
+<wsdl:message name="WsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesaleSubscriptionModifyPortType">
+<wsdl:operation name="ChangeServicePlans">
+<wsdl:input name="ChangeServicePlansRequest" message="ns0:changeServicePlansRequest"/>
+<wsdl:output name="ChangeServicePlansResponse" message="ns0:changeServicePlansResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ExpireSubscription">
+<wsdl:input name="ExpireSubscriptionRequest" message="ns0:expireSubscriptionRequest"/>
+<wsdl:output name="ExpireSubscriptionResponse" message="ns0:expireSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="RestoreSubscription">
+<wsdl:input name="RestoreSubscriptionRequest" message="ns0:restoreSubscriptionRequest"/>
+<wsdl:output name="RestoreSubscriptionResponse" message="ns0:restoreSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="SuspendSubscription">
+<wsdl:input name="SuspendSubscriptionRequest" message="ns0:suspendSubscriptionRequest"/>
+<wsdl:output name="SuspendSubscriptionResponse" message="ns0:suspendSubscriptionResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="WholesaleChangeServicePlansV3">
+<wsdl:input name="WholesaleChangeServicePlansV3Request" message="ns0:wholesaleChangeServicePlansV3"/>
+<wsdl:output name="WholesaleChangeServicePlansV3Response" message="ns0:wholesaleChangeServicePlansV3Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesaleSubscriptionModifyBinding" type="ns0:WholesaleSubscriptionModifyPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="ChangeServicePlans">
+<soap11:operation soapAction="changeServicePlans" style="document"/>
+<wsdl:input name="ChangeServicePlansRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ChangeServicePlansResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ExpireSubscription">
+<soap11:operation soapAction="expireSubscription" style="document"/>
+<wsdl:input name="ExpireSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ExpireSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="RestoreSubscription">
+<soap11:operation soapAction="restoreSubscription" style="document"/>
+<wsdl:input name="RestoreSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="RestoreSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="SuspendSubscription">
+<soap11:operation soapAction="suspendSubscription" style="document"/>
+<wsdl:input name="SuspendSubscriptionRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="SuspendSubscriptionResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleChangeServicePlansV3">
+<soap11:operation soapAction="WholesaleChangeServicePlansV3" style="document"/>
+<wsdl:input name="WholesaleChangeServicePlansV3Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleChangeServicePlansV3Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesaleSubscriptionModifyService">
+<wsdl:port name="WholesaleSubscriptionModifyPort" binding="ns0:WholesaleSubscriptionModifyBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleSubscriptionModifyService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>
