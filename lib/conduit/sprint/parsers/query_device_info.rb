@@ -2,6 +2,22 @@ require 'conduit/sprint/parsers/base'
 
 module Conduit::Driver::Sprint
   class QueryDeviceInfo::Parser < Parser::Base
+
+    AVAILABLE_CODES = {
+      '0' => 'Not Available',
+      '1' => 'Available'
+    }
+
+    NOT_AVAILABLE_CODES = {
+      '1'  => 'Stolen',
+      '2'  => 'In Use',
+      '3'  => 'Fraudulent',
+      '4'  => 'Not in database',
+      '5'  => 'Owner = SPCS',
+      '6'  => 'Pre-paid, unprovisionable',
+      '99' => 'Not available for activation'
+    }
+
     attribute :model_name do
       content_for '//modelName'
     end
@@ -30,6 +46,10 @@ module Conduit::Driver::Sprint
       content_for '//availabilityTypeCode'
     end
 
+    attribute :availability_type_message do
+      AVAILABLE_CODES[content_for '//availabilityTypeCode']
+    end
+
     attribute :uicc_compatibility do
       content_for '//uiccCompatibility'
     end
@@ -37,6 +57,10 @@ module Conduit::Driver::Sprint
     attribute :uicc_availability_code do
       content_for '//uiccAvailabilityCode'
     end
+
+    attribute :uicc_availability_message do
+      AVAILABLE_CODES[content_for '//uiccAvailabilityCode']
+    end    
 
     attribute :device_type do
       content_for '//deviceType'
@@ -50,8 +74,16 @@ module Conduit::Driver::Sprint
       content_for '//uiccNotAvailableReasonCode'
     end
 
+    attribute :uicc_not_available_reason_message do
+      NOT_AVAILABLE_CODES[content_for '//uiccNotAvailableReasonCode']
+    end
+
     attribute :not_available_reason_code do
       content_for '//notAvailableReasonCode'
+    end
+
+    attribute :not_available_reason_message do
+      NOT_AVAILABLE_CODES[content_for '//notAvailableReasonCode']
     end
 
     attribute :device_serial_number do
