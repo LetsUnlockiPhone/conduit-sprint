@@ -66,6 +66,10 @@ module Conduit::Driver::Sprint
       content_for '//deviceType'
     end
 
+    attribute :freq_mode do
+      content_for '//freqMode'
+    end
+
     attribute :equipment_freq_type_code do
       content_for '//equipmentFreqTypeCode'
     end
