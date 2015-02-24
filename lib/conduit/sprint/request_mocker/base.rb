@@ -45,11 +45,11 @@ module Conduit::Sprint::RequestMocker
     end
 
     def response
-      if [:success, :fault, :error].include?(@mock_status)
+      if [:success, :failure, :error].include?(@mock_status)
         return error_response if @mock_status == :error
         render_response
       else
-        raise(ArgumentError, 'Mock status must be :success, :fault, or :error')
+        raise(ArgumentError, 'Mock status must be :success, :failure, or :error')
       end
     end
 

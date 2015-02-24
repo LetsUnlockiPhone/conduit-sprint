@@ -29,9 +29,9 @@ describe QuerySubscription do
     end
   end
 
-  context 'a SOAP fault is returned' do
+  context 'a SOAP failure is returned' do
     let(:query_subscription) do
-      QuerySubscription.new(credentials.merge(mdn: '5555555555', mock_status: :fault))
+      QuerySubscription.new(credentials.merge(mdn: '5555555555', mock_status: :failure))
     end
 
     let(:response_errors) do
