@@ -48,7 +48,7 @@ describe TransferOwnership do
 
   context 'a failed/fault transfer_ownership response is returned' do
     let(:transfer_ownership) do
-      TransferOwnership.new credentials.merge(nid: '12345678901', mock_status: :fault)
+      TransferOwnership.new credentials.merge(nid: '12345678901', mock_status: :failure)
     end
 
     let(:response_errors) do
