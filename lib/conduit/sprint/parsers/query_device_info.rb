@@ -14,12 +14,68 @@ module Conduit::Driver::Sprint
       content_for '//manufacturerName'
     end
 
-    attribute :lte_iccid do
+    attribute :iccid do
       content_for '//iccId'
     end
 
-    attribute :lte_imsi do
+    attribute :uicc_type do
+      content_for '//uiccType'
+    end
+
+    attribute :imsi do
       content_for '//imsi'
+    end
+
+    attribute :availability_type_code do
+      content_for '//availabilityTypeCode'
+    end
+
+    attribute :uicc_compatibility do
+      content_for '//uiccCompatibility'
+    end
+
+    attribute :uicc_availability_code do
+      content_for '//uiccAvailabilityCode'
+    end
+
+    attribute :device_type do
+      content_for '//deviceType'
+    end
+
+    attribute :equipment_freq_type_code do
+      content_for '//equipmentFreqTypeCode'
+    end
+
+    attribute :uicc_not_available_reason_code do
+      content_for '//uiccNotAvailableReasonCode'
+    end
+
+    attribute :not_available_reason_code do
+      content_for '//notAvailableReasonCode'
+    end
+
+    attribute :device_serial_number do
+      content_for '//deviceSerialNumber'
+    end
+
+    attribute :validation_message do
+      content_for '//validationMessage'
+    end
+
+    attribute :device_type do
+      content_for '//deviceType'
+    end
+
+    attribute :device_type do
+      content_for '//deviceType'
+    end
+
+    attribute :device_type do
+      content_for '//deviceType'
+    end
+
+    attribute :device_type do
+      content_for '//deviceType'
     end
   end
 end

@@ -30,11 +30,21 @@ describe QueryDeviceInfo do
   context 'a successful query device response is returned' do
     let(:serializable_hash) do 
       {
-        :model_name             => "SAM L720T BLK XCVR SGL",
-        :model_number           => "SPHL720TB1",
-        :manufacturer_name      => "SAMSUNG",
-        :lte_iccid              => "89011200000403604860",
-        :lte_imsi               => "310120040360486"
+       :availability_type_code            => "1",
+       :device_serial_number              => "99000470382044",
+       :device_type                       => "U",
+       :equipment_freq_type_code          => "H",
+       :iccid                             => "89011200000403604860",
+       :imsi                              => "310120040360486",        
+       :model_name                        => "SAM L720T BLK XCVR SGL",
+       :model_number                      => "SPHL720TB1",
+       :manufacturer_name                 => "SAMSUNG",
+       :not_available_reason_code         => "0",
+       :uicc_availability_code            => "1",
+       :uicc_compatibility                => "Y",
+       :uicc_not_available_reason_code    => "0",
+       :uicc_type                         => "U",
+       :validation_message                => "Device is valid and cleared for use",
       }
     end
 
