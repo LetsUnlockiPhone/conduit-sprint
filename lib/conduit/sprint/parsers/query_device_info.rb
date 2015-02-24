@@ -61,21 +61,5 @@ module Conduit::Driver::Sprint
     attribute :validation_message do
       content_for '//validationMessage'
     end
-
-    attribute :device_type do
-      content_for '//deviceType'
-    end
-
-    attribute :device_type do
-      content_for '//deviceType'
-    end
-
-    attribute :device_type do
-      content_for '//deviceType'
-    end
-
-    attribute :device_type do
-      content_for '//deviceType'
-    end
   end
 end
