@@ -77,7 +77,7 @@ module Conduit::Driver::Sprint
       if @options.key?(:gateway)
         "https://#{gateway}/#{self.class.wsdl_service}?wsdl"
       else
-        File.expand_path("spec/fixtures/wsdl/#{self.class.wsdl_service}.wsdl")
+        File.expand_path("../../../../spec/fixtures/wsdl/#{self.class.wsdl_service}.wsdl", File.dirname(__FILE__))
       end
     end
 
