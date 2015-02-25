@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleWnp/v1/WholesaleWnp.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleWnp/v1/WholesaleWnp.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetails.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="activateSubscriptionWithPortInRequest">
+<wsdl:part name="body" element="xsns:activateSubscriptionWithPortIn" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="activateSubscriptionWithPortInResponse">
+<wsdl:part name="body" element="xsns:activateSubscriptionWithPortInResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="cancelPortRequest">
+<wsdl:part name="body" element="xsns:cancelPort" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="cancelPortResponse">
+<wsdl:part name="body" element="xsns:cancelPortResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="changePortInDueDateTimeRequest">
+<wsdl:part name="body" element="xsns:changePortInDueDateTime" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="changePortInDueDateTimeResponse">
+<wsdl:part name="body" element="xsns:changePortInDueDateTimeResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="faultmessage">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetails.xsd"/></wsdl:message>
+<wsdl:message name="faultmessageV2">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="modifyPortInRequest">
+<wsdl:part name="body" element="xsns:modifyPortIn" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="modifyPortInResponse">
+<wsdl:part name="body" element="xsns:modifyPortInResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="portInSwapMdnRequest">
+<wsdl:part name="body" element="xsns:portInSwapMdn" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="portInSwapMdnResponse">
+<wsdl:part name="body" element="xsns:portInSwapMdnResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="preValidatePortRequest">
+<wsdl:part name="body" element="xsns:preValidatePort" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="preValidatePortResponse">
+<wsdl:part name="body" element="xsns:preValidatePortResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryPendingResellerPortInsRequest">
+<wsdl:part name="body" element="xsns:queryPendingResellerPortIns" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryPendingResellerPortInsResponse">
+<wsdl:part name="body" element="xsns:queryPendingResellerPortInsResponse" xmlns:xsns="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleActivateSubscriptionWithPortInV4">
+<wsdl:part name="body" element="xsns:wholesaleActivateSubscriptionWithPortInV4" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleActivateSubscriptionWithPortInV4Response">
+<wsdl:part name="body" element="xsns:wholesaleActivateSubscriptionWithPortInV4Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd"/></wsdl:message>
+<wsdl:message name="WsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesaleWnpPortType">
+<wsdl:operation name="ActivateSubscriptionWithPortIn">
+<wsdl:input name="ActivateSubscriptionWithPortInRequest" message="ns0:activateSubscriptionWithPortInRequest"/>
+<wsdl:output name="ActivateSubscriptionWithPortInResponse" message="ns0:activateSubscriptionWithPortInResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="CancelPort">
+<wsdl:input name="CancelPortRequest" message="ns0:cancelPortRequest"/>
+<wsdl:output name="CancelPortResponse" message="ns0:cancelPortResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ChangePortInDueDateTime">
+<wsdl:input name="ChangePortInDueDateTimeRequest" message="ns0:changePortInDueDateTimeRequest"/>
+<wsdl:output name="ChangePortInDueDateTimeResponse" message="ns0:changePortInDueDateTimeResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="ModifyPortIn">
+<wsdl:input name="ModifyPortInRequest" message="ns0:modifyPortInRequest"/>
+<wsdl:output name="ModifyPortInResponse" message="ns0:modifyPortInResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="PortInSwapMdn">
+<wsdl:input name="PortInSwapMdnRequest" message="ns0:portInSwapMdnRequest"/>
+<wsdl:output name="PortInSwapMdnResponse" message="ns0:portInSwapMdnResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="PreValidatePort">
+<wsdl:input name="PreValidatePortRequest" message="ns0:preValidatePortRequest"/>
+<wsdl:output name="PreValidatePortResponse" message="ns0:preValidatePortResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="QueryPendingResellerPortIns">
+<wsdl:input name="QueryPendingResellerPortInsRequest" message="ns0:queryPendingResellerPortInsRequest"/>
+<wsdl:output name="QueryPendingResellerPortInsResponse" message="ns0:queryPendingResellerPortInsResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="WholesaleActivateSubscriptionWithPortInV4">
+<wsdl:input name="WholesaleActivateSubscriptionWithPortInV4Request" message="ns0:wholesaleActivateSubscriptionWithPortInV4"/>
+<wsdl:output name="WholesaleActivateSubscriptionWithPortInV4Response" message="ns0:wholesaleActivateSubscriptionWithPortInV4Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessageV2"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesaleWnpBinding" type="ns0:WholesaleWnpPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="ActivateSubscriptionWithPortIn">
+<soap11:operation soapAction="activateSubscriptionWithPortIn" style="document"/>
+<wsdl:input name="ActivateSubscriptionWithPortInRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ActivateSubscriptionWithPortInResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="CancelPort">
+<soap11:operation soapAction="cancelPort" style="document"/>
+<wsdl:input name="CancelPortRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="CancelPortResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ChangePortInDueDateTime">
+<soap11:operation soapAction="changePortInDueDateTime" style="document"/>
+<wsdl:input name="ChangePortInDueDateTimeRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ChangePortInDueDateTimeResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ModifyPortIn">
+<soap11:operation soapAction="modifyPortIn" style="document"/>
+<wsdl:input name="ModifyPortInRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ModifyPortInResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="PortInSwapMdn">
+<soap11:operation soapAction="portInSwapMdn" style="document"/>
+<wsdl:input name="PortInSwapMdnRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="PortInSwapMdnResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="PreValidatePort">
+<soap11:operation soapAction="preValidatePort" style="document"/>
+<wsdl:input name="PreValidatePortRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="PreValidatePortResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryPendingResellerPortIns">
+<soap11:operation soapAction="queryPendingResellerPortIns" style="document"/>
+<wsdl:input name="QueryPendingResellerPortInsRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryPendingResellerPortInsResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleActivateSubscriptionWithPortInV4">
+<soap11:operation soapAction="WholesaleActivateSubscriptionWithPortInV4" style="document"/>
+<wsdl:input name="WholesaleActivateSubscriptionWithPortInV4Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleActivateSubscriptionWithPortInV4Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesaleWnpService">
+<wsdl:port name="WholesaleWnpPort" binding="ns0:WholesaleWnpBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleWnpService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

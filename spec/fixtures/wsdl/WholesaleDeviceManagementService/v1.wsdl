@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleDeviceManagementService/v1/WholesaleDeviceManagementService.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleDeviceManagementService/v1/WholesaleDeviceManagementService.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/interfaces/manageDevicePhoneOwnership/v1/manageDevicePhoneOwnership.xsd"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleManageDeviceLock/v1/wholesaleManageDeviceLock.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="faultMessage">
+<wsdl:part name="parameters" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="manageDevicePhoneOwnership">
+<wsdl:part name="parameters" element="xsns:manageDevicePhoneOwnership" xmlns:xsns="http://integration.sprint.com/interfaces/manageDevicePhoneOwnership/v1/manageDevicePhoneOwnership.xsd"/></wsdl:message>
+<wsdl:message name="manageDevicePhoneOwnershipResponse">
+<wsdl:part name="parameters" element="xsns:manageDevicePhoneOwnershipResponse" xmlns:xsns="http://integration.sprint.com/interfaces/manageDevicePhoneOwnership/v1/manageDevicePhoneOwnership.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleManageDeviceLock">
+<wsdl:part name="parameters" element="xsns:wholesaleManageDeviceLock" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleManageDeviceLock/v1/wholesaleManageDeviceLock.xsd"/></wsdl:message>
+<wsdl:message name="wholesaleManageDeviceLockResponse">
+<wsdl:part name="parameters" element="xsns:wholesaleManageDeviceLockResponse" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleManageDeviceLock/v1/wholesaleManageDeviceLock.xsd"/></wsdl:message>
+<wsdl:message name="wsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="WholesaleDeviceManagementServicePortType">
+<wsdl:operation name="ManageDevicePhoneOwnership">
+<wsdl:input name="ManageDevicePhoneOwnershipRequest" message="ns0:manageDevicePhoneOwnership"/>
+<wsdl:output name="ManageDevicePhoneOwnershipResponse" message="ns0:manageDevicePhoneOwnershipResponse"/>
+<wsdl:fault name="fault" message="ns0:faultMessage"/></wsdl:operation>
+<wsdl:operation name="WholesaleManageDeviceLock">
+<wsdl:input name="WholesaleManageDeviceLockRequest" message="ns0:wholesaleManageDeviceLock"/>
+<wsdl:output name="WholesaleManageDeviceLockResponse" message="ns0:wholesaleManageDeviceLockResponse"/>
+<wsdl:fault name="fault" message="ns0:faultMessage"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="WholesaleDeviceManagementServiceSoapBinding" type="ns0:WholesaleDeviceManagementServicePortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="ManageDevicePhoneOwnership">
+<soap11:operation soapAction="manageDevicePhoneOwnership" style="document"/>
+<wsdl:input name="ManageDevicePhoneOwnershipRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ManageDevicePhoneOwnershipResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="WholesaleManageDeviceLock">
+<soap11:operation soapAction="WholesaleManageDeviceLock" style="document"/>
+<wsdl:input name="WholesaleManageDeviceLockRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="WholesaleManageDeviceLockResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="WholesaleDeviceManagementService">
+<wsdl:port name="WholesaleDeviceManagementServicePortType" binding="ns0:WholesaleDeviceManagementServiceSoapBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleDeviceManagementService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    conduit-sprint (0.2.10)
+    conduit-sprint (0.2.11)
       StreetAddress
       conduit (~> 0.6.0)
       excon (~> 0.21.0)
@@ -21,15 +21,15 @@ GEM
     akami (1.2.2)
       gyoku (>= 0.4.0)
       nokogiri
-    aws-sdk (2.0.26)
-      aws-sdk-resources (= 2.0.26)
-    aws-sdk-core (2.0.26)
+    aws-sdk (2.0.28)
+      aws-sdk-resources (= 2.0.28)
+    aws-sdk-core (2.0.28)
       builder (~> 3.0)
       jmespath (~> 1.0)
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
-    aws-sdk-resources (2.0.26)
-      aws-sdk-core (= 2.0.26)
+    aws-sdk-resources (2.0.28)
+      aws-sdk-core (= 2.0.28)
     builder (3.2.2)
     conduit (0.6.0)
       activesupport

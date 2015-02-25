@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/QueryCsa/v1/QueryCsa.wsdl" targetNamespace="http://integration.sprint.com/eai/services/QueryCsa/v1/QueryCsa.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetails.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/queryCsa/v2/queryCsaV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd7.xsd" namespace="http://integration.sprint.com/interfaces/queryLocationInfo/v1/queryLocationInfo.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="faultmessage">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetails.xsd"/></wsdl:message>
+<wsdl:message name="faultmessage2">
+<wsdl:part name="body" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="queryCsaRequest">
+<wsdl:part name="body" element="xsns:queryCsa" xmlns:xsns="http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryCsaResponse">
+<wsdl:part name="body" element="xsns:queryCsaResponse" xmlns:xsns="http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope.xsd"/></wsdl:message>
+<wsdl:message name="queryCsaV2">
+<wsdl:part name="body" element="xsns:queryCsaV2" xmlns:xsns="http://integration.sprint.com/interfaces/queryCsa/v2/queryCsaV2.xsd"/></wsdl:message>
+<wsdl:message name="queryCsaV2Response">
+<wsdl:part name="body" element="xsns:queryCsaV2Response" xmlns:xsns="http://integration.sprint.com/interfaces/queryCsa/v2/queryCsaV2.xsd"/></wsdl:message>
+<wsdl:message name="queryLocationInfo">
+<wsdl:part name="body" element="xsns:queryLocationInfo" xmlns:xsns="http://integration.sprint.com/interfaces/queryLocationInfo/v1/queryLocationInfo.xsd"/></wsdl:message>
+<wsdl:message name="queryLocationInfoResponse">
+<wsdl:part name="body" element="xsns:queryLocationInfoResponse" xmlns:xsns="http://integration.sprint.com/interfaces/queryLocationInfo/v1/queryLocationInfo.xsd"/></wsdl:message>
+<wsdl:message name="WsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="QueryCsaPortType">
+<wsdl:operation name="QueryCsa">
+<wsdl:input name="QueryCsaRequest" message="ns0:queryCsaRequest"/>
+<wsdl:output name="QueryCsaResponse" message="ns0:queryCsaResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation>
+<wsdl:operation name="QueryCsaV2">
+<wsdl:input name="QueryCsaV2Request" message="ns0:queryCsaV2"/>
+<wsdl:output name="QueryCsaV2Response" message="ns0:queryCsaV2Response"/>
+<wsdl:fault name="fault" message="ns0:faultmessage2"/></wsdl:operation>
+<wsdl:operation name="QueryLocationInfo">
+<wsdl:input name="QueryLocationInfoRequest" message="ns0:queryLocationInfo"/>
+<wsdl:output name="QueryLocationInfoResponse" message="ns0:queryLocationInfoResponse"/>
+<wsdl:fault name="fault" message="ns0:faultmessage"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="QueryCsaBinding" type="ns0:QueryCsaPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="QueryCsa">
+<soap11:operation soapAction="queryCsa" style="document"/>
+<wsdl:input name="QueryCsaRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryCsaResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryCsaV2">
+<soap11:operation soapAction="QueryCsaV2" style="document"/>
+<wsdl:input name="QueryCsaV2Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryCsaV2Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryLocationInfo">
+<soap11:operation soapAction="QueryLocationInfo" style="document"/>
+<wsdl:input name="QueryLocationInfoRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryLocationInfoResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="QueryCsaService">
+<wsdl:port name="QueryCsaPort" binding="ns0:QueryCsaBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/QueryCsaService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>
