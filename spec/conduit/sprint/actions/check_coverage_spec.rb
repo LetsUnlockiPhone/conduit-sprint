@@ -103,4 +103,22 @@ describe CheckCoverage do
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }
   end
+
+  context 'a failed check_coverage response is returned' do
+    let(:check_coverage_zip) do
+      CheckCoverage.new(credentials.merge(zip: '33415', zip4: '5555', mock_status: :failure))
+    end
+
+    let(:response_errors) do
+      [
+        {:code=>"210820012", :message=>"The subscriber does not belong to the 2222333344 Major Account/MVNO"},
+        {:code=>"Server.704", :message=>"Application processing error"}
+      ]
+    end
+    
+    subject                 { check_coverage_zip.perform }
+    it                      { should be_an_instance_of CheckCoverage::Parser }
+    its(:response_status)   { should eq 'failure'}
+    its(:response_errors)   { should eq response_errors }
+  end  
 end
