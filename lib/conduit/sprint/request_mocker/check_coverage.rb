@@ -4,7 +4,8 @@ module Conduit::Sprint::RequestMocker
   class CheckCoverage < Base
 
     def fixture
-      FIXTURE_PREFIX + "/check_coverage/#{determine_success_xml}.xml.erb"
+      xml_file = @mock_status == :failure ? @mock_status : determine_success_xml
+      FIXTURE_PREFIX + "/check_coverage/#{xml_file}.xml.erb"
     end
 
     def determine_success_xml
