@@ -49,7 +49,7 @@ describe TransferOwnership do
   end
 
   context 'a successful SPCS transfer_ownership response is returned' do
-    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', transfer_code: 'SPCS')  }
+    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', ownership_code: 'SPCS')  }
 
     let(:serializable_hash) do
       {
@@ -85,8 +85,8 @@ describe TransferOwnership do
     its(:response_errors)   { should eq response_errors }
   end
 
-  context 'a transfer_ownership with incorrect transfer_code' do
-    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', transfer_code: '123')  }
+  context 'a transfer_ownership with incorrect ownership_code' do
+    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', ownership_code: '123')  }
 
     it 'should raise exeception if transfer ownership fails' do
       expect { transfer_ownership.perform }.to raise_error

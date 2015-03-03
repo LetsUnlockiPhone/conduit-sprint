@@ -6,12 +6,12 @@ module Conduit::Driver::Sprint
     xsd                 'manageDevicePhoneOwnership/v1/manageDevicePhoneOwnership.xsd'
     operation           :manage_device_phone_ownership
     required_attributes :nid
-    optional_attributes :transfer_code
+    optional_attributes :ownership_code
 
     def initialize(options = {})
       super
 
-      if @options[:transfer_code] && !['PLBL', 'SPCS'].include?(@options[:transfer_code])
+      if @options[:ownership_code] && !['PLBL', 'SPCS'].include?(@options[:ownership_code])
         raise ArgumentError,
           'Transfer code must be one of the following: PLBL, SPCS'
       end
