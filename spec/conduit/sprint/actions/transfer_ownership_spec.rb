@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TransferOwnership do
-  let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901')  }
+  let(:transfer_ownership_creds) { credentials.merge(device_serial_number: '12345678901')  }
 
   let(:transfer_ownership) do
     TransferOwnership.new transfer_ownership_creds
@@ -49,7 +49,7 @@ describe TransferOwnership do
   end
 
   context 'a successful SPCS transfer_ownership response is returned' do
-    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', ownership_code: 'SPCS')  }
+    let(:transfer_ownership_creds) { credentials.merge(device_serial_number: '12345678901', ownership_code: 'SPCS')  }
 
     let(:serializable_hash) do
       {
@@ -86,7 +86,7 @@ describe TransferOwnership do
   end
 
   context 'a transfer_ownership with incorrect ownership_code' do
-    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', ownership_code: '123')  }
+    let(:transfer_ownership_creds) { credentials.merge(device_serial_number: '12345678901', ownership_code: '123')  }
 
     it 'should raise exeception if transfer ownership fails' do
       expect { transfer_ownership.perform }.to raise_error
