@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    conduit-sprint (0.2.13)
+    conduit-sprint (0.2.14)
       StreetAddress
       conduit (~> 0.6.0)
       excon (~> 0.21.0)
