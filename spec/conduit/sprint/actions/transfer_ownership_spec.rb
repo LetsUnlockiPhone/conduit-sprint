@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe TransferOwnership do
+  let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901')  }
+
   let(:transfer_ownership) do
-    TransferOwnership.new credentials.merge(nid: '12345678901')
+    TransferOwnership.new transfer_ownership_creds
   end
 
   let(:unsigned_soap) do
@@ -25,7 +27,7 @@ describe TransferOwnership do
 
   it_should_behave_like 'a 500 error' do
     let(:action) do
-      TransferOwnership.new(credentials.merge(nid: '12345678901', mock_status: :error))
+      TransferOwnership.new(transfer_ownership_creds.merge(mock_status: :error))
     end
   end
 
@@ -46,9 +48,28 @@ describe TransferOwnership do
     its(:serializable_hash) { should eq serializable_hash }
   end
 
+  context 'a successful SPCS transfer_ownership response is returned' do
+    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', transfer_code: 'SPCS')  }
+
+    let(:serializable_hash) do
+      {
+        phone_ownership_code: 'SPCS',
+        manufacturer_name: 'SAMSUNG',
+        model_name: 'SAMSUNG M330 1X SLIDER',
+        model_number: 'SPHM330ZWS'
+      }
+    end
+
+    subject                 { transfer_ownership.perform }
+    it                      { should be_an_instance_of TransferOwnership::Parser }
+    its(:response_status)   { should eq 'success'}
+    its(:response_errors)   { should be_empty }
+    its(:serializable_hash) { should eq serializable_hash }
+  end
+
   context 'a failed/fault transfer_ownership response is returned' do
     let(:transfer_ownership) do
-      TransferOwnership.new credentials.merge(nid: '12345678901', mock_status: :failure)
+      TransferOwnership.new transfer_ownership_creds.merge(mock_status: :failure)
     end
 
     let(:response_errors) do
@@ -62,5 +83,13 @@ describe TransferOwnership do
     it                      { should be_an_instance_of TransferOwnership::Parser }
     its(:response_status)   { should eq 'failure'}
     its(:response_errors)   { should eq response_errors }
+  end
+
+  context 'a transfer_ownership with incorrect transfer_code' do
+    let(:transfer_ownership_creds) { credentials.merge(nid: '12345678901', transfer_code: '123')  }
+
+    it 'should raise exeception if transfer ownership fails' do
+      expect { transfer_ownership.perform }.to raise_error
+    end
   end
 end
