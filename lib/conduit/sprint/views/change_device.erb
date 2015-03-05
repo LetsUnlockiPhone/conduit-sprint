@@ -5,6 +5,12 @@
 <sub:serialNumber><%= nid %></sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
+<% if !iccid.nil? && !iccid.empty? %>
+<sub:deviceInfo>
+<sub:serialNumber><%= iccid %></sub:serialNumber>
+<sub:serialType>U</sub:serialType>
+</sub:deviceInfo>
+<% end %>
 </sub:deviceInfoList>
 <sub:fetchDeviceDetailInfo>true</sub:fetchDeviceDetailInfo>
 </sub:wholesaleSwapDeviceV2>

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    conduit-sprint (0.2.15)
+    conduit-sprint (0.2.16)
       StreetAddress
       conduit (~> 0.6.0)
       excon (~> 0.21.0)
@@ -21,15 +21,15 @@ GEM
     akami (1.2.2)
       gyoku (>= 0.4.0)
       nokogiri
-    aws-sdk (2.0.26)
-      aws-sdk-resources (= 2.0.26)
-    aws-sdk-core (2.0.26)
+    aws-sdk (2.0.29)
+      aws-sdk-resources (= 2.0.29)
+    aws-sdk-core (2.0.29)
       builder (~> 3.0)
       jmespath (~> 1.0)
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
-    aws-sdk-resources (2.0.26)
-      aws-sdk-core (= 2.0.26)
+    aws-sdk-resources (2.0.29)
+      aws-sdk-core (= 2.0.29)
     builder (3.2.2)
     conduit (0.6.0)
       activesupport
@@ -48,10 +48,9 @@ GEM
     json (1.8.2)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    mime-types (1.25.1)
     mini_portile (0.6.2)
     minitest (5.5.1)
-    multi_json (1.10.1)
+    multi_json (1.11.0)
     multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -72,7 +71,7 @@ GEM
     rspec-mocks (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.2)
-    savon (2.9.0)
+    savon (2.10.0)
       akami (~> 1.2)
       builder (>= 2.1.2)
       gyoku (~> 1.2)
@@ -80,7 +79,7 @@ GEM
       nokogiri (>= 1.4.0)
       nori (~> 2.4)
       uuid (~> 2.3.7)
-      wasabi (= 3.3.0)
+      wasabi (~> 3.4)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
     signer (1.4.2)
@@ -92,10 +91,9 @@ GEM
       thread_safe (~> 0.1)
     uuid (2.3.7)
       macaddr (~> 1.0)
-    wasabi (3.3.0)
+    wasabi (3.4.0)
       httpi (~> 2.0)
-      mime-types (< 2.0.0)
-      nokogiri (>= 1.4.0)
+      nokogiri (>= 1.4.2)
 
 PLATFORMS
   ruby
