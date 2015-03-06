@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe ChangeDevice do
-  let(:change_device) { ChangeDevice.new(credentials.merge(mdn: '5555555555', nid: '123456789')) }
+  let(:change_device) { ChangeDevice.new(creds) }
+  let(:creds)         { credentials.merge(mdn: '5555555555', nid: '123456789') }
+
+  let(:unsigned_lte_soap) do
+    File.read('./spec/fixtures/requests/change_device/unsigned_lte_soap.xml')
+  end
 
   let(:unsigned_soap) do
     File.read('./spec/fixtures/requests/change_device/unsigned_soap.xml')
@@ -13,7 +18,15 @@ describe ChangeDevice do
 
   describe 'soap_xml' do
     subject { change_device.soap_xml }
-    it      { should eq unsigned_soap }
+    it      { should eq unsigned_soap.strip }
+
+    context 'with iccid' do
+      let(:creds) do
+        credentials.merge(mdn: '5555555555', nid: '123456789',
+          iccid: '30112000000123456789')
+      end
+      it { should eq unsigned_lte_soap.strip }
+    end
   end
 
   describe 'signed_soap_xml' do

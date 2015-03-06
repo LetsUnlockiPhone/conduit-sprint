@@ -6,5 +6,6 @@ module Conduit::Driver::Sprint
     xsd                 'wholesaleSwapDevice/v2/wholesaleSwapDeviceV2.xsd'
     operation           :wholesale_swap_device_v2
     required_attributes :mdn, :nid
+    optional_attributes :iccid
   end
 end
