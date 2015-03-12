@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Hotline do
-  let(:hotline) { Hotline.new(credentials.merge(mdn: '5555555555')) }
+  let(:creds)   { credentials.merge(mdn: '5555555555') }
+  let(:hotline) { Hotline.new creds }
 
   let(:unsigned_soap) do
     File.read('./spec/fixtures/requests/hotline/unsigned_soap.xml')
@@ -34,4 +35,22 @@ describe Hotline do
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should be_empty }
   end
+
+  context 'a failed hotline response is returned' do
+    before do
+      creds.merge!(mock_status: :failure)
+    end
+
+    let(:response_errors) do
+      [
+        {:code=>"210820012", :message=>"The subscriber does not belong to the 2222333344 Major Account/MVNO"},
+        {:code=>"Server.704", :message=>"Application processing error"}
+      ]
+    end
+    
+    subject                 { hotline.perform }
+    it                      { should be_an_instance_of Hotline::Parser }
+    its(:response_status)   { should eq 'failure'}
+    its(:response_errors)   { should eq response_errors }
+  end   
 end

@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Deactivate do
-  let(:deactivate) do
-    Deactivate.new(credentials.merge(mdn: '5555555555'))
-  end
+  let(:creds)      { credentials.merge(mdn: '5555555555') }
+  let(:deactivate) { Deactivate.new creds }
 
   let(:unsigned_soap) do
     File.read('./spec/fixtures/requests/deactivate/unsigned_soap.xml')
@@ -35,5 +34,23 @@ describe Deactivate do
     its(:response_status)   { should eq 'success' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should be_empty }
+  end
+
+  context 'a failed deactivate response is returned' do
+    before do
+      creds.merge!(mock_status: :failure)
+    end
+
+    let(:response_errors) do
+      [
+        {:code=>"210820012", :message=>"The subscriber does not belong to the 2222333344 Major Account/MVNO"},
+        {:code=>"Server.704", :message=>"Application processing error"}
+      ]
+    end
+    
+    subject                 { deactivate.perform }
+    it                      { should be_an_instance_of Deactivate::Parser }
+    its(:response_status)   { should eq 'failure'}
+    its(:response_errors)   { should eq response_errors }
   end
 end
