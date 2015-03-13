@@ -133,4 +133,22 @@ describe ActivatePort do
       expect { activate_port.perform }.to raise_error
     end
   end
+
+  context 'a failed activate port response is returned' do
+    before do
+      port_attributes.merge!(mock_status: :failure)
+    end
+
+    let(:response_errors) do
+      [
+        { code: "Client.701", message: "No data found on RATED_FEATURE table for SOC:" },
+        { code: "Client.701", message: "Data not found" }
+      ]
+    end
+    
+    subject                 { activate_port.perform }
+    it                      { should be_an_instance_of ActivatePort::Parser }
+    its(:response_status)   { should eq 'failure'}
+    its(:response_errors)   { should eq response_errors }
+  end  
 end
