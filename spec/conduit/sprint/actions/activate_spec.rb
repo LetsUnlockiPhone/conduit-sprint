@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe Activate do
-  let(:activate) do
-    Activate.new \
-      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561', 
+  let(:creds) do
+    credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561', 
                         service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
+  end
+  let(:activate) do
+    Activate.new creds
   end
 
   let(:activate_lte) do
@@ -107,4 +109,22 @@ describe Activate do
       expect { activate.perform }.to raise_error
     end
   end
+
+  context 'a failed activate response is returned' do
+    before do
+      creds.merge!(mock_status: :failure)
+    end
+
+    let(:response_errors) do
+      [
+        { code: "Client.701", message: "No data found on RATED_FEATURE table for SOC:" },
+        { code: "Client.701", message: "Data not found" }
+      ]
+    end
+    
+    subject                 { activate.perform }
+    it                      { should be_an_instance_of Activate::Parser }
+    its(:response_status)   { should eq 'failure'}
+    its(:response_errors)   { should eq response_errors }
+  end  
 end
