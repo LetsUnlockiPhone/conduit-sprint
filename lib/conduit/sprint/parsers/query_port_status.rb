@@ -16,7 +16,7 @@ module Conduit::Driver::Sprint
       @message_code
     end
 
-    def initialize(xml)
+    def initialize(xml, options)
       super
       set_response_attributes
     end
