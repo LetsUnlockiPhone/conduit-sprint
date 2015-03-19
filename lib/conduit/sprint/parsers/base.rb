@@ -3,7 +3,7 @@ require 'nokogiri'
 module Conduit::Driver::Sprint
   module Parser
     class Base < Conduit::Core::Parser
-      attr_accessor :xml
+      attr_accessor :xml, :options
 
       def self.attribute(attr_name, &block)
         block ||= lambda do
@@ -12,8 +12,9 @@ module Conduit::Driver::Sprint
         super(attr_name, &block)
       end
 
-      def initialize(xml)
+      def initialize(xml, options)
         self.xml = xml
+        self.options = options
       end
 
       def root
