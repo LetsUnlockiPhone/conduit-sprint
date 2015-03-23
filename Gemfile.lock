@@ -4,7 +4,7 @@ PATH
     conduit-sprint (0.2.18)
       StreetAddress
       conduit (~> 0.6.0)
-      excon (~> 0.21.0)
+      excon (~> 0.44.4)
       savon
       signer
 
@@ -21,15 +21,15 @@ GEM
     akami (1.2.2)
       gyoku (>= 0.4.0)
       nokogiri
-    aws-sdk (2.0.29)
-      aws-sdk-resources (= 2.0.29)
-    aws-sdk-core (2.0.29)
+    aws-sdk (2.0.31)
+      aws-sdk-resources (= 2.0.31)
+    aws-sdk-core (2.0.31)
       builder (~> 3.0)
       jmespath (~> 1.0)
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
-    aws-sdk-resources (2.0.29)
-      aws-sdk-core (= 2.0.29)
+    aws-sdk-resources (2.0.31)
+      aws-sdk-core (= 2.0.31)
     builder (3.2.2)
     conduit (0.6.0)
       activesupport
@@ -37,8 +37,8 @@ GEM
       excon
       tilt
     diff-lcs (1.2.5)
-    excon (0.21.0)
-    gyoku (1.2.2)
+    excon (0.44.4)
+    gyoku (1.2.3)
       builder (>= 2.1.2)
     httpi (2.3.0)
       rack
@@ -71,7 +71,7 @@ GEM
     rspec-mocks (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.2)
-    savon (2.10.0)
+    savon (2.10.1)
       akami (~> 1.2)
       builder (>= 2.1.2)
       gyoku (~> 1.2)
@@ -84,7 +84,7 @@ GEM
       activesupport (>= 3.0.0)
     signer (1.4.2)
       nokogiri (>= 1.5.1)
-    systemu (2.6.4)
+    systemu (2.6.5)
     thread_safe (0.3.4)
     tilt (2.0.1)
     tzinfo (1.2.2)
