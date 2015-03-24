@@ -1,28 +1,53 @@
 require 'spec_helper'
 
 describe TransferOwnership do
-  let(:transfer_ownership_creds) { credentials.merge(device_serial_number: '12345678901')  }
+  let(:device_serial_number)     { '12345678901' }
+  let(:transfer_ownership_creds) { credentials.merge(device_serial_number: device_serial_number)  }
 
   let(:transfer_ownership) do
     TransferOwnership.new transfer_ownership_creds
   end
 
-  let(:unsigned_soap) do
-    File.read('./spec/fixtures/requests/transfer_ownership/unsigned_soap.xml')
+  describe 'dec_transfer_ownership' do
+    let(:unsigned_soap) do
+      File.read('./spec/fixtures/requests/transfer_ownership/unsigned_soap.xml')
+    end
+
+    let(:signed_soap) do
+      File.read('./spec/fixtures/requests/transfer_ownership/signed_soap.xml')
+    end
+
+    describe 'dec_soap_xml' do
+      subject { transfer_ownership.soap_xml }
+      it      { should eq unsigned_soap }
+    end
+
+    describe 'dec_signed_soap_xml' do
+      subject { transfer_ownership.signed_soap_xml }
+      it      { should eq signed_soap }
+    end
   end
 
-  let(:signed_soap) do
-    File.read('./spec/fixtures/requests/transfer_ownership/signed_soap.xml')
-  end
+  describe 'hex_transfer_ownership' do
+    let(:device_serial_number) { '12345678' }
 
-  describe 'soap_xml' do
-    subject { transfer_ownership.soap_xml }
-    it      { should eq unsigned_soap }
-  end
+    let(:hex_unsigned_soap) do
+      File.read('./spec/fixtures/requests/transfer_ownership/hex_unsigned_soap.xml')
+    end
 
-  describe 'signed_soap_xml' do
-    subject { transfer_ownership.signed_soap_xml }
-    it      { should eq signed_soap }
+    let(:hex_signed_soap) do
+      File.read('./spec/fixtures/requests/transfer_ownership/hex_signed_soap.xml')
+    end
+
+    describe 'hex_soap_xml' do
+      subject { transfer_ownership.soap_xml }
+      it      { should eq hex_unsigned_soap }
+    end
+
+    describe 'hex_signed_soap_xml' do
+      subject { transfer_ownership.signed_soap_xml }
+      it      { should eq hex_signed_soap }
+    end
   end
 
   it_should_behave_like 'a 500 error' do

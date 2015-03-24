@@ -5,5 +5,9 @@ module Conduit::Sprint::Decorators
     def code
       ownership_code || 'PLBL'
     end
+
+    def nid
+      device_serial_number
+    end
   end
 end
