@@ -1,4 +1,4 @@
-require 'conduit/sprint/nid_type_detector'
+require 'conduit/sprint/meid_type_detector'
 require 'street_address'
 require 'delegate'
 require 'forwardable'
@@ -25,16 +25,16 @@ module Conduit::Sprint::Decorators
       @parsed_address1 ||= StreetAddress::US.parse(address1, informal: true)
     end
 
-    def nid_type_detector
-      Conduit::Sprint::NidTypeDetector.new(nid) if nid
+    def meid_type_detector
+      Conduit::Sprint::MeidTypeDetector.new(meid) if meid
     end
 
-    def nid_hex?
-      nid_type_detector ? nid_type_detector.hex? : false
+    def meid_hex?
+      meid_type_detector ? meid_type_detector.hex? : false
     end
 
-    def nid_dec?
-      nid_type_detector ? nid_type_detector.dec? : false
+    def meid_dec?
+      meid_type_detector ? meid_type_detector.dec? : false
     end
   end
 end
