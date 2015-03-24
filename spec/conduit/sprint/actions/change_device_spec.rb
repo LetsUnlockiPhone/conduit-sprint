@@ -49,7 +49,6 @@ describe ChangeDevice do
     its(:response_status)   { should eq 'success' }
     its(:nid)               { should eq nid }
     its(:mdn)               { should eq mdn }
-    its(:iccid)             { should eq nil }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should_not eq be_empty }
   end
@@ -64,7 +63,6 @@ describe ChangeDevice do
     its(:response_status)   { should eq 'success' }
     its(:nid)               { should eq nid }
     its(:mdn)               { should eq mdn }
-    its(:iccid)             { should eq iccid }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should_not eq be_empty }
   end

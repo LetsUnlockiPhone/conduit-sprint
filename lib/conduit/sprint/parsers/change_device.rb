@@ -9,11 +9,6 @@ module Conduit::Driver::Sprint
       content_for '//serialNumber'
     end
 
-    attribute :iccid do
-      # Sprint does not pass back the iccid, let take it from the request options
-      @options[:iccid]
-    end
-
     attribute :msl do
       content_for '//masterSubsidyLock'
     end
