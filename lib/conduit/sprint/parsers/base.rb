@@ -32,8 +32,18 @@ module Conduit::Driver::Sprint
         node.content if node
       end
 
+      def in_progress?
+        false
+      end
+
       def response_status
-        response_errors.any? ? 'failure' : 'success'
+        if response_errors.any?
+          'failure'
+        elsif in_progress?
+          'submitted'
+        else
+          'success'
+        end
       end
 
       def response_errors

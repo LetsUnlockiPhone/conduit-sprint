@@ -56,6 +56,10 @@ module Conduit::Driver::Sprint
 
     private
 
+    def in_progress?
+      true
+    end
+
     def service_record_attributes(service_record = {})
       {}.tap do |service_record_details|
         service_record_details[:service_code]        = content_for('serviceCode', service_record)
