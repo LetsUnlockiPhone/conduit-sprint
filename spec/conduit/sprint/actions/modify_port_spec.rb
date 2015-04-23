@@ -31,10 +31,10 @@ describe ModifyPort do
     end
   end
 
-  context 'a successful cancel port response is returned' do
+  context 'a submitted modify port response is returned' do
     subject                 { modify_port.perform }
     it                      { should be_an_instance_of ModifyPort::Parser }
-    its(:response_status)   { should eq 'success' }
+    its(:response_status)   { should eq 'submitted' }
     its(:response_errors)   { should be_empty }
   end
 end
