@@ -22,3 +22,7 @@ spec/dummy/vendor/bundle/*
 spec/dummy/coverage
 
 !spec/dummy/config/database.yml
+
+.floo
+
+.flooignore
