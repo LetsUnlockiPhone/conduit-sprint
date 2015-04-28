@@ -35,7 +35,7 @@
 <sub:serialNumber><%= nid %></sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
-<% unless iccid.nil? %>
+<% if !iccid.nil? && !iccid.empty? %>
 <sub:deviceInfo>
 <sub:serialNumber><%= iccid %></sub:serialNumber>
 <sub:serialType>U</sub:serialType>
