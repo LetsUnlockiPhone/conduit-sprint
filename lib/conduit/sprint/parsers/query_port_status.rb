@@ -2,7 +2,7 @@ require 'conduit/sprint/parsers/base'
 
 module Conduit::Driver::Sprint
   class QueryPortStatus::Parser < Parser::Base
-    attr_accessor :status, :description, :message_code
+    attr_accessor :status, :description, :message_code, :port_id
 
     attribute :status do
       @status
@@ -14,6 +14,10 @@ module Conduit::Driver::Sprint
 
     attribute :message_code do
       @message_code
+    end
+
+    attribute :port_id do
+      @port_id
     end
 
     def initialize(xml)
@@ -28,6 +32,7 @@ module Conduit::Driver::Sprint
       port_messages.each do |port_message|
         message_type_code = content_for('messageTypeCode', port_message)
 
+        @port_id              = content_for('portId', port_message)
         if message_type_code == 'PTS'     # PTS = Port In Status
           action_code = content_for('actionCode', port_message)
 
