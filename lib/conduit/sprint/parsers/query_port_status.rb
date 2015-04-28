@@ -30,9 +30,10 @@ module Conduit::Driver::Sprint
     def set_response_attributes
       port_messages = root.xpath('//wholesalePortMessageTypeInfo')
       port_messages.each do |port_message|
-        message_type_code = content_for('messageTypeCode', port_message)
-
         @port_id              = content_for('portId', port_message)
+        carrier_message_code  = content_for('messageCode', port_message)
+        message_type_code     = content_for('messageTypeCode', port_message)
+        
         if message_type_code == 'PTS'     # PTS = Port In Status
           action_code = content_for('actionCode', port_message)
 
@@ -63,6 +64,10 @@ module Conduit::Driver::Sprint
           @status = 'CANCELLED'
           @description = content_for('messageCode', port_message)
           @message_code = content_for('messageTypeCode', port_message)
+          break
+        elsif carrier_message_code == 'SUP3' # modify_port
+          @status = 'CONFIRMATION'
+          @description = 'Modify Port Submitted'
           break
         end
       end
