@@ -27,6 +27,10 @@ module Conduit::Driver::Sprint
       content_for '//masterSubsidyLock'
     end
 
+    attribute :port_id do
+      content_for '//portId'
+    end
+
     attribute :port_result do
       root.xpath('//portResult').inject({}) do |hash, attribute|
         {}.tap do |port_result|
