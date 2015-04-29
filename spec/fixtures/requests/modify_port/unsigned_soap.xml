@@ -16,5 +16,24 @@ xmlns:sub="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope
 </v2:wsMessageHeader>
 </soapenv:Header>
 <soapenv:Body>
-<sub:modifyPortIn><sub:mdn>5555555555</sub:mdn><sub:zip><sub:uspsPostalCd>new zip</sub:uspsPostalCd></sub:zip><sub:timeZone>CST</sub:timeZone><sub:remark>remark</sub:remark><sub:billFirstName>new first</sub:billFirstName><sub:billLastName>new last</sub:billLastName><sub:billStreetNumber>123</sub:billStreetNumber><sub:billStreetName>Test St</sub:billStreetName><sub:billCityName>city</sub:billCityName><sub:billStateCode>state</sub:billStateCode><sub:ssn>999999999</sub:ssn><sub:accountNumber>999</sub:accountNumber><sub:passwordPin>password</sub:passwordPin><sub:billStreetDirectionIndicator>W</sub:billStreetDirectionIndicator></sub:modifyPortIn></soapenv:Body>
+<sub:modifyPortIn>
+<sub:mdn>5555555555</sub:mdn>
+<sub:timeZone>CST</sub:timeZone>
+<sub:billFirstName>new first</sub:billFirstName>
+<sub:billLastName>new last</sub:billLastName>
+<sub:businessName></sub:businessName>
+<sub:billStreetNumber>123</sub:billStreetNumber>
+<sub:billStreetName>Test St</sub:billStreetName>
+<sub:billStreetDirectionIndicator>W</sub:billStreetDirectionIndicator>
+<sub:billCityName>city</sub:billCityName>
+<sub:billStateCode>state</sub:billStateCode>
+<sub:zip>
+<sub:uspsPostalCd>new zip</sub:uspsPostalCd>
+</sub:zip>
+<sub:ssn>999999999</sub:ssn>
+<sub:accountNumber>999</sub:accountNumber>
+<sub:passwordPin>password</sub:passwordPin>
+<sub:remark>remark</sub:remark>
+</sub:modifyPortIn>
+</soapenv:Body>
 </soapenv:Envelope>
