@@ -1,34 +1,53 @@
 <sub:modifyPortIn>
+<% if !external_port_number.nil? && external_port_number %>
+<sub:portId><%= mdn %></sub:portId>
+<% elsif !mdn.nil? && !mdn.empty? %>
 <sub:mdn><%= mdn %></sub:mdn>
-<% if external_port_number %>
-<sub:portId><%= external_port_number %></sub:portId>
 <% end %>
-<% if desired_due_date_time %>
+<% if !desired_due_date_time.nil? && !desired_due_date_time.empty? %>
 <sub:desiredDueDateTime><%= desired_due_date_time %></sub:desiredDueDateTime>
 <% end %>
 <sub:timeZone>CST</sub:timeZone>
+<% if !first_name.nil? && !first_name.empty? %>
 <sub:billFirstName><%= first_name %></sub:billFirstName>
+<% end %>
+<% if !last_name.nil? && !last_name.empty? %>
 <sub:billLastName><%= last_name %></sub:billLastName>
+<% end %>
+<% if !business_name.nil? && !business_name.empty? %>
 <sub:businessName><%= business_name %></sub:businessName>
+<% end %>
+<% if !street_number.nil? && !street_number.empty? %>
 <sub:billStreetNumber><%= street_number %></sub:billStreetNumber>
+<% end %>
+<% if !street_name.nil? && !street_name.empty? %>
 <sub:billStreetName><%= street_name %></sub:billStreetName>
+<% end %>
+<% if !street_direction.nil? && !street_direction.empty? %>
 <sub:billStreetDirectionIndicator><%= street_direction %></sub:billStreetDirectionIndicator>
-<% if city %>
+<% end %>
+<% if !city.nil? && !city.empty? %>
 <sub:billCityName><%= city %></sub:billCityName>
 <% end %>
-<% if state %>
+<% if !state.nil? && !state.empty? %>
 <sub:billStateCode><%= state %></sub:billStateCode>
 <% end %>
+<% if !zip.nil? && !zip.empty? %>
 <sub:zip>
 <sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
 </sub:zip>
-<% if ssn %>
+<% end %>
+<% if !ssn.nil? && !ssn.empty? %>
 <sub:ssn><%= ssn %></sub:ssn>
 <% end %>
-<% if tax_id %>
+<% if !tax_id.nil? && !tax_id.empty? %>
 <sub:taxId><%= tax_id %></sub:taxId>
 <% end %>
+<% if !carrier_account.nil? && !carrier_account.empty? %>
 <sub:accountNumber><%= carrier_account %></sub:accountNumber>
+<% end %>
+<% if !carrier_password.nil? && !carrier_password.empty? %>
 <sub:passwordPin><%= carrier_password %></sub:passwordPin>
-<sub:remark><%= remark %></sub:remark>
+<% end %>
+<sub:remark><%= modify_port_remark %></sub:remark>
 </sub:modifyPortIn>
