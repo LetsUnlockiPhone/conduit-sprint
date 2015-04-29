@@ -1,6 +1,6 @@
 <sub:modifyPortIn>
 <% if !external_port_number.nil? && external_port_number %>
-<sub:portId><%= mdn %></sub:portId>
+<sub:portId><%= external_port_number %></sub:portId>
 <% elsif !mdn.nil? && !mdn.empty? %>
 <sub:mdn><%= mdn %></sub:mdn>
 <% end %>
