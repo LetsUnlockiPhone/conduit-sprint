@@ -1,34 +1,53 @@
 <sub:modifyPortIn>
-<sub:mdn><%= mdn %></sub:mdn>
-<% if external_port_number %>
+<% if !external_port_number.blank? %>
 <sub:portId><%= external_port_number %></sub:portId>
+<% elsif !mdn.blank? %>
+<sub:mdn><%= mdn %></sub:mdn>
 <% end %>
-<% if desired_due_date_time %>
+<% if !desired_due_date_time.blank? %>
 <sub:desiredDueDateTime><%= desired_due_date_time %></sub:desiredDueDateTime>
 <% end %>
 <sub:timeZone>CST</sub:timeZone>
+<% if !first_name.blank? %>
 <sub:billFirstName><%= first_name %></sub:billFirstName>
+<% end %>
+<% if !last_name.blank? %>
 <sub:billLastName><%= last_name %></sub:billLastName>
+<% end %>
+<% if !business_name.blank? %>
 <sub:businessName><%= business_name %></sub:businessName>
+<% end %>
+<% if !street_number.blank? %>
 <sub:billStreetNumber><%= street_number %></sub:billStreetNumber>
+<% end %>
+<% if !street_name.blank? %>
 <sub:billStreetName><%= street_name %></sub:billStreetName>
+<% end %>
+<% if !street_direction.blank? %>
 <sub:billStreetDirectionIndicator><%= street_direction %></sub:billStreetDirectionIndicator>
-<% if city %>
+<% end %>
+<% if !city.blank? %>
 <sub:billCityName><%= city %></sub:billCityName>
 <% end %>
-<% if state %>
+<% if !state.blank? %>
 <sub:billStateCode><%= state %></sub:billStateCode>
 <% end %>
+<% if !zip.blank? %>
 <sub:zip>
 <sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
 </sub:zip>
-<% if ssn %>
+<% end %>
+<% if !ssn.blank? %>
 <sub:ssn><%= ssn %></sub:ssn>
 <% end %>
-<% if tax_id %>
+<% if !tax_id.blank? %>
 <sub:taxId><%= tax_id %></sub:taxId>
 <% end %>
+<% if !carrier_account.blank? %>
 <sub:accountNumber><%= carrier_account %></sub:accountNumber>
+<% end %>
+<% if !carrier_password.blank? %>
 <sub:passwordPin><%= carrier_password %></sub:passwordPin>
-<sub:remark><%= remark %></sub:remark>
+<% end %>
+<sub:remark><%= modify_port_remark %></sub:remark>
 </sub:modifyPortIn>

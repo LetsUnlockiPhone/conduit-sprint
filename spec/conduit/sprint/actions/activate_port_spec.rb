@@ -49,6 +49,7 @@ describe ActivatePort do
         :imsi           => nil,
         :msl            => "311063",
         :plan_code      =>"TESTPLAN",
+        :port_id        => "44461996",
         :port_result    =>
         {
           :mdn                                    => "5555555555",

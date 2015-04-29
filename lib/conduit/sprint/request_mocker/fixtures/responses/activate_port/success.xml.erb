@@ -27,7 +27,7 @@
             <whol1:serialNumber><%= nid %></whol1:serialNumber>
             <whol1:serialType>E</whol1:serialType>
           </whol1:deviceInfo>
-          <% unless iccid.nil? %>
+          <% if !iccid.nil? && !iccid.empty? %>
           <whol1:deviceInfo>
             <whol1:serialNumber><%= iccid %></whol1:serialNumber>
             <whol1:serialType>U</whol1:serialType>

@@ -32,7 +32,8 @@ describe QueryPortStatus do
       {
         :description  => nil,
         :message_code => nil,
-        :status       => "COMPlETED",
+        :port_id      => "44461996",
+        :status       => "COMPLETED",
       }
     end
 
