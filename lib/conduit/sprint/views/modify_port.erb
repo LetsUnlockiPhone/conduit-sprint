@@ -1,52 +1,52 @@
 <sub:modifyPortIn>
-<% if !external_port_number.nil? && external_port_number %>
+<% if !external_port_number.blank? %>
 <sub:portId><%= external_port_number %></sub:portId>
-<% elsif !mdn.nil? && !mdn.empty? %>
+<% elsif !mdn.blank? %>
 <sub:mdn><%= mdn %></sub:mdn>
 <% end %>
-<% if !desired_due_date_time.nil? && !desired_due_date_time.empty? %>
+<% if !desired_due_date_time.blank? %>
 <sub:desiredDueDateTime><%= desired_due_date_time %></sub:desiredDueDateTime>
 <% end %>
 <sub:timeZone>CST</sub:timeZone>
-<% if !first_name.nil? && !first_name.empty? %>
+<% if !first_name.blank? %>
 <sub:billFirstName><%= first_name %></sub:billFirstName>
 <% end %>
-<% if !last_name.nil? && !last_name.empty? %>
+<% if !last_name.blank? %>
 <sub:billLastName><%= last_name %></sub:billLastName>
 <% end %>
-<% if !business_name.nil? && !business_name.empty? %>
+<% if !business_name.blank? %>
 <sub:businessName><%= business_name %></sub:businessName>
 <% end %>
-<% if !street_number.nil? && !street_number.empty? %>
+<% if !street_number.blank? %>
 <sub:billStreetNumber><%= street_number %></sub:billStreetNumber>
 <% end %>
-<% if !street_name.nil? && !street_name.empty? %>
+<% if !street_name.blank? %>
 <sub:billStreetName><%= street_name %></sub:billStreetName>
 <% end %>
-<% if !street_direction.nil? && !street_direction.empty? %>
+<% if !street_direction.blank? %>
 <sub:billStreetDirectionIndicator><%= street_direction %></sub:billStreetDirectionIndicator>
 <% end %>
-<% if !city.nil? && !city.empty? %>
+<% if !city.blank? %>
 <sub:billCityName><%= city %></sub:billCityName>
 <% end %>
-<% if !state.nil? && !state.empty? %>
+<% if !state.blank? %>
 <sub:billStateCode><%= state %></sub:billStateCode>
 <% end %>
-<% if !zip.nil? && !zip.empty? %>
+<% if !zip.blank? %>
 <sub:zip>
 <sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
 </sub:zip>
 <% end %>
-<% if !ssn.nil? && !ssn.empty? %>
+<% if !ssn.blank? %>
 <sub:ssn><%= ssn %></sub:ssn>
 <% end %>
-<% if !tax_id.nil? && !tax_id.empty? %>
+<% if !tax_id.blank? %>
 <sub:taxId><%= tax_id %></sub:taxId>
 <% end %>
-<% if !carrier_account.nil? && !carrier_account.empty? %>
+<% if !carrier_account.blank? %>
 <sub:accountNumber><%= carrier_account %></sub:accountNumber>
 <% end %>
-<% if !carrier_password.nil? && !carrier_password.empty? %>
+<% if !carrier_password.blank? %>
 <sub:passwordPin><%= carrier_password %></sub:passwordPin>
 <% end %>
 <sub:remark><%= modify_port_remark %></sub:remark>
