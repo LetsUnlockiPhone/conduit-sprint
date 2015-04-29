@@ -38,7 +38,7 @@ module Conduit::Driver::Sprint
           action_code = content_for('actionCode', port_message)
 
           if action_code == 'ACT'
-            @status = 'COMPlETED'
+            @status = 'COMPLETED'
             break
           end
         elsif message_type_code == 'PIR'  # PIR = Port In Response
