@@ -38,13 +38,12 @@ describe ActivatePort do
                     carrier_account: '999999', plan_code: 'TESTPLAN')
     end
 
-
     let(:unsigned_soap) do
       File.read('./spec/fixtures/requests/activate_port/unsigned_no_street_type_soap.xml')
     end
 
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap.strip }     
+    it      { should eq unsigned_soap.strip }
   end
 
   context 'when no authorized by is given' do
@@ -60,7 +59,7 @@ describe ActivatePort do
     end
 
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap.strip }    
+    it      { should eq unsigned_soap.strip }
   end
 
   context 'when no first name and last name given' do
@@ -201,5 +200,5 @@ describe ActivatePort do
     it                      { should be_an_instance_of ActivatePort::Parser }
     its(:response_status)   { should eq 'failure'}
     its(:response_errors)   { should eq response_errors }
-  end  
+  end
 end
