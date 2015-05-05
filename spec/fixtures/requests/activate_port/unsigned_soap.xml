@@ -18,7 +18,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 <soapenv:Body>
 <sub:wholesaleActivateSubscriptionWithPortInV4>
 <sub:portInfo>
-<sub:authorizedBy>test tester</sub:authorizedBy>
+<sub:authorizedBy>customer</sub:authorizedBy>
 <sub:nameInfo>
 <sub:individualNameInfo>
 <sub:billFirstName>test</sub:billFirstName>

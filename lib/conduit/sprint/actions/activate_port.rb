@@ -8,7 +8,7 @@ module Conduit::Driver::Sprint
     required_attributes :nid, :mdn, :city, :state, :zip, :carrier_account, :plan_code
     optional_attributes :address1, :first_name, :last_name, :business_name,
                         :ssn, :tax_id, :carrier_password, :csa, :service_codes,
-                        :iccid
+                        :iccid, :authorized_by
 
     def initialize(options = {})
       super

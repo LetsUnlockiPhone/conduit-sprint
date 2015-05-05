@@ -3,10 +3,11 @@ require 'spec_helper'
 describe ActivatePort do
   let(:port_attributes) do
     credentials.merge(nid: '12345678901', first_name: 'test', last_name: 'tester', mdn: '5555555555',
-                  service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
+                  service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'], authorized_by: 'customer',
                   city: 'city', state: 'state', zip: '99999', address1: '123 Test St', csa: 'MIAWPB561',
                   carrier_account: '999999', plan_code: 'TESTPLAN')
   end
+
   let(:activate_port) do
     ActivatePort.new port_attributes
   end
@@ -27,6 +28,22 @@ describe ActivatePort do
   describe 'signed_soap_xml' do
     subject { activate_port.signed_soap_xml }
     it      { should eq signed_soap }
+  end
+
+  context 'when no first name and last name given' do
+    let(:port_attributes) do
+      credentials.merge(nid: '12345678901', mdn: '5555555555',
+                    service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
+                    city: 'city', state: 'state', zip: '99999', address1: '123 Test St', csa: 'MIAWPB561',
+                    carrier_account: '999999', plan_code: 'TESTPLAN')
+    end
+
+    let(:unsigned_soap) do
+      File.read('./spec/fixtures/requests/activate_port/unsigned_no_first_last_name_soap.xml')
+    end
+
+    subject { activate_port.soap_xml }
+    it      { should eq unsigned_soap.strip }
   end
 
   it_should_behave_like 'a 500 error' do
