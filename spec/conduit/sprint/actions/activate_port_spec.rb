@@ -30,6 +30,23 @@ describe ActivatePort do
     it      { should eq signed_soap }
   end
 
+  context 'when no street type is given' do
+    let(:port_attributes) do
+      credentials.merge(nid: '12345678901', mdn: '5555555555', first_name: 'test', last_name: 'tester',
+                    service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
+                    city: 'city', state: 'state', zip: '99999', address1: '123 Test', csa: 'MIAWPB561',
+                    carrier_account: '999999', plan_code: 'TESTPLAN')
+    end
+
+
+    let(:unsigned_soap) do
+      File.read('./spec/fixtures/requests/activate_port/unsigned_no_street_type_soap.xml')
+    end
+
+    subject { activate_port.soap_xml }
+    it      { should eq unsigned_soap.strip }     
+  end
+
   context 'when no authorized by is given' do
     let(:port_attributes) do
       credentials.merge(nid: '12345678901', mdn: '5555555555', first_name: 'test', last_name: 'tester',
