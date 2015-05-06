@@ -8,15 +8,19 @@ module Conduit::Sprint::Decorators
     extend Forwardable
 
     def street_direction
-      parsed_address1.prefix if parsed_address1
+      parsed_address1.prefix if !parsed_address1.blank?
     end
 
     def street_number
-      parsed_address1.number if parsed_address1
+      parsed_address1.number if !parsed_address1.blank?
     end
 
     def street_name
-      (parsed_address1.street + ' ' + parsed_address1.street_type).strip if parsed_address1
+      return if parsed_address1.blank?
+
+      street      = !parsed_address1.street.blank? ? parsed_address1.street : ''
+      street_type = !parsed_address1.street_type.blank? ? parsed_address1.street_type : ''
+      (street + ' ' + street_type).strip
     end
 
     private

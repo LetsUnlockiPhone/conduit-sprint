@@ -18,7 +18,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 <soapenv:Body>
 <sub:wholesaleActivateSubscriptionWithPortInV4>
 <sub:portInfo>
-<sub:authorizedBy>customer</sub:authorizedBy>
+<sub:authorizedBy>test tester</sub:authorizedBy>
 <sub:nameInfo>
 <sub:individualNameInfo>
 <sub:billFirstName>test</sub:billFirstName>
@@ -44,7 +44,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
 </sub:deviceInfoList>
-<sub:csa>DALIRV214</sub:csa>
+<sub:csa>MIAWPB561</sub:csa>
 <sub:pricePlan>
 <sub:serviceCode>TESTPLAN</sub:serviceCode>
 </sub:pricePlan>
@@ -64,3 +64,4 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 </sub:wholesaleActivateSubscriptionWithPortInV4>
 </soapenv:Body>
 </soapenv:Envelope>
+
