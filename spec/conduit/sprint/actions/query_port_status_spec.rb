@@ -30,9 +30,9 @@ describe QueryPortStatus do
   context 'a successful port query response is returned' do
     let(:serializable_hash) do
       {
-        :description  => nil,
+        :message      => nil,
         :message_code => nil,
-        :port_id      => "44461996",
+        :port_number  => "44461996",
         :status       => "COMPLETED",
       }
     end

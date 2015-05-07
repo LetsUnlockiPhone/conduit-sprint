@@ -2,22 +2,22 @@ require 'conduit/sprint/parsers/base'
 
 module Conduit::Driver::Sprint
   class QueryPortStatus::Parser < Parser::Base
-    attr_accessor :status, :description, :message_code, :port_id
+    attr_accessor :status, :message, :message_code, :port_number
 
     attribute :status do
       @status
     end
 
-    attribute :description do
-      @description
+    attribute :message do
+      @message
     end
 
     attribute :message_code do
       @message_code
     end
 
-    attribute :port_id do
-      @port_id
+    attribute :port_number do
+      @port_number
     end
 
     def initialize(xml)
@@ -30,47 +30,74 @@ module Conduit::Driver::Sprint
     def set_response_attributes
       port_messages = root.xpath('//wholesalePortMessageTypeInfo')
       port_messages.each do |port_message|
-        @port_id              = content_for('portId', port_message)
+        @port_number          = content_for('portId', port_message)
         carrier_message_code  = content_for('messageCode', port_message)
         message_type_code     = content_for('messageTypeCode', port_message)
         
         if message_type_code == 'PTS'     # PTS = Port In Status
-          action_code = content_for('actionCode', port_message)
-
-          if action_code == 'ACT'
-            @status = 'COMPLETED'
-            break
-          end
+          handle_port_in_status(port_message)
+          break
         elsif message_type_code == 'PIR'  # PIR = Port In Response
-          response_type = content_for('responseType', port_message)
-
-          if response_type == 'D'
-            delay_code = content_for('delayCode', port_message)
-
-            @status = 'DELAY'
-            @description = delay_reasons[delay_code]
-          elsif response_type == 'R'
-            @status = 'RESOLUTION REQUIRED'
-            @description = content_for('reasonCode', port_message)
-            @message_code = content_for('reasonText', port_message)
-          elsif response_type == 'C'
-            port_request_number = content_for('portRequestNumber', port_message)
-
-            @status = 'CONFIRMATION'
-            @description = "Port request number #{port_request_number}"
-          end
+          handle_port_in_response(port_message)
           break
         elsif message_type_code == 'PTC'
-          @status = 'CANCELLED'
-          @description = content_for('messageCode', port_message)
-          @message_code = content_for('messageTypeCode', port_message)
+          handle_cancelled(port_message)
           break
         elsif carrier_message_code == 'SUP3' # modify_port
-          @status = 'CONFIRMATION'
-          @description = 'Modify Port Submitted'
+          handle_modify(port_message)
           break
         end
       end
+    end
+
+    def handle_port_in_status(port_message)
+      action_code = content_for('actionCode', port_message)
+      if action_code == 'ACT'
+        @status = 'COMPLETED'
+      end
+    end
+
+    def handle_port_in_response(port_message)
+      response_type = content_for('responseType', port_message)
+
+      if response_type == 'D'
+        handle_delay(port_message)
+      elsif response_type == 'R'
+        handle_resolution_required(port_message)
+      elsif response_type == 'C'
+        handle_confirmation(port_message)
+      end
+    end
+
+    def handle_delay(port_message)
+      delay_code = content_for('delayCode', port_message)
+
+      @status = 'DELAY'
+      @message = delay_reasons[delay_code]
+    end
+
+    def handle_resolution_required(port_message)
+      @status = 'RESOLUTION REQUIRED'
+      @message = content_for('reasonText', port_message)
+      @message_code = content_for('reasonCode', port_message)
+    end
+
+    def handle_confirmation(port_message)
+      port_request_number = content_for('portRequestNumber', port_message)
+
+      @status = 'CONFIRMATION'
+      @message = "Port request number #{port_request_number}"
+    end
+
+    def handle_cancelled(port_message)
+      @status = 'CANCELLED'
+      @message = content_for('messageCode', port_message)
+      @message_code = content_for('messageTypeCode', port_message)
+    end
+
+    def handle_modify(port_message)
+      @status = 'CONFIRMATION'
+      @message = 'Modify Port Submitted'
     end
 
     def delay_reasons

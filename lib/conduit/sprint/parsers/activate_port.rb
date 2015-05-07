@@ -27,10 +27,6 @@ module Conduit::Driver::Sprint
       content_for '//masterSubsidyLock'
     end
 
-    attribute :port_id do
-      content_for '//portId'
-    end
-
     attribute :port_result do
       root.xpath('//portResult').inject({}) do |hash, attribute|
         {}.tap do |port_result|
@@ -39,7 +35,7 @@ module Conduit::Driver::Sprint
           port_result[:ppv_status_text]                        = content_for('ppvStatusText', attribute)
           port_result[:port_in_status]                         = content_for('portInStatus', attribute)        
           port_result[:port_in_status_text]                    = content_for('portInStatusText', attribute)
-          port_result[:external_port_number]                   = content_for('portId', attribute)
+          port_result[:port_number]                            = content_for('portId', attribute)
           port_result[:old_service_provider]                   = content_for('oldServiceProvider', attribute)
           port_result[:csa]                                    = content_for('portCsa', attribute)
           port_result[:desired_due_date_time]                  = content_for('desiredDueDateTime', attribute)
