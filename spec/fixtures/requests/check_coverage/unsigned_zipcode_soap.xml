@@ -22,5 +22,6 @@ xmlns:sub="http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope
 <sub:uspsPostalCd>33415</sub:uspsPostalCd>
 <sub:uspsPostalCdExtension>5555</sub:uspsPostalCdExtension>
 </sub:zip>
-</sub:queryCsa></soapenv:Body>
+</sub:queryCsa>
+</soapenv:Body>
 </soapenv:Envelope>

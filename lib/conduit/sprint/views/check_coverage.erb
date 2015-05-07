@@ -1,9 +1,9 @@
 <sub:queryCsa>
-<% if !!zip %>
+<% if !zip.blank? %>
 <sub:geoCode>Zip</sub:geoCode>
 <sub:zip>
 <sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
-<% if !!zip4 %>
+<% if !zip4.blank? %>
 <sub:uspsPostalCdExtension><%= zip4 %></sub:uspsPostalCdExtension>
 <% end %>
 </sub:zip>
