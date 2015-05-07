@@ -6,7 +6,7 @@ describe CheckCoverage do
   end
 
   let(:check_coverage_city_state) do
-    CheckCoverage.new(credentials.merge(city: 'Palm Beach', state: 'FL'))
+    CheckCoverage.new(credentials.merge(city: 'Palm Beach', state: 'FL', zip: ''))
   end
 
   let(:unsigned_zipcode_soap) do
@@ -23,7 +23,7 @@ describe CheckCoverage do
 
   describe 'soap_xml_zip' do
     subject { check_coverage_zip.soap_xml }
-    it      { should eq unsigned_zipcode_soap }
+    it      { should eq unsigned_zipcode_soap.strip }
   end
 
   describe 'signed_soap_xml_zip' do
