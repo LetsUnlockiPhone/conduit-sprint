@@ -35,21 +35,10 @@ module Conduit::Driver::Sprint
         message_type_code     = content_for('messageTypeCode', port_message)
         
         if message_type_code == 'PTS'     # PTS = Port In Status
-          action_code = content_for('actionCode', port_message)
-          if action_code == 'ACT'
-            handle_completed(port_message)
-          end
+          handle_port_in_status(port_message)
           break
         elsif message_type_code == 'PIR'  # PIR = Port In Response
-          response_type = content_for('responseType', port_message)
-
-          if response_type == 'D'
-            handle_delay(port_message)
-          elsif response_type == 'R'
-            handle_resolution_required(port_message)
-          elsif response_type == 'C'
-            handle_confirmation(port_message)
-          end
+          handle_port_in_response(port_message)
           break
         elsif message_type_code == 'PTC'
           handle_cancelled(port_message)
@@ -61,8 +50,23 @@ module Conduit::Driver::Sprint
       end
     end
 
-    def handle_completed(port_message)
-      @status = 'COMPLETED'
+    def handle_port_in_status(port_message)
+      action_code = content_for('actionCode', port_message)
+      if action_code == 'ACT'
+        @status = 'COMPLETED'
+      end
+    end
+
+    def handle_port_in_response(port_message)
+      response_type = content_for('responseType', port_message)
+
+      if response_type == 'D'
+        handle_delay(port_message)
+      elsif response_type == 'R'
+        handle_resolution_required(port_message)
+      elsif response_type == 'C'
+        handle_confirmation(port_message)
+      end
     end
 
     def handle_delay(port_message)
