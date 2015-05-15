@@ -43,26 +43,35 @@ describe CheckCoverage do
   end
 
   context 'a successful zip code query csa response is returned' do
-    let(:serializable_hash) do 
+    let(:serializable_hash) do
       {
-        :zip                    => '33415',
-        :zip4                   => '5555',
-        :city                   => nil,
-        :state                  => nil,
-        :longitude              => '-80.1257',
-        :latitude               => '26.66',
-        :confidence             => 'Z1',
-        :csa                    => 'MIAWPB561',
-        :is3g                   => 'true',
-        :evdo                   => 'true',
-        :iden                   => 'false',
-        :hybrid                 => 'false',
-        :coverage_quality_cdma  => 'Best Coverage',
-        :coverage_quality_iden  => 'No Coverage',
-        :roam_digital           => 'true',
-        :npa                    => '561',
-        :nxx                    => '242',
-        :affiliate_name         => 'Sprint PCS',
+        :zip                           => '33415',
+        :zip4                          => '5555',
+        :city                          => nil,
+        :state                         => nil,
+        :longitude                     => '-80.1342',
+        :latitude                      => '26.653',
+        :confidence                    => 'Z3',
+        :csa                           => 'MIAWPB561',
+        :cdma_ind                      => 'true',
+        :wi_max_ind                    => 'true',
+        :lte_ind                       => 'true',
+        :evdo_ind                      => 'true',
+        :iden_ind                      => 'false',
+        :hpptt_ind                     => 'true',
+        :airave_consumer_ind           => 'true',
+        :airave_enterprise_ind         => 'true',
+        :hybrid_ind                    => 'false',
+        :coverage_quality_cdma         => 'Best Coverage',
+        :coverage_quality_iden         => 'No Coverage',
+        :coverage_quality_lte          => 'in building',
+        :coverage_quality_wi_max       => 'on street',
+        :roam_digital_ind              => 'true',
+        :upcoming_coverage_cdma_ind    => 'false',
+        :upcoming_coverage_iden_ind    => 'false',
+        :npa                           => '561',
+        :nxx                           => '357',
+        :affiliate_name                => 'Sprint PCS'
       }
     end
 
@@ -74,26 +83,35 @@ describe CheckCoverage do
   end
 
   context 'a successful city state query csa response is returned' do
-    let(:serializable_hash) do 
+    let(:serializable_hash) do
       {
-        :zip                    => nil,
-        :zip4                   => nil,
-        :city                   => 'Palm Beach',
-        :state                  => 'FL',
-        :longitude              => '-80.036669',
-        :latitude               => '26.705279',
-        :confidence             => 'G3',
-        :csa                    => 'MIAWPB561',
-        :is3g                   => 'true',
-        :evdo                   => 'true',
-        :iden                   => 'false',
-        :hybrid                 => 'false',
-        :coverage_quality_cdma  => 'Good Coverage',
-        :coverage_quality_iden  => 'No Coverage',
-        :roam_digital           => 'true',
-        :npa                    => '561',
-        :nxx                    => '206',
-        :affiliate_name         => 'Sprint PCS'
+        :zip                           => nil,
+        :zip4                          => nil,
+        :city                          => 'Palm Beach',
+        :state                         => 'FL',
+        :longitude                     => '-80.1342',
+        :latitude                      => '26.653',
+        :confidence                    => 'Z3',
+        :csa                           => 'MIAWPB561',
+        :cdma_ind                      => 'true',
+        :wi_max_ind                    => 'true',
+        :lte_ind                       => 'true',
+        :evdo_ind                      => 'true',
+        :iden_ind                      => 'false',
+        :hpptt_ind                     => 'true',
+        :airave_consumer_ind           => 'true',
+        :airave_enterprise_ind         => 'true',
+        :hybrid_ind                    => 'false',
+        :coverage_quality_cdma         => 'Best Coverage',
+        :coverage_quality_iden         => 'No Coverage',
+        :coverage_quality_lte          => 'in building',
+        :coverage_quality_wi_max       => 'on street',
+        :roam_digital_ind              => 'true',
+        :upcoming_coverage_cdma_ind    => 'false',
+        :upcoming_coverage_iden_ind    => 'false',
+        :npa                           => '561',
+        :nxx                           => '357',
+        :affiliate_name                => 'Sprint PCS'
       }
     end
 
@@ -115,10 +133,10 @@ describe CheckCoverage do
         {:code=>"Server.704", :message=>"Application processing error"}
       ]
     end
-    
+
     subject                 { check_coverage_zip.perform }
     it                      { should be_an_instance_of CheckCoverage::Parser }
     its(:response_status)   { should eq 'failure'}
     its(:response_errors)   { should eq response_errors }
-  end  
+  end
 end

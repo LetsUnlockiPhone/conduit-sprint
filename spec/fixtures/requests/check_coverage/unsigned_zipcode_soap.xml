@@ -1,7 +1,7 @@
 <soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
-xmlns:sub="http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope.xsd">
+xmlns:sub="http://integration.sprint.com/interfaces/queryCsa/v2/queryCsaV2.xsd">
 <soapenv:Header>
 <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
 </wsse:Security>
@@ -16,12 +16,12 @@ xmlns:sub="http://integration.sprint.com/interfaces/QueryCsa/v1/QueryCsaEnvelope
 </v2:wsMessageHeader>
 </soapenv:Header>
 <soapenv:Body>
-<sub:queryCsa>
+<sub:queryCsaV2>
 <sub:geoCode>Zip</sub:geoCode>
 <sub:zip>
 <sub:uspsPostalCd>33415</sub:uspsPostalCd>
 <sub:uspsPostalCdExtension>5555</sub:uspsPostalCdExtension>
 </sub:zip>
-</sub:queryCsa>
+</sub:queryCsaV2>
 </soapenv:Body>
 </soapenv:Envelope>
