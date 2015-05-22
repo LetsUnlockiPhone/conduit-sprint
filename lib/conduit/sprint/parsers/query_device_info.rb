@@ -15,6 +15,13 @@ module Conduit::Driver::Sprint
       '4'  => 'Not in database',
       '5'  => 'Owner = SPCS',
       '6'  => 'Pre-paid, unprovisionable',
+      '7'  => 'In use with another MVNO',
+      '8'  => 'Lost in CLWR',
+      '9'  => 'Stolen in CLWR',
+      '10' => 'Broken in CLWR',
+      '11' => 'Blacklisted in CLWR',
+      '12' => 'Reported lost/stolen by another carrier',
+      '13' => 'Phone owner account ID mismatch Financial Eligiblity Date (FED) not met',
       '99' => 'Not available for activation'
     }
 
