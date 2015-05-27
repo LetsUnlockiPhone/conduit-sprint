@@ -67,7 +67,7 @@ module Conduit::Driver::Sprint
 
     attribute :uicc_availability_message do
       AVAILABLE_CODES[content_for '//uiccAvailabilityCode']
-    end    
+    end
 
     attribute :device_type do
       content_for '//deviceType'
