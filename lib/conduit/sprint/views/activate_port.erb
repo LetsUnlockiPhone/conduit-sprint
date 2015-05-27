@@ -2,7 +2,7 @@
 <sub:portInfo>
 <sub:authorizedBy><%= port_authorized_by %></sub:authorizedBy>
 <sub:nameInfo>
-<% if business_name %>
+<% if !business_name.blank? %>
 <sub:businessName><%= business_name %></sub:businessName>
 <% else %>
 <sub:individualNameInfo>
@@ -19,10 +19,10 @@
 <sub:zip>
 <sub:uspsPostalCd><%= zip %></sub:uspsPostalCd>
 </sub:zip>
-<% if ssn %>
+<% if !ssn.blank? %>
 <sub:ssn><%= ssn %></sub:ssn>
 <% end %>
-<% if tax_id %>
+<% if !tax_id.blank? %>
 <sub:taxId><%= tax_id %></sub:taxId>
 <% end %>
 <sub:accountNumber><%= carrier_account %></sub:accountNumber>
@@ -35,7 +35,7 @@
 <sub:serialNumber><%= nid %></sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
-<% if !iccid.nil? && !iccid.empty? %>
+<% if !iccid.blank? %>
 <sub:deviceInfo>
 <sub:serialNumber><%= iccid %></sub:serialNumber>
 <sub:serialType>U</sub:serialType>

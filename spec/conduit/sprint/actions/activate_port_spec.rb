@@ -5,7 +5,7 @@ describe ActivatePort do
     credentials.merge(nid: '12345678901', first_name: 'test', last_name: 'tester', mdn: '5555555555',
                   service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'], authorized_by: 'customer',
                   city: 'city', state: 'state', zip: '99999', address1: '123 Test St', csa: 'MIAWPB561',
-                  carrier_account: '999999', plan_code: 'TESTPLAN')
+                  carrier_account: '999999', plan_code: 'TESTPLAN', ssn: '')
   end
 
   let(:activate_port) do
