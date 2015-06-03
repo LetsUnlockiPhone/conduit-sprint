@@ -1,28 +1,53 @@
 require 'spec_helper'
 
 describe QueryDeviceInfo do
+  let(:device_serial_number)     { '12345678901' }
   let(:creds) do
-    credentials.merge(device_serial_number: '12345678901')
+    credentials.merge(device_serial_number: device_serial_number)
   end
 
   let(:query_device) { QueryDeviceInfo.new(creds) }
 
-  let(:unsigned_soap) do
-    File.read('./spec/fixtures/requests/query_device_info/unsigned_soap.xml')
+  describe 'dec_query_device' do
+    let(:unsigned_soap) do
+      File.read('./spec/fixtures/requests/query_device_info/dec_unsigned_soap.xml')
+    end
+
+    let(:signed_soap) do
+      File.read('./spec/fixtures/requests/query_device_info/dec_signed_soap.xml')
+    end
+
+    describe 'soap_xml' do
+      subject { query_device.soap_xml }
+      it      { should eq unsigned_soap }
+    end
+
+    describe 'signed_soap_xml' do
+      subject { query_device.signed_soap_xml }
+      it      { should eq signed_soap }
+    end
   end
 
-  let(:signed_soap) do
-    File.read('./spec/fixtures/requests/query_device_info/signed_soap.xml')
-  end
+  describe 'hex_query_device' do
+    let(:device_serial_number) { '12345678' }
 
-  describe 'soap_xml' do
-    subject { query_device.soap_xml }
-    it      { should eq unsigned_soap }
-  end
+    let(:hex_unsigned_soap) do
+      File.read('./spec/fixtures/requests/query_device_info/hex_unsigned_soap.xml')
+    end
 
-  describe 'signed_soap_xml' do
-    subject { query_device.signed_soap_xml }
-    it      { should eq signed_soap }
+    let(:hex_signed_soap) do
+      File.read('./spec/fixtures/requests/query_device_info/hex_signed_soap.xml')
+    end
+
+    describe 'hex_soap_xml' do
+      subject { query_device.soap_xml }
+      it      { should eq hex_unsigned_soap }
+    end
+
+    describe 'hex_signed_soap_xml' do
+      subject { query_device.signed_soap_xml }
+      it      { should eq hex_signed_soap }
+    end
   end
 
   it_should_behave_like 'a 500 error' do
