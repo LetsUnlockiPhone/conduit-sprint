@@ -40,7 +40,7 @@ module Conduit::Driver::Sprint
         if response_errors.any?
           'failure'
         elsif in_progress?
-          'submitted'
+          'acknowledged'
         else
           'success'
         end

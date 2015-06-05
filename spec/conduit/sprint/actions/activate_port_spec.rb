@@ -127,7 +127,7 @@ describe ActivatePort do
 
     subject                 { activate_port.perform }
     it                      { should be_an_instance_of ActivatePort::Parser }
-    its(:response_status)   { should eq 'submitted' }
+    its(:response_status)   { should eq 'acknowledged' }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }
   end
