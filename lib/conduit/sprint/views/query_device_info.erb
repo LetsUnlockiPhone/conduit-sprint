@@ -1,7 +1,11 @@
 <sub:wholesaleValidateDeviceV2>
 <sub:deviceInfo>
 <sub:deviceDetailInfo>
+<% if meid_dec? %>
 <sub:esnMeidDec><%= device_serial_number %></sub:esnMeidDec>
+<% else %>
+<sub:esnMeidHex><%= device_serial_number %></sub:esnMeidHex>
+<% end %>
 </sub:deviceDetailInfo>
 <sub:deviceType>E</sub:deviceType>
 </sub:deviceInfo>
