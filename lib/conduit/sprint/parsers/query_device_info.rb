@@ -8,23 +8,6 @@ module Conduit::Driver::Sprint
       '1' => 'Available'
     }
 
-    NOT_AVAILABLE_CODES = {
-      '1'  => 'Stolen',
-      '2'  => 'In Use',
-      '3'  => 'Fraudulent',
-      '4'  => 'Not in database',
-      '5'  => 'Owner = SPCS',
-      '6'  => 'Pre-paid, unprovisionable',
-      '7'  => 'In use with another MVNO',
-      '8'  => 'Lost in CLWR',
-      '9'  => 'Stolen in CLWR',
-      '10' => 'Broken in CLWR',
-      '11' => 'Blacklisted in CLWR',
-      '12' => 'Reported lost/stolen by another carrier',
-      '13' => 'Phone owner account ID mismatch Financial Eligiblity Date (FED) not met',
-      '99' => 'Not available for activation'
-    }
-
     attribute :model_name do
       content_for '//modelName'
     end
@@ -85,16 +68,8 @@ module Conduit::Driver::Sprint
       content_for '//uiccNotAvailableReasonCode'
     end
 
-    attribute :uicc_not_available_reason_message do
-      NOT_AVAILABLE_CODES[content_for '//uiccNotAvailableReasonCode']
-    end
-
     attribute :not_available_reason_code do
       content_for '//notAvailableReasonCode'
-    end
-
-    attribute :not_available_reason_message do
-      NOT_AVAILABLE_CODES[content_for '//notAvailableReasonCode']
     end
 
     attribute :device_serial_number do
