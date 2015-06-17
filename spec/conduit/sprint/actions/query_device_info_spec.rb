@@ -71,12 +71,10 @@ describe QueryDeviceInfo do
        :model_number                      => "SPHL720TB1",
        :manufacturer_name                 => "SAMSUNG",
        :not_available_reason_code         => "0",
-       :not_available_reason_message      => nil,
        :uicc_availability_code            => "1",
        :uicc_availability_message         => "Available",
        :uicc_compatibility                => "Y",
        :uicc_not_available_reason_code    => "0",
-       :uicc_not_available_reason_message => nil,
        :uicc_type                         => "U",
        :validation_message                => "Device is valid and cleared for use",
       }
