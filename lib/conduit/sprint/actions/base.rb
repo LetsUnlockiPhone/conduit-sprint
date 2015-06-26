@@ -6,7 +6,7 @@ module Conduit::Driver::Sprint
     class << self
       def inherited(base)
         base.send :required_attributes, *Conduit::Driver::Sprint.credentials
-        base.send :optional_attributes, :gateway
+        base.send :optional_attributes, :test_environment
       end
 
       def wsdl_service(wsdl_service = nil)
@@ -23,6 +23,14 @@ module Conduit::Driver::Sprint
         @xsd = xsd unless xsd.nil?
         @xsd
       end
+    end
+
+    attr_accessor :test_environment
+
+    def initialize(options = {})
+      super
+      self.test_environment = @options[:test_environment]
+      validate_test_environment! unless test_environment.blank?
     end
 
     def credentials
@@ -69,12 +77,8 @@ module Conduit::Driver::Sprint
       @signed_soap_xml ||= signer.sign!(security_token: true).to_xml
     end
 
-    def gateway
-      @options[:gateway] || default_gateway
-    end
-
     def wsdl
-      if @options.key?(:gateway)
+      if test_environment
         wsdl_service = self.class.wsdl_service.gsub('QueryCsaService', 'WholesaleQueryCsaService')
         "https://#{gateway}/#{wsdl_service}?wsdl"
       else
@@ -84,7 +88,15 @@ module Conduit::Driver::Sprint
 
     private
 
-    def default_gateway
+    def gateway
+      test_environment ? test_gateway : production_gateway
+    end
+
+    def test_gateway
+      "webservicesgatewaytest.sprint.com:444/services/mvno/#{test_environment}"
+    end
+
+    def production_gateway
       'webservicesgateway.sprint.com:444/services/mvno'
     end
 
@@ -113,6 +125,13 @@ module Conduit::Driver::Sprint
 
     def mock_mode?
       @options.has_key?(:mock_status) && (!@options[:mock_status].nil? && !@options[:mock_status].empty?)
+    end
+
+    def validate_test_environment!
+      unless ['rtb1', 'rtb2'].include?(test_environment)
+        raise ArgumentError,
+          "Unrecognized test environment. Please specify one of the following: ['rtb1', 'rtb2']"
+      end
     end
   end
 end

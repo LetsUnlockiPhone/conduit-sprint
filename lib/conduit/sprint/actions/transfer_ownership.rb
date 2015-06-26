@@ -16,5 +16,9 @@ module Conduit::Driver::Sprint
           'Transfer code must be one of the following: PLBL, SPCS'
       end
     end
+
+    def test_gateway
+      "webservicesgatewaytest.sprint.com:444/#{test_environment}/services/mvno"
+    end
   end
 end
