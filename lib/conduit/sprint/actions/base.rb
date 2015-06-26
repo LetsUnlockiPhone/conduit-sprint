@@ -56,7 +56,7 @@ module Conduit::Driver::Sprint
     end
 
     def perform_request
-      client    = Savon.client(wsdl: wsdl, raise_errors: false)
+      client    = Savon.client(wsdl: wsdl, raise_errors: false, ssl_version: :TLSv1)
       response  = client.call(self.class.operation, xml: signed_soap_xml)
       parser.new(response.xml)
     end
@@ -75,7 +75,8 @@ module Conduit::Driver::Sprint
 
     def wsdl
       if @options.key?(:gateway)
-        "https://#{gateway}/#{self.class.wsdl_service}?wsdl"
+        wsdl_service = self.class.wsdl_service.gsub('QueryCsaService', 'WholesaleQueryCsaService')
+        "https://#{gateway}/#{wsdl_service}?wsdl"
       else
         File.expand_path("fixtures/wsdl/#{self.class.wsdl_service}.wsdl", File.dirname(__FILE__))
       end
