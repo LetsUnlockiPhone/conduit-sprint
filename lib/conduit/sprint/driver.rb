@@ -4,7 +4,7 @@ module Conduit
       extend Conduit::Core::Driver
 
       required_credentials :application_id, :application_user_id, :cert, :key
-      optional_attributes  :mock_status
+      optional_attributes  :mock_status, :test_environment
 
       action :activate
       action :activate_port

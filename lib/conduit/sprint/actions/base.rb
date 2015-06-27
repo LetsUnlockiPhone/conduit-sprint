@@ -6,7 +6,6 @@ module Conduit::Driver::Sprint
     class << self
       def inherited(base)
         base.send :required_attributes, *Conduit::Driver::Sprint.credentials
-        base.send :optional_attributes, :test_environment
       end
 
       def wsdl_service(wsdl_service = nil)
