@@ -1,55 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/WholesaleQueryDeviceInfoService/v1/WholesaleQueryDeviceInfoService.wsdl" targetNamespace="http://integration.sprint.com/eai/services/WholesaleQueryDeviceInfoService/v1/WholesaleQueryDeviceInfoService.wsdl">
 <wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <xsd:schema>
 <xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
 <xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
 <xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd"/>
-<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v2/wholesaleValidateDeviceV2.xsd"/></xsd:schema></wsdl:types>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v2/wholesaleValidateDeviceV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v3/wholesaleValidateDeviceV3.xsd"/>
+</xsd:schema>
+</wsdl:types>
 <wsdl:message name="soapFaultV2">
-<wsdl:part name="faultV2" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:part xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd" name="faultV2" element="xsns:errorDetailItem"/>
+</wsdl:message>
 <wsdl:message name="wholesaleValidateDevice">
-<wsdl:part name="parameters" element="xsns:wholesaleValidateDevice" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd"/></wsdl:message>
+<wsdl:part xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd" name="parameters" element="xsns:wholesaleValidateDevice"/>
+</wsdl:message>
 <wsdl:message name="wholesaleValidateDeviceResponse">
-<wsdl:part name="parameters" element="xsns:wholesaleValidateDeviceResponse" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd"/></wsdl:message>
+<wsdl:part xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v1/wholesaleValidateDevice.xsd" name="parameters" element="xsns:wholesaleValidateDeviceResponse"/>
+</wsdl:message>
 <wsdl:message name="wholesaleValidateDeviceV2">
-<wsdl:part name="parameters" element="xsns:wholesaleValidateDeviceV2" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v2/wholesaleValidateDeviceV2.xsd"/></wsdl:message>
+<wsdl:part xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v2/wholesaleValidateDeviceV2.xsd" name="parameters" element="xsns:wholesaleValidateDeviceV2"/>
+</wsdl:message>
 <wsdl:message name="wholesaleValidateDeviceV2Response">
-<wsdl:part name="parameters" element="xsns:wholesaleValidateDeviceV2Response" xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v2/wholesaleValidateDeviceV2.xsd"/></wsdl:message>
+<wsdl:part xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v2/wholesaleValidateDeviceV2.xsd" name="parameters" element="xsns:wholesaleValidateDeviceV2Response"/>
+</wsdl:message>
+<wsdl:message name="wholesaleValidateDeviceV3">
+<wsdl:part xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v3/wholesaleValidateDeviceV3.xsd" name="parameters" element="xsns:wholesaleValidateDeviceV3"/>
+</wsdl:message>
+<wsdl:message name="wholesaleValidateDeviceV3Response">
+<wsdl:part xmlns:xsns="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v3/wholesaleValidateDeviceV3.xsd" name="parameters" element="xsns:wholesaleValidateDeviceV3Response"/>
+</wsdl:message>
 <wsdl:message name="WsMessageHeader">
-<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:part xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2" name="head" element="xsns:wsMessageHeader"/>
+</wsdl:message>
 <wsdl:portType name="WholesaleQueryDeviceInfoServicePortType">
 <wsdl:operation name="WholesaleValidateDevice">
 <wsdl:input name="WholesaleValidateDeviceRequest" message="ns0:wholesaleValidateDevice"/>
 <wsdl:output name="WholesaleValidateDeviceResponse" message="ns0:wholesaleValidateDeviceResponse"/>
-<wsdl:fault name="fault" message="ns0:soapFaultV2"/></wsdl:operation>
+<wsdl:fault name="fault" message="ns0:soapFaultV2"/>
+</wsdl:operation>
 <wsdl:operation name="WholesaleValidateDeviceV2">
 <wsdl:input name="WholesaleValidateDeviceV2Request" message="ns0:wholesaleValidateDeviceV2"/>
 <wsdl:output name="WholesaleValidateDeviceV2Response" message="ns0:wholesaleValidateDeviceV2Response"/>
-<wsdl:fault name="fault" message="ns0:soapFaultV2"/></wsdl:operation></wsdl:portType>
+<wsdl:fault name="fault" message="ns0:soapFaultV2"/>
+</wsdl:operation>
+<wsdl:operation name="WholesaleValidateDeviceV3">
+<wsdl:input name="WholesaleValidateDeviceV3Request" message="ns0:wholesaleValidateDeviceV3"/>
+<wsdl:output name="WholesaleValidateDeviceV3Response" message="ns0:wholesaleValidateDeviceV3Response"/>
+<wsdl:fault name="fault" message="ns0:soapFaultV2"/>
+</wsdl:operation>
+</wsdl:portType>
 <wsdl:binding name="WholesaleQueryDeviceInfoServiceBinding" type="ns0:WholesaleQueryDeviceInfoServicePortType">
 <soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <wsdl:operation name="WholesaleValidateDevice">
 <soap11:operation soapAction="WholesaleValidateDevice" style="document"/>
 <wsdl:input name="WholesaleValidateDeviceRequest">
 <soap11:body use="literal"/>
-<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/>
+</wsdl:input>
 <wsdl:output name="WholesaleValidateDeviceResponse">
 <soap11:body use="literal"/>
-<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/>
+</wsdl:output>
 <wsdl:fault name="fault">
-<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<soap11:fault name="fault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
 <wsdl:operation name="WholesaleValidateDeviceV2">
 <soap11:operation soapAction="WholesaleValidateDeviceV2" style="document"/>
 <wsdl:input name="WholesaleValidateDeviceV2Request">
 <soap11:body use="literal"/>
-<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:input>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/>
+</wsdl:input>
 <wsdl:output name="WholesaleValidateDeviceV2Response">
 <soap11:body use="literal"/>
-<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/></wsdl:output>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/>
+</wsdl:output>
 <wsdl:fault name="fault">
-<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<soap11:fault name="fault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="WholesaleValidateDeviceV3">
+<soap11:operation soapAction="WholesaleValidateDeviceV3" style="document"/>
+<wsdl:input name="WholesaleValidateDeviceV3Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/>
+</wsdl:input>
+<wsdl:output name="WholesaleValidateDeviceV3Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:WsMessageHeader" part="head" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
 <wsdl:service name="WholesaleQueryDeviceInfoService">
 <wsdl:port name="WholesaleQueryDeviceInfoServicePortType" binding="ns0:WholesaleQueryDeviceInfoServiceBinding">
-<soap11:address location="https://webservicesgateway.sprint.com:444/services/mvno/WholesaleQueryDeviceInfoService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>
+<soap11:address location="https://webservicesgatewaytest.sprint.com:444/rtb2/services/mvno/WholesaleQueryDeviceInfoService/v1"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

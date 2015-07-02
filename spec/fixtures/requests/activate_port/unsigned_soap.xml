@@ -1,5 +1,5 @@
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
 xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd">
 <soapenv:Header>
@@ -64,4 +64,3 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 </sub:wholesaleActivateSubscriptionWithPortInV4>
 </soapenv:Body>
 </soapenv:Envelope>
-

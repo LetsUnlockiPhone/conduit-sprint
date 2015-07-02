@@ -23,7 +23,7 @@ describe CheckCoverage do
 
   describe 'soap_xml_zip' do
     subject { check_coverage_zip.soap_xml }
-    it      { should eq unsigned_zipcode_soap.strip }
+    it      { should eq unsigned_zipcode_soap }
   end
 
   describe 'signed_soap_xml_zip' do

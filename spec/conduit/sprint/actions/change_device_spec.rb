@@ -21,13 +21,13 @@ describe ChangeDevice do
 
   describe 'soap_xml' do
     subject { change_device.soap_xml }
-    it      { should eq unsigned_soap.strip }
+    it      { should eq unsigned_soap }
 
     context 'with iccid' do
       let(:creds) do
         credentials.merge(mdn: mdn, nid: nid, iccid: iccid)
       end
-      it { should eq unsigned_lte_soap.strip }
+      it { should eq unsigned_lte_soap }
     end
   end
 
@@ -78,7 +78,7 @@ describe ChangeDevice do
         { code: "Server.704", message: "Application processing error" }
       ]
     end
-    
+
     subject                 { change_device.perform }
     it                      { should be_an_instance_of ChangeDevice::Parser }
     its(:response_status)   { should eq 'failure'}
