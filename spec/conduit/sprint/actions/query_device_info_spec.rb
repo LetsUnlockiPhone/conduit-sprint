@@ -3,7 +3,10 @@ require 'spec_helper'
 describe QueryDeviceInfo do
   let(:device_serial_number)     { '12345678901' }
   let(:creds) do
-    credentials.merge(device_serial_number: device_serial_number)
+    credentials.merge(
+      device_serial_number: device_serial_number,
+      iccid: '89011200000403604860'
+    )
   end
 
   let(:query_device) { QueryDeviceInfo.new(creds) }
@@ -57,26 +60,38 @@ describe QueryDeviceInfo do
   end
 
   context 'a successful query device response is returned' do
-    let(:serializable_hash) do 
+    let(:serializable_hash) do
       {
-       :availability_type_code            => "1",
-       :availability_type_message         => "Available",
-       :device_serial_number              => "99000470382044",
-       :device_type                       => "U",
-       :equipment_freq_type_code          => "H",
-       :freq_mode                         => "C",
-       :iccid                             => "89011200000403604860",
-       :imsi                              => "310120040360486",
-       :model_name                        => "SAM L720T BLK XCVR SGL",
-       :model_number                      => "SPHL720TB1",
-       :manufacturer_name                 => "SAMSUNG",
-       :not_available_reason_code         => "0",
-       :uicc_availability_code            => "1",
-       :uicc_availability_message         => "Available",
-       :uicc_compatibility                => "Y",
-       :uicc_not_available_reason_code    => "0",
-       :uicc_type                         => "U",
-       :validation_message                => "Device is valid and cleared for use",
+       :availability_type_code               => "1",
+       :availability_type_message            => "Available",
+       :esn_meid_hex                         => "99000250022761",
+       :device_type                          => "U",
+       :device_type_description              => "Removable transceiver / USIM transceiver",
+       :equipment_freq_type_code             => "B",
+       :equipment_freq_type_description      => "ADVANCED WORLD-MODE PRL",
+       :freq_mode                            => "C",
+       :freq_mode_description                => "CDMA",
+       :iccid                                => "89011200000403604860",
+       :uicc_imsi                            => "310120018850976",
+       :uicc_sku                             => "CZ2101LTR",
+       :model_name                           => "BST LG870 TRANSCEIVER SGL",
+       :model_number                         => "LG870AB1",
+       :manufacturer_name                    => "LG",
+       :not_available_reason_code            => "0",
+       :uicc_availability_code               => "1",
+       :uicc_availability_message            => "Available",
+       :uicc_compatibility                   => "Y",
+       :uicc_not_available_reason_code       => "0",
+       :uicc_type                            => "U",
+       :uicc_type_description                => "Removable USIM",
+       :uicc_compatibility_description       => "Transceiver and UICC are compatible together",
+       :validation_message                   => "Device is valid and cleared for use",
+       :activation_status                    => "N",
+       :activation_status_description        => "Device is inactive",
+       :device_fed_met_indicator             => "true",
+       :device_fed_met_indicator_description => "FED is in the past, financial eligibility on the device has been met.",
+       :poc_swap_indicator                   => "true",
+       :poc_swap_indicator_description       => "Device eligible for phone ownership change",
       }
     end
 
