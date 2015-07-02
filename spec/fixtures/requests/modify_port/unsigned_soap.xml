@@ -1,5 +1,5 @@
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
 xmlns:sub="http://integration.sprint.com/interfaces/WholesaleWnp/v1/PortEnvelope.xsd">
 <soapenv:Header>

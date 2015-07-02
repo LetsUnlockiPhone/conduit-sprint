@@ -22,7 +22,7 @@ describe ActivatePort do
 
   describe 'soap_xml' do
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap.strip }
+    it      { should eq unsigned_soap }
   end
 
   describe 'signed_soap_xml' do
@@ -43,7 +43,7 @@ describe ActivatePort do
     end
 
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap.strip }
+    it      { should eq unsigned_soap }
   end
 
   context 'when no authorized by is given' do
@@ -59,7 +59,7 @@ describe ActivatePort do
     end
 
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap.strip }
+    it      { should eq unsigned_soap }
   end
 
   context 'when no first name and last name given' do
@@ -75,7 +75,7 @@ describe ActivatePort do
     end
 
     subject { activate_port.soap_xml }
-    it      { should eq unsigned_soap.strip }
+    it      { should eq unsigned_soap }
   end
 
   it_should_behave_like 'a 500 error' do
@@ -110,7 +110,7 @@ describe ActivatePort do
           :csa                                    => "MIAWPB561",
           :desired_due_date_time                  => "2014-10-17T11:41:02",
           :number_portability_direction_indicator => "A"
-        },        
+        },
         :service_records =>
         [
           {
@@ -142,7 +142,7 @@ describe ActivatePort do
       ActivatePort.new port_attributes
     end
 
-    its(:soap_xml) { should eq validate_port.strip }
+    its(:soap_xml) { should eq validate_port }
   end
 
   context 'an activate port with transfer ownership' do
@@ -194,7 +194,7 @@ describe ActivatePort do
         { code: "Client.701", message: "Data not found" }
       ]
     end
-    
+
     subject                 { activate_port.perform }
     it                      { should be_an_instance_of ActivatePort::Parser }
     its(:response_status)   { should eq 'failure'}

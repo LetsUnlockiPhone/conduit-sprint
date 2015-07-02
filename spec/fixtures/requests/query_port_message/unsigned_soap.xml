@@ -1,5 +1,5 @@
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
 xmlns:sub="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPortMessage.xsd">
 <soapenv:Header>
@@ -20,5 +20,6 @@ xmlns:sub="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPor
 <sub:queryPortMessageInfo>
 <sub:mdn>5555555555</sub:mdn>
 </sub:queryPortMessageInfo>
-</sub:queryPortMessage></soapenv:Body>
+</sub:queryPortMessage>
+</soapenv:Body>
 </soapenv:Envelope>

@@ -1,5 +1,5 @@
-<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:v2="http://integration.sprint.com/common/header/WSMessageHeader/v2"
 xmlns:sub="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/v1/ModifySubscriptionEnvelope.xsd">
 <soapenv:Header>
@@ -18,5 +18,6 @@ xmlns:sub="http://integration.sprint.com/interfaces/WholesaleSubscriptionModify/
 <soapenv:Body>
 <sub:suspendSubscription>
 <sub:mdn>5555555555</sub:mdn>
-</sub:suspendSubscription></soapenv:Body>
+</sub:suspendSubscription>
+</soapenv:Body>
 </soapenv:Envelope>

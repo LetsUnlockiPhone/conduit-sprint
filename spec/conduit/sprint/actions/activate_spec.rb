@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Activate do
   let(:creds) do
-    credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561', 
+    credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561',
                         service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
   end
   let(:activate) do
@@ -11,7 +11,7 @@ describe Activate do
 
   let(:activate_lte) do
     Activate.new \
-      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561', 
+      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561',
                         iccid: '90123456789', service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
   end
 
@@ -33,7 +33,7 @@ describe Activate do
 
     context 'with iccid' do
       subject { activate_lte.soap_xml }
-      it      { should eq unsigned_lte_soap.strip }
+      it      { should eq unsigned_lte_soap }
     end
   end
 
@@ -121,10 +121,10 @@ describe Activate do
         { code: "Client.701", message: "Data not found" }
       ]
     end
-    
+
     subject                 { activate.perform }
     it                      { should be_an_instance_of Activate::Parser }
     its(:response_status)   { should eq 'failure'}
     its(:response_errors)   { should eq response_errors }
-  end  
+  end
 end
