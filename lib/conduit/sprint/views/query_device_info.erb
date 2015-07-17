@@ -2,9 +2,9 @@
 <sub:deviceInfo>
 <sub:deviceDetailInfo>
 <% if meid_dec? %>
-<sub:esnMeidDec><%= device_serial_number %></sub:esnMeidDec>
+<sub:esnMeidDec><%= meid %></sub:esnMeidDec>
 <% else %>
-<sub:esnMeidHex><%= device_serial_number %></sub:esnMeidHex>
+<sub:esnMeidHex><%= meid %></sub:esnMeidHex>
 <% end %>
 <% if iccid %>
 <sub:iccId><%= iccid %></sub:iccId>

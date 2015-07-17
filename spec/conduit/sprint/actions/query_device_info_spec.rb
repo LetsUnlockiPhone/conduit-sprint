@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QueryDeviceInfo do
-  let(:device_serial_number)     { '12345678901' }
+  let(:device_serial_number)     { '1234567890A' }
   let(:creds) do
     credentials.merge(
       device_serial_number: device_serial_number,
@@ -28,6 +28,19 @@ describe QueryDeviceInfo do
     describe 'signed_soap_xml' do
       subject { query_device.signed_soap_xml }
       it      { should eq signed_soap }
+    end
+
+    context 'with a lower case hex value' do
+      let(:device_serial_number)     { '1234567890a' }
+      describe 'soap_xml' do
+        subject { query_device.soap_xml }
+        it      { should eq unsigned_soap }
+      end
+
+      describe 'signed_soap_xml' do
+        subject { query_device.signed_soap_xml }
+        it      { should eq signed_soap }
+      end
     end
   end
 
