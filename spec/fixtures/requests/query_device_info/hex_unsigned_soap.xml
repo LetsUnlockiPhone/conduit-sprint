@@ -20,8 +20,8 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v3/w
 <sub:deviceInfo>
 <sub:deviceDetailInfo>
 <sub:esnMeidHex>12345678</sub:esnMeidHex>
-<sub:iccId>89011200000403604860</sub:iccId>
 </sub:deviceDetailInfo>
+<sub:iccId>89011200000403604860</sub:iccId>
 </sub:deviceInfo>
 <sub:resellerPartnerId>2222333344</sub:resellerPartnerId>
 </sub:wholesaleValidateDeviceV3>
