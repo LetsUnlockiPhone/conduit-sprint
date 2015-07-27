@@ -119,6 +119,7 @@ describe QueryDeviceInfo do
     before do
       creds.merge!(mock_status: :failure)
     end
+    let(:device_serial_number)     { nil }
 
     let(:response_errors) do
       [
