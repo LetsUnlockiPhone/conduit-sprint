@@ -5,5 +5,9 @@ module Conduit::Sprint::Decorators
     def meid
       device_serial_number.upcase unless device_serial_number.blank?
     end
+
+    def icc_id
+      iccid unless iccid.blank?
+    end
   end
 end

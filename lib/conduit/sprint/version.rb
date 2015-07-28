@@ -1,5 +1,5 @@
 module Conduit
   module Sprint
-    VERSION = '0.3.20'
+    VERSION = '1.0.0'
   end
 end
