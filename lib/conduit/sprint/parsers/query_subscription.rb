@@ -76,7 +76,7 @@ module Conduit::Driver::Sprint
     def translate_status(status)
       STATUS_MAPPING[status] ? STATUS_MAPPING[status] : status
     end
-      
+
     def service_record_attributes(service_record = {})
       {}.tap do |service_record_details|
         service_record_details[:service_code]        = content_for('serviceCode', service_record)

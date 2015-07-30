@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QueryDeviceInfo do
-  let(:device_serial_number)     { '1234567890A' }
+  let(:device_serial_number)     { '123456789012345678' }
   let(:creds) do
     credentials.merge(
       device_serial_number: device_serial_number,
@@ -12,40 +12,27 @@ describe QueryDeviceInfo do
   let(:query_device) { QueryDeviceInfo.new(creds) }
 
   describe 'dec_query_device' do
-    let(:unsigned_soap) do
+    let(:dec_unsigned_soap) do
       File.read('./spec/fixtures/requests/query_device_info/dec_unsigned_soap.xml')
     end
 
-    let(:signed_soap) do
+    let(:dec_signed_soap) do
       File.read('./spec/fixtures/requests/query_device_info/dec_signed_soap.xml')
     end
 
     describe 'soap_xml' do
       subject { query_device.soap_xml }
-      it      { should eq unsigned_soap }
+      it      { should eq dec_unsigned_soap }
     end
 
     describe 'signed_soap_xml' do
       subject { query_device.signed_soap_xml }
-      it      { should eq signed_soap }
-    end
-
-    context 'with a lower case hex value' do
-      let(:device_serial_number)     { '1234567890a' }
-      describe 'soap_xml' do
-        subject { query_device.soap_xml }
-        it      { should eq unsigned_soap }
-      end
-
-      describe 'signed_soap_xml' do
-        subject { query_device.signed_soap_xml }
-        it      { should eq signed_soap }
-      end
+      it      { should eq dec_signed_soap }
     end
   end
 
   describe 'hex_query_device' do
-    let(:device_serial_number) { '12345678' }
+    let(:device_serial_number) { '123456789ABCDE' }
 
     let(:hex_unsigned_soap) do
       File.read('./spec/fixtures/requests/query_device_info/hex_unsigned_soap.xml')
@@ -63,6 +50,19 @@ describe QueryDeviceInfo do
     describe 'hex_signed_soap_xml' do
       subject { query_device.signed_soap_xml }
       it      { should eq hex_signed_soap }
+    end
+
+    context 'with a lower case hex value' do
+      let(:device_serial_number)     { '123456789abcde' }
+      describe 'soap_xml' do
+        subject { query_device.soap_xml }
+        it      { should eq hex_unsigned_soap }
+      end
+
+      describe 'signed_soap_xml' do
+        subject { query_device.signed_soap_xml }
+        it      { should eq hex_signed_soap }
+      end
     end
   end
 

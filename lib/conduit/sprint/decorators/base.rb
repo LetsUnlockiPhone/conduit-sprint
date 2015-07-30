@@ -1,4 +1,4 @@
-require 'conduit/sprint/meid_type_detector'
+require 'conduit/sprint/serial_number_type_detector'
 require 'street_address'
 require 'delegate'
 require 'forwardable'
@@ -29,16 +29,38 @@ module Conduit::Sprint::Decorators
       @parsed_address1 ||= StreetAddress::US.parse(address1, informal: true)
     end
 
-    def meid_type_detector
-      Conduit::Sprint::MeidTypeDetector.new(meid) if meid
+    def serial_number_type_detector
+      Conduit::Sprint::SerialNumberTypeDetector.new(serial_number)
+    end
+
+    def serial_number
+      respond_to?(:device_serial_number) && device_serial_number ||
+      respond_to?(:meid) && meid ||
+      respond_to?(:esn) && esn
+    end
+
+    def meid?
+      meid_hex? || meid_dec?
+    end
+
+    def esn?
+      esn_hex? || esn_dec?
     end
 
     def meid_hex?
-      meid_type_detector ? meid_type_detector.hex? : false
+      serial_number_type_detector ? serial_number_type_detector.meid_hex? : false
     end
 
     def meid_dec?
-      meid_type_detector ? meid_type_detector.dec? : false
+      serial_number_type_detector ? serial_number_type_detector.meid_dec? : false
+    end
+
+    def esn_hex?
+      serial_number_type_detector ? serial_number_type_detector.esn_hex? : false
+    end
+
+    def esn_dec?
+      serial_number_type_detector ? serial_number_type_detector.esn_dec? : false
     end
   end
 end

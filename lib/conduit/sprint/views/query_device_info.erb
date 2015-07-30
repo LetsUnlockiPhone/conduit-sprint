@@ -3,7 +3,7 @@
 <sub:deviceDetailInfo>
 <% if meid_dec? %>
 <sub:esnMeidDec><%= meid %></sub:esnMeidDec>
-<% else %>
+<% elsif meid_hex? %>
 <sub:esnMeidHex><%= meid %></sub:esnMeidHex>
 <% end %>
 </sub:deviceDetailInfo>
