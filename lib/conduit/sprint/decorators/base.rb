@@ -30,13 +30,7 @@ module Conduit::Sprint::Decorators
     end
 
     def serial_number_type_detector
-      Conduit::Sprint::SerialNumberTypeDetector.new(serial_number)
-    end
-
-    def serial_number
-      respond_to?(:device_serial_number) && device_serial_number ||
-      respond_to?(:meid) && meid ||
-      respond_to?(:esn) && esn
+      Conduit::Sprint::SerialNumberTypeDetector.new(device_serial_number) if device_serial_number
     end
 
     def meid?

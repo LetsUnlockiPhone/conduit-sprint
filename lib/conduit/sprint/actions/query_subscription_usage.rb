@@ -5,6 +5,6 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleUsageInquiryService/v1'
     xsd                 'WholesaleUsageInquiry/v1/UsageInquiryEnvelope.xsd'
     operation           :query_subscription_usage
-    optional_attributes :mdn, :meid, :esn, :device_serial_number, :from_date, :to_date, :usage_type
+    optional_attributes :mdn, :device_serial_number, :from_date, :to_date, :usage_type
   end
 end
