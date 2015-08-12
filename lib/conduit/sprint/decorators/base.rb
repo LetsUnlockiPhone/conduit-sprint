@@ -30,7 +30,7 @@ module Conduit::Sprint::Decorators
     end
 
     def serial_number_type_detector
-      Conduit::Sprint::SerialNumberTypeDetector.new(device_serial_number) if device_serial_number
+      Conduit::Sprint::SerialNumberTypeDetector.new(meid) if meid
     end
 
     def meid?
