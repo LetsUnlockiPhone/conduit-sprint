@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Conduit::Sprint::SerialNumberTypeDetector do
+describe Conduit::Sprint::MeidTypeDetector do
   let(:meid_dectector) do
-    Conduit::Sprint::SerialNumberTypeDetector.new(meid)
+    Conduit::Sprint::MeidTypeDetector.new(meid)
   end
 
   describe '#dec? 11 digit' do

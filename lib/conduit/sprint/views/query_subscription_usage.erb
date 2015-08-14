@@ -1,24 +1,23 @@
 <sub:querySubscriptionUsage xmlns="http://integration.sprint.com/interfaces/WholesaleUsageInquiry/v1/UsageInquiryEnvelope.xsd">
 <% if meid %>
 <sub:esn>
-<% if esn? %>
+<%   if small_meid? %>
 <sub:electronicSerialNumber>
-<% if esn_hex? %>
+<%     if meid_hex? %>
 <sub:electronicSerialNumberHex><%= meid %></sub:electronicSerialNumberHex>
-<% elsif esn_dec? %>
+<%     elsif meid_dec? %>
 <sub:electronicSerialNumberDec><%= meid %></sub:electronicSerialNumberDec>
-<% end %>
+<%     end %>
 </sub:electronicSerialNumber>
-<% end %>
-<% if meid? %>
+<%   else %>
 <sub:mobileEquipmentIdentifier>
-<% if meid_hex? %>
+<%     if meid_hex? %>
 <sub:mobileEquipmentIdentifierHex><%= meid %></sub:mobileEquipmentIdentifierHex>
-<% elsif meid_dec? %>
+<%     elsif meid_dec? %>
 <sub:mobileEquipmentIdentifierDec><%= meid %></sub:mobileEquipmentIdentifierDec>
-<% end %>
+<%     end %>
 </sub:mobileEquipmentIdentifier>
-<% end %>
+<%   end %>
 </sub:esn>
 <% end %>
 <sub:usageCategory>

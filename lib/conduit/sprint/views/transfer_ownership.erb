@@ -1,6 +1,6 @@
 <sub:manageDevicePhoneOwnership>
 <sub:deviceInfo>
-<% if esn_dec? %>
+<% if meid_dec? %>
 <sub:serialNumberDec><%= device_serial_number %></sub:serialNumberDec>
 <% else %>
 <sub:serialNumberHex><%= device_serial_number %></sub:serialNumberHex>
