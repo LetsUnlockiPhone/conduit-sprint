@@ -19,7 +19,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleValidateDevice/v3/w
 <sub:wholesaleValidateDeviceV3>
 <sub:deviceInfo>
 <sub:deviceDetailInfo>
-<sub:esnMeidDec>1234567890A</sub:esnMeidDec>
+<sub:esnMeidDec>123456789012345678</sub:esnMeidDec>
 </sub:deviceDetailInfo>
 <sub:iccId>89011200000403604860</sub:iccId>
 </sub:deviceInfo>

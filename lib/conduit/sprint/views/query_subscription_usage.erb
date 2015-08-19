@@ -1,0 +1,41 @@
+<sub:querySubscriptionUsage xmlns="http://integration.sprint.com/interfaces/WholesaleUsageInquiry/v1/UsageInquiryEnvelope.xsd">
+<% if meid %>
+<sub:esn>
+<%   if small_meid? %>
+<sub:electronicSerialNumber>
+<%     if meid_hex? %>
+<sub:electronicSerialNumberHex><%= meid %></sub:electronicSerialNumberHex>
+<%     elsif meid_dec? %>
+<sub:electronicSerialNumberDec><%= meid %></sub:electronicSerialNumberDec>
+<%     end %>
+</sub:electronicSerialNumber>
+<%   else %>
+<sub:mobileEquipmentIdentifier>
+<%     if meid_hex? %>
+<sub:mobileEquipmentIdentifierHex><%= meid %></sub:mobileEquipmentIdentifierHex>
+<%     elsif meid_dec? %>
+<sub:mobileEquipmentIdentifierDec><%= meid %></sub:mobileEquipmentIdentifierDec>
+<%     end %>
+</sub:mobileEquipmentIdentifier>
+<%   end %>
+</sub:esn>
+<% end %>
+<sub:usageCategory>
+<sub:circuitSwitchData>1</sub:circuitSwitchData>
+<sub:ipData>1</sub:ipData>
+<sub:smsData>1</sub:smsData>
+<sub:voiceData>1</sub:voiceData>
+</sub:usageCategory>
+<% if mdn %>
+<sub:mdn><%= mdn %></sub:mdn>
+<% end %>
+<% if from_date %>
+<sub:fromDate><%= from_date %></sub:fromDate>
+<% end %>
+<% if to_date %>
+<sub:toDate><%= to_date %></sub:toDate>
+<% end %>
+<% if usage_type %>
+<sub:usageType><%= usage_type %></sub:usageType>
+<% end %>
+</sub:querySubscriptionUsage>

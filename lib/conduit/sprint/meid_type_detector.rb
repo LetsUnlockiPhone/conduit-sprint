@@ -9,6 +9,10 @@ module Conduit::Sprint
       @meid = meid.to_s
     end
 
+    def small_meid?
+      HEX_LENGTH.first == @meid.length || DEC_LENGTH.first == @meid.length
+    end
+
     def hex?
       HEX_LENGTH.include? @meid.length
     end

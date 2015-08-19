@@ -62,7 +62,7 @@ describe ValidatePort do
         { code: "Client.705", message: "Input validation error" }
       ]
     end
-    
+
     subject                 { validate_port.perform }
     it                      { should be_an_instance_of ValidatePort::Parser }
     its(:response_status)   { should eq 'failure'}

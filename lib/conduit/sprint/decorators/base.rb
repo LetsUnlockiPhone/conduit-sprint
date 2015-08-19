@@ -33,6 +33,10 @@ module Conduit::Sprint::Decorators
       Conduit::Sprint::MeidTypeDetector.new(meid) if meid
     end
 
+    def small_meid?
+      meid_type_detector ? meid_type_detector.small_meid? : false
+    end
+
     def meid_hex?
       meid_type_detector ? meid_type_detector.hex? : false
     end
