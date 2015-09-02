@@ -64,6 +64,17 @@ module Conduit::Driver::Sprint
       'R' => 'DEVICES WITH PRL LIMITATIONS',
     }
 
+    UICC_NOT_AVAILABLE_REASON_CODES = {
+      '0' => 'Available',
+      '1' => 'Stolen',
+      '2' => 'In use',
+      '3' => 'Fraudulent',
+      '4' => 'Not in database',
+      '5' => 'Reseller Partner ID is not correct',
+      '6' => 'Pre-paid unprovisionable',
+      '99' => 'Not available for activation'
+    }
+
     attribute :activation_status do
       content_for '//activationStatus'
     end
@@ -170,6 +181,10 @@ module Conduit::Driver::Sprint
 
     attribute :uicc_not_available_reason_code do
       content_for '//uiccNotAvailableReasonCode'
+    end
+
+    attribute :uicc_not_available_reason_message do
+      UICC_NOT_AVAILABLE_REASON_CODES[content_for '//uiccNotAvailableReasonCode']
     end
 
     attribute :not_available_reason_code do

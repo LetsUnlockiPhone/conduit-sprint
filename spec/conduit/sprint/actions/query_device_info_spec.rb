@@ -95,6 +95,7 @@ describe QueryDeviceInfo do
        :uicc_availability_message            => "Available",
        :uicc_compatibility                   => "Y",
        :uicc_not_available_reason_code       => "0",
+       :uicc_not_available_reason_message    => "Available",
        :uicc_type                            => "U",
        :uicc_type_description                => "Removable USIM",
        :uicc_compatibility_description       => "Transceiver and UICC are compatible together",
