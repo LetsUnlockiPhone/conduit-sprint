@@ -27,7 +27,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 </sub:nameInfo>
 <sub:billStreetNumber>123</sub:billStreetNumber>
 <sub:billStreetName>Test St</sub:billStreetName>
-<sub:billStreetDirectionIndicator></sub:billStreetDirectionIndicator>
+<sub:billStreetDirectionIndicator>N</sub:billStreetDirectionIndicator>
 <sub:billCityName>city</sub:billCityName>
 <sub:billStateCode>state</sub:billStateCode>
 <sub:zip>

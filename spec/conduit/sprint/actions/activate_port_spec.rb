@@ -34,7 +34,7 @@ describe ActivatePort do
     let(:port_attributes) do
       credentials.merge(nid: '12345678901', mdn: '5555555555', first_name: 'test', last_name: 'tester',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
-                    city: 'city', state: 'state', zip: '99999', address1: '123 Test', csa: 'MIAWPB561',
+                    city: 'city', state: 'state', zip: '99999', address1: '123 N. Test', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN')
     end
 
@@ -50,7 +50,7 @@ describe ActivatePort do
     let(:port_attributes) do
       credentials.merge(nid: '12345678901', mdn: '5555555555', first_name: 'test', last_name: 'tester',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
-                    city: 'city', state: 'state', zip: '99999', address1: '123 Test St', csa: 'MIAWPB561',
+                    city: 'city', state: 'state', zip: '99999', address1: '123 N. Test St', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN')
     end
 
@@ -66,7 +66,7 @@ describe ActivatePort do
     let(:port_attributes) do
       credentials.merge(nid: '12345678901', mdn: '5555555555',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
-                    city: 'city', state: 'state', zip: '99999', address1: '123 Test St', csa: 'MIAWPB561',
+                    city: 'city', state: 'state', zip: '99999', address1: '123 N. Test St', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN')
     end
 
@@ -133,6 +133,13 @@ describe ActivatePort do
   end
 
   context 'an activate port with out csa should fetch a csa' do
+    let(:port_attributes) do
+      credentials.merge(nid: '12345678901', first_name: 'test', last_name: 'tester', mdn: '5555555555',
+                    service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'], authorized_by: 'customer',
+                    city: 'city', state: 'state', zip: '99999', address1: '123 N. Test St', csa: 'MIAWPB561',
+                    carrier_account: '999999', plan_code: 'TESTPLAN', ssn: '')
+    end
+
     let(:validate_port) do
       File.read('./spec/fixtures/requests/activate_port/unsigned_validate_port_soap.xml')
     end
