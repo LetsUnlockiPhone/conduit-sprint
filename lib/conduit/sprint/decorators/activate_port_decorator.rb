@@ -9,5 +9,10 @@ module Conduit::Sprint::Decorators
         (first_name + ' ' + last_name).strip
       end
     end
+
+    def street_direction_ind
+      return if street_direction.blank?
+      street_direction.gsub(/[^a-z]/i, '')
+    end
   end
 end
