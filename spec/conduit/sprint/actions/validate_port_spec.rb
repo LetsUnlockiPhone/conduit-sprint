@@ -41,9 +41,9 @@ describe ValidatePort do
         :number_portability_direction_indicator => "C",
         :number_portability_direction_indicator_description => "Wireline to Wireless",
         :old_service_provider                   => "Neutral Tandem",
-        :port_id                                => nil,
-        :port_in_status                         => nil,
-        :port_in_status_text                    => nil,
+        :port_id                                => "9999",
+        :port_in_status                         => "test",
+        :port_in_status_text                    => "test",
         :status                                 => "2"
       }
     end
