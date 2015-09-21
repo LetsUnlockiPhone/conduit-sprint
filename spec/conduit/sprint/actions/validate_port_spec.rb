@@ -39,7 +39,11 @@ describe ValidatePort do
         :mdn                                    => "5555555555",
         :message                                => "PTN is eligible for Porting In",
         :number_portability_direction_indicator => "C",
+        :number_portability_direction_indicator_description => "Wireline to Wireless",
         :old_service_provider                   => "Neutral Tandem",
+        :port_id                                => "9999",
+        :port_in_status                         => "test",
+        :port_in_status_text                    => "test",
         :status                                 => "2"
       }
     end
