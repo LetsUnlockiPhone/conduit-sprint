@@ -1,5 +1,22 @@
 <sub:queryPortMessage>
 <sub:queryPortMessageInfo>
+<% if !mdn.blank? %>
 <sub:mdn><%= mdn %></sub:mdn>
+<% end %>
+<% if !message_type_code.blank? %>
+<sub:messageTypeCode><%= message_type_code %></sub:messageTypeCode>
+<% end %>
+<% if !message_status_code.blank? %>
+<sub:messageStatusCode><%= message_status_code %></sub:messageStatusCode>
+<% end %>
+<% if !reply_port_out_request.blank? %>
+<sub:replyPortOutRequestStatus><%= reply_port_out_request %></sub:replyPortOutRequestStatus>
+<% end %>
+<% if !start_date.blank? || !end_date.blank? %>
+<sub:dateRangeInfo>
+<sub:fromDate><%= start_date %></sub:fromDate>
+<sub:toDate><%= end_date %></sub:toDate>
+</sub:dateRangeInfo>
+<% end %>
 </sub:queryPortMessageInfo>
 </sub:queryPortMessage>
