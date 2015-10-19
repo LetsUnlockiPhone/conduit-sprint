@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe QueryPortMessage do
-  let(:query_port) { QueryPortMessage.new(credentials.merge(mdn: '5555555555')) }
+  let(:query_port) { QueryPortMessage.new(credentials.merge(mdn: '5555555555', message_type_code: 'POR', reply_port_out_request: 'Y',
+                                                            start_date: '2015-10-16 21:39:42 -0400', end_date: '2015-10-16 21:39:42 -0400')) }
 
   let(:unsigned_soap) do
     File.read('./spec/fixtures/requests/query_port_message/unsigned_soap.xml')
@@ -40,7 +41,8 @@ describe QueryPortMessage do
             :response_type            => nil,
             :delay_code               => nil,
             :reason_code              => nil,
-            :reason_text              => nil
+            :reason_text              => nil,
+            :mdn                      => '5555555555'
           },
           {
             :message_type_code        => "DDT",
@@ -50,7 +52,8 @@ describe QueryPortMessage do
             :response_type            => nil,
             :delay_code               => nil,
             :reason_code              => nil,
-            :reason_text              => nil
+            :reason_text              => nil,
+            :mdn                      => '5555555555'
           },
           {
             :message_type_code        => "PIR",
@@ -60,7 +63,8 @@ describe QueryPortMessage do
             :response_type            => "C",
             :delay_code               => nil,
             :reason_code              => nil,
-            :reason_text              => nil
+            :reason_text              => nil,
+            :mdn                      => '5555555555'
           }
         ]
       }

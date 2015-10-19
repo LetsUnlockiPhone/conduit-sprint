@@ -19,6 +19,12 @@ xmlns:sub="http://integration.sprint.com/interfaces/queryPortMessage/v1/queryPor
 <sub:queryPortMessage>
 <sub:queryPortMessageInfo>
 <sub:mdn>5555555555</sub:mdn>
+<sub:messageTypeCode>POR</sub:messageTypeCode>
+<sub:replyPortOutRequestStatus>Y</sub:replyPortOutRequestStatus>
+<sub:dateRangeInfo>
+<sub:fromDate>2015-10-16 21:39:42 -0400</sub:fromDate>
+<sub:toDate>2015-10-16 21:39:42 -0400</sub:toDate>
+</sub:dateRangeInfo>
 </sub:queryPortMessageInfo>
 </sub:queryPortMessage>
 </soapenv:Body>

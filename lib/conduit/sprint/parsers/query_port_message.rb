@@ -13,6 +13,7 @@ module Conduit::Driver::Sprint
           message[:delay_code]               = content_for('delayCode', port_message)
           message[:reason_code]              = content_for('reasonCode', port_message)
           message[:reason_text]              = content_for('reason_text', port_message)
+          message[:mdn]                      = content_for('mdn', port_message)
         end
       end
     end
