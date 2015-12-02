@@ -56,7 +56,7 @@ module Conduit::Driver::Sprint
             [normalized_fault]
           end
         else
-          { message: 'Unexpected response from server.' }
+          [{ message: 'Unexpected response from server.' }]
         end
       end
 
