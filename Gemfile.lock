@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    conduit-sprint (1.0.6)
+    conduit-sprint (1.0.7)
       StreetAddress
       conduit (~> 0.6.0)
       excon (~> 0.44.4)
@@ -28,6 +28,8 @@ GEM
     aws-sdk-resources (2.1.17)
       aws-sdk-core (= 2.1.17)
     builder (3.2.2)
+    byebug (8.2.2)
+    coderay (1.1.1)
     conduit (0.6.2)
       activesupport
       aws-sdk
@@ -43,12 +45,20 @@ GEM
     jmespath (1.0.2)
       multi_json (~> 1.0)
     json (1.8.2)
+    method_source (0.8.2)
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     nori (2.6.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
     rack (1.6.4)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
@@ -77,6 +87,7 @@ GEM
       activesupport (>= 3.0.0)
     signer (1.4.2)
       nokogiri (>= 1.5.1)
+    slop (3.6.0)
     thread_safe (0.3.4)
     tilt (2.0.1)
     tzinfo (1.2.2)
@@ -90,6 +101,7 @@ PLATFORMS
 
 DEPENDENCIES
   conduit-sprint!
+  pry-byebug
   rspec
   rspec-its
   shoulda-matchers

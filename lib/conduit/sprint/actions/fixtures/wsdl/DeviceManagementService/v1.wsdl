@@ -1,0 +1,265 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://integration.sprint.com/eai/services/DeviceManagementService/v1/DeviceManagementService.wsdl" targetNamespace="http://integration.sprint.com/eai/services/DeviceManagementService/v1/DeviceManagementService.wsdl">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="v1.xsd2.xsd" namespace="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd3.xsd" namespace="http://integration.sprint.com/common/header/WSMessageHeader/v2"/>
+<xsd:import schemaLocation="v1.xsd4.xsd" namespace="http://integration.sprint.com/interfaces/addForeignDevice/v1/addForeignDevice.xsd"/>
+<xsd:import schemaLocation="v1.xsd5.xsd" namespace="http://integration.sprint.com/interfaces/manageDeviceCredentials/v1/manageDeviceCredentials.xsd"/>
+<xsd:import schemaLocation="v1.xsd6.xsd" namespace="http://integration.sprint.com/interfaces/manageDeviceLock/v1/manageDeviceLock.xsd"/>
+<xsd:import schemaLocation="v1.xsd7.xsd" namespace="http://integration.sprint.com/interfaces/manageDeviceToken/v2/manageDeviceTokenV2.xsd"/>
+<xsd:import schemaLocation="v1.xsd8.xsd" namespace="http://integration.sprint.com/interfaces/manageFlipFlopEquipment/v1/manageFlipFlopEquipment.xsd"/>
+<xsd:import schemaLocation="v1.xsd9.xsd" namespace="http://integration.sprint.com/interfaces/queryDeviceLockStatus/v1/queryDeviceLockStatus.xsd"/>
+<xsd:import schemaLocation="v1.xsd10.xsd" namespace="http://integration.sprint.com/interfaces/updateDataDevice/v1/updateDataDevice.xsd"/>
+<xsd:import schemaLocation="v1.xsd11.xsd" namespace="http://integration.sprint.com/interfaces/updateDeviceAddressStatus/v1/updateDeviceAddressStatus.xsd"/>
+<xsd:import schemaLocation="v1.xsd12.xsd" namespace="http://integration.sprint.com/interfaces/updateDeviceInfo/v6/updateDeviceInfoV6.xsd"/>
+<xsd:import schemaLocation="v1.xsd13.xsd" namespace="http://integration.sprint.com/interfaces/updateDeviceInfo/v7/updateDeviceInfoV7.xsd"/>
+<xsd:import schemaLocation="v1.xsd14.xsd" namespace="http://integration.sprint.com/interfaces/updateDeviceInfo/v8/updateDeviceInfoV8.xsd"/>
+<xsd:import schemaLocation="v1.xsd15.xsd" namespace="http://integration.sprint.com/interfaces/validateDevicePair/v1/validateDevicePair.xsd"/>
+<xsd:import schemaLocation="v1.xsd16.xsd" namespace="http://integration.sprint.com/interfaces/validateDeviceToken/v1/validateDeviceToken.xsd"/></xsd:schema></wsdl:types>
+<wsdl:message name="addForeignDeviceRequest">
+<wsdl:part name="addForeignDeviceRequest" element="xsns:addForeignDevice" xmlns:xsns="http://integration.sprint.com/interfaces/addForeignDevice/v1/addForeignDevice.xsd"/></wsdl:message>
+<wsdl:message name="addForeignDeviceResponse">
+<wsdl:part name="addForeignDeviceResponse" element="xsns:addForeignDeviceResponse" xmlns:xsns="http://integration.sprint.com/interfaces/addForeignDevice/v1/addForeignDevice.xsd"/></wsdl:message>
+<wsdl:message name="manageDeviceCredentialsRequest">
+<wsdl:part name="manageDeviceCredentialsRequest" element="xsns:manageDeviceCredentials" xmlns:xsns="http://integration.sprint.com/interfaces/manageDeviceCredentials/v1/manageDeviceCredentials.xsd"/></wsdl:message>
+<wsdl:message name="manageDeviceCredentialsResponse">
+<wsdl:part name="manageDeviceCredentialsResponse" element="xsns:manageDeviceCredentialsResponse" xmlns:xsns="http://integration.sprint.com/interfaces/manageDeviceCredentials/v1/manageDeviceCredentials.xsd"/></wsdl:message>
+<wsdl:message name="manageDeviceLockRequest">
+<wsdl:part name="manageDeviceLockRequest" element="xsns:manageDeviceLock" xmlns:xsns="http://integration.sprint.com/interfaces/manageDeviceLock/v1/manageDeviceLock.xsd"/></wsdl:message>
+<wsdl:message name="manageDeviceLockResponse">
+<wsdl:part name="manageDeviceLockResponse" element="xsns:manageDeviceLockResponse" xmlns:xsns="http://integration.sprint.com/interfaces/manageDeviceLock/v1/manageDeviceLock.xsd"/></wsdl:message>
+<wsdl:message name="manageDeviceTokenV2Request">
+<wsdl:part name="manageDeviceTokenV2Request" element="xsns:manageDeviceTokenV2" xmlns:xsns="http://integration.sprint.com/interfaces/manageDeviceToken/v2/manageDeviceTokenV2.xsd"/></wsdl:message>
+<wsdl:message name="manageDeviceTokenV2Response">
+<wsdl:part name="manageDeviceTokenV2Response" element="xsns:manageDeviceTokenV2Response" xmlns:xsns="http://integration.sprint.com/interfaces/manageDeviceToken/v2/manageDeviceTokenV2.xsd"/></wsdl:message>
+<wsdl:message name="manageFlipFlopEquipmentRequest">
+<wsdl:part name="manageFlipFlopEquipmentRequest" element="xsns:manageFlipFlopEquipment" xmlns:xsns="http://integration.sprint.com/interfaces/manageFlipFlopEquipment/v1/manageFlipFlopEquipment.xsd"/></wsdl:message>
+<wsdl:message name="manageFlipFlopEquipmentResponse">
+<wsdl:part name="manageFlipFlopEquipmentResponse" element="xsns:manageFlipFlopEquipmentResponse" xmlns:xsns="http://integration.sprint.com/interfaces/manageFlipFlopEquipment/v1/manageFlipFlopEquipment.xsd"/></wsdl:message>
+<wsdl:message name="queryDeviceLockStatusRequest">
+<wsdl:part name="queryDeviceLockStatusRequest" element="xsns:queryDeviceLockStatus" xmlns:xsns="http://integration.sprint.com/interfaces/queryDeviceLockStatus/v1/queryDeviceLockStatus.xsd"/></wsdl:message>
+<wsdl:message name="queryDeviceLockStatusResponse">
+<wsdl:part name="queryDeviceLockStatusResponse" element="xsns:queryDeviceLockStatusResponse" xmlns:xsns="http://integration.sprint.com/interfaces/queryDeviceLockStatus/v1/queryDeviceLockStatus.xsd"/></wsdl:message>
+<wsdl:message name="soapFault">
+<wsdl:part name="fault" element="xsns:errorDetailItem" xmlns:xsns="http://integration.sprint.com/common/ErrorDetailsV2.xsd"/></wsdl:message>
+<wsdl:message name="updateDataDeviceRequest">
+<wsdl:part name="updateDataDeviceRequest" element="xsns:updateDataDevice" xmlns:xsns="http://integration.sprint.com/interfaces/updateDataDevice/v1/updateDataDevice.xsd"/></wsdl:message>
+<wsdl:message name="updateDataDeviceResponse">
+<wsdl:part name="updateDataDeviceResponse" element="xsns:updateDataDeviceResponse" xmlns:xsns="http://integration.sprint.com/interfaces/updateDataDevice/v1/updateDataDevice.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceAddressStatusRequest">
+<wsdl:part name="updateDeviceAddressStatusRequest" element="xsns:updateDeviceAddressStatus" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceAddressStatus/v1/updateDeviceAddressStatus.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceAddressStatusResponse">
+<wsdl:part name="updateDeviceAddressStatusResponse" element="xsns:updateDeviceAddressStatusResponse" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceAddressStatus/v1/updateDeviceAddressStatus.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceInfoV6Request">
+<wsdl:part name="updateDeviceInfoV6Request" element="xsns:updateDeviceInfoV6" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceInfo/v6/updateDeviceInfoV6.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceInfoV6Response">
+<wsdl:part name="updateDeviceInfoV6Response" element="xsns:updateDeviceInfoV6Response" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceInfo/v6/updateDeviceInfoV6.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceInfoV7Request">
+<wsdl:part name="updateDeviceInfoV7Request" element="xsns:updateDeviceInfoV7" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceInfo/v7/updateDeviceInfoV7.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceInfoV7Response">
+<wsdl:part name="updateDeviceInfoV7Response" element="xsns:updateDeviceInfoV7Response" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceInfo/v7/updateDeviceInfoV7.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceInfoV8Request">
+<wsdl:part name="updateDeviceInfoV8Request" element="xsns:updateDeviceInfoV8" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceInfo/v8/updateDeviceInfoV8.xsd"/></wsdl:message>
+<wsdl:message name="updateDeviceInfoV8Response">
+<wsdl:part name="updateDeviceInfoV8Response" element="xsns:updateDeviceInfoV8Response" xmlns:xsns="http://integration.sprint.com/interfaces/updateDeviceInfo/v8/updateDeviceInfoV8.xsd"/></wsdl:message>
+<wsdl:message name="validateDevicePairRequest">
+<wsdl:part name="validateDevicePairRequest" element="xsns:validateDevicePair" xmlns:xsns="http://integration.sprint.com/interfaces/validateDevicePair/v1/validateDevicePair.xsd"/></wsdl:message>
+<wsdl:message name="validateDevicePairResponse">
+<wsdl:part name="validateDevicePairResponse" element="xsns:validateDevicePairResponse" xmlns:xsns="http://integration.sprint.com/interfaces/validateDevicePair/v1/validateDevicePair.xsd"/></wsdl:message>
+<wsdl:message name="validateDeviceTokenRequest">
+<wsdl:part name="validateDeviceTokenRequest" element="xsns:validateDeviceToken" xmlns:xsns="http://integration.sprint.com/interfaces/validateDeviceToken/v1/validateDeviceToken.xsd"/></wsdl:message>
+<wsdl:message name="validateDeviceTokenResponse">
+<wsdl:part name="validateDeviceTokenResponse" element="xsns:validateDeviceTokenResponse" xmlns:xsns="http://integration.sprint.com/interfaces/validateDeviceToken/v1/validateDeviceToken.xsd"/></wsdl:message>
+<wsdl:message name="wsMessageHeader">
+<wsdl:part name="head" element="xsns:wsMessageHeader" xmlns:xsns="http://integration.sprint.com/common/header/WSMessageHeader/v2"/></wsdl:message>
+<wsdl:portType name="DeviceManagementPortType">
+<wsdl:operation name="AddForeignDevice">
+<wsdl:input name="AddForeignDeviceRequest" message="ns0:addForeignDeviceRequest"/>
+<wsdl:output name="AddForeignDeviceResponse" message="ns0:addForeignDeviceResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="ManageDeviceCredentials">
+<wsdl:input name="ManageDeviceCredentialsRequest" message="ns0:manageDeviceCredentialsRequest"/>
+<wsdl:output name="ManageDeviceCredentialsResponse" message="ns0:manageDeviceCredentialsResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="ManageDeviceLock">
+<wsdl:input name="ManageDeviceLockRequest" message="ns0:manageDeviceLockRequest"/>
+<wsdl:output name="ManageDeviceLockResponse" message="ns0:manageDeviceLockResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="ManageDeviceTokenV2">
+<wsdl:input name="ManageDeviceTokenV2Request" message="ns0:manageDeviceTokenV2Request"/>
+<wsdl:output name="ManageDeviceTokenV2Response" message="ns0:manageDeviceTokenV2Response"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="ManageFlipFlopEquipment">
+<wsdl:input name="ManageFlipFlopEquipmentRequest" message="ns0:manageFlipFlopEquipmentRequest"/>
+<wsdl:output name="ManageFlipFlopEquipmentResponse" message="ns0:manageFlipFlopEquipmentResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="QueryDeviceLockStatus">
+<wsdl:input name="QueryDeviceLockStatusRequest" message="ns0:queryDeviceLockStatusRequest"/>
+<wsdl:output name="QueryDeviceLockStatusResponse" message="ns0:queryDeviceLockStatusResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="UpdateDataDevice">
+<wsdl:input name="UpdateDataDeviceRequest" message="ns0:updateDataDeviceRequest"/>
+<wsdl:output name="UpdateDataDeviceResponse" message="ns0:updateDataDeviceResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="UpdateDeviceAddressStatus">
+<wsdl:input name="UpdateDeviceAddressStatusRequest" message="ns0:updateDeviceAddressStatusRequest"/>
+<wsdl:output name="UpdateDeviceAddressStatusResponse" message="ns0:updateDeviceAddressStatusResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="UpdateDeviceInfoV6">
+<wsdl:input name="UpdateDeviceInfoV6Request" message="ns0:updateDeviceInfoV6Request"/>
+<wsdl:output name="UpdateDeviceInfoV6Response" message="ns0:updateDeviceInfoV6Response"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="UpdateDeviceInfoV7">
+<wsdl:input name="UpdateDeviceInfoV7Request" message="ns0:updateDeviceInfoV7Request"/>
+<wsdl:output name="UpdateDeviceInfoV7Response" message="ns0:updateDeviceInfoV7Response"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="UpdateDeviceInfoV8">
+<wsdl:input name="UpdateDeviceInfoV8Request" message="ns0:updateDeviceInfoV8Request"/>
+<wsdl:output name="UpdateDeviceInfoV8Response" message="ns0:updateDeviceInfoV8Response"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="ValidateDevicePair">
+<wsdl:input name="ValidateDevicePairRequest" message="ns0:validateDevicePairRequest"/>
+<wsdl:output name="ValidateDevicePairResponse" message="ns0:validateDevicePairResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation>
+<wsdl:operation name="ValidateDeviceToken">
+<wsdl:input name="ValidateDeviceTokenRequest" message="ns0:validateDeviceTokenRequest"/>
+<wsdl:output name="ValidateDeviceTokenResponse" message="ns0:validateDeviceTokenResponse"/>
+<wsdl:fault name="fault" message="ns0:soapFault"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="DeviceManagementSOAPBinding" type="ns0:DeviceManagementPortType">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="AddForeignDevice">
+<soap11:operation soapAction="AddForeignDevice" style="document"/>
+<wsdl:input name="AddForeignDeviceRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="AddForeignDeviceResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ManageDeviceCredentials">
+<soap11:operation soapAction="ManageDeviceCredentials" style="document"/>
+<wsdl:input name="ManageDeviceCredentialsRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ManageDeviceCredentialsResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ManageDeviceLock">
+<soap11:operation soapAction="ManageDeviceLock" style="document"/>
+<wsdl:input name="ManageDeviceLockRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ManageDeviceLockResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ManageDeviceTokenV2">
+<soap11:operation soapAction="ManageDeviceTokenV2" style="document"/>
+<wsdl:input name="ManageDeviceTokenV2Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ManageDeviceTokenV2Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ManageFlipFlopEquipment">
+<soap11:operation soapAction="ManageFlipFlopEquipment" style="document"/>
+<wsdl:input name="ManageFlipFlopEquipmentRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ManageFlipFlopEquipmentResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="QueryDeviceLockStatus">
+<soap11:operation soapAction="QueryDeviceLockStatus" style="document"/>
+<wsdl:input name="QueryDeviceLockStatusRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="QueryDeviceLockStatusResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="UpdateDataDevice">
+<soap11:operation soapAction="UpdateDataDevice" style="document"/>
+<wsdl:input name="UpdateDataDeviceRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="UpdateDataDeviceResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="UpdateDeviceAddressStatus">
+<soap11:operation soapAction="UpdateDeviceAddressStatus" style="document"/>
+<wsdl:input name="UpdateDeviceAddressStatusRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="UpdateDeviceAddressStatusResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="UpdateDeviceInfoV6">
+<soap11:operation soapAction="UpdateDeviceInfoV6" style="document"/>
+<wsdl:input name="UpdateDeviceInfoV6Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="UpdateDeviceInfoV6Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="UpdateDeviceInfoV7">
+<soap11:operation soapAction="UpdateDeviceInfoV7" style="document"/>
+<wsdl:input name="UpdateDeviceInfoV7Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="UpdateDeviceInfoV7Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="UpdateDeviceInfoV8">
+<soap11:operation soapAction="UpdateDeviceInfoV8" style="document"/>
+<wsdl:input name="UpdateDeviceInfoV8Request">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="UpdateDeviceInfoV8Response">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ValidateDevicePair">
+<soap11:operation soapAction="ValidateDevicePair" style="document"/>
+<wsdl:input name="ValidateDevicePairRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ValidateDevicePairResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation>
+<wsdl:operation name="ValidateDeviceToken">
+<soap11:operation soapAction="ValidateDeviceToken" style="document"/>
+<wsdl:input name="ValidateDeviceTokenRequest">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:input>
+<wsdl:output name="ValidateDeviceTokenResponse">
+<soap11:body use="literal"/>
+<soap11:header message="ns0:wsMessageHeader" part="head" use="literal"/></wsdl:output>
+<wsdl:fault name="fault">
+<soap11:fault name="fault" use="literal"/></wsdl:fault></wsdl:operation></wsdl:binding>
+<wsdl:service name="DeviceManagementService">
+<wsdl:port name="DeviceManagementPortType" binding="ns0:DeviceManagementSOAPBinding">
+<soap11:address location="https://webservicesgateway.sprint.com:444/services/wireless/device/DeviceManagementService/v1"/></wsdl:port></wsdl:service></wsdl:definitions>

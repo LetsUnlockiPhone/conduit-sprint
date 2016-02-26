@@ -25,6 +25,8 @@ module Conduit
       action :query_port_status
       action :query_subscription_usage
       action :validate_port
+      action :add_foreign_device
+
     end
   end
 end

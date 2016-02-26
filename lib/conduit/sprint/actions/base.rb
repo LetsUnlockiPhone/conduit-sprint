@@ -49,7 +49,9 @@ module Conduit::Driver::Sprint
           h[attribute] = @options[attribute]
         end
       end.tap do |h|
-        h[:xsd] = self.class.xsd
+        # Reason for this is the layout doesnt know about these attributes so it would throw error.
+        h[:xsd]         = self.class.xsd
+        h[:consumer_id] = @options[:consumer_id]
       end
     end
 
