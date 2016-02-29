@@ -1,0 +1,20 @@
+<sub:addForeignDevice>
+<sub:deviceInfo>
+<sub:deviceDetailInfo>
+<% if meid_dec? %>
+<sub:esnMeidDec><%= meid %></sub:esnMeidDec>
+<% elsif meid_hex? %>
+<sub:esnMeidHex><%= meid %></sub:esnMeidHex>
+<% end %>
+</sub:deviceDetailInfo>
+<% if !part_number.blank? %>
+<sub:partNumber><%= part_number %></sub:partNumber>
+<% end %>
+<% if !brand_code.blank? %>
+<sub:brandCode><%= brand_code %></sub:brandCode>
+<% end %>
+<% if !sku_type.blank? %>
+<sub:skuType><%= sku_type %></sub:skuType>
+<% end %>
+</sub:deviceInfo>
+</sub:addForeignDevice>

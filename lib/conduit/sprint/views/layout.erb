@@ -9,6 +9,9 @@ xmlns:sub="http://integration.sprint.com/interfaces/<%= xsd %>">
 <v2:trackingMessageHeader>
 <v2:applicationId><%= application_id %></v2:applicationId>
 <v2:applicationUserId><%= application_user_id %></v2:applicationUserId>
+<% if !consumer_id.blank? %>
+<v2:consumerId><%= consumer_id %></v2:consumerId>
+<% end %>
 <v2:messageId><%= SecureRandom.base64(20) %></v2:messageId>
 <v2:timeToLive>0</v2:timeToLive>
 <v2:messageDateTimeStamp><%= Time.now.utc.strftime("%Y-%m-%dT%H:%M:%S.0Z") %></v2:messageDateTimeStamp>

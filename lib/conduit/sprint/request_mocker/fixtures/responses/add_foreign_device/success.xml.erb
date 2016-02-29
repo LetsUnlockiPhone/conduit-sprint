@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header><m:wsMessageHeader xmlns:m="http://integration.sprint.com/common/header/WSMessageHeader/v2"><m:trackingMessageHeader><m:applicationId><%= application_id %></m:applicationId><m:applicationUserId><%= application_user_id %></m:applicationUserId><m:consumerId><%= consumer_id %></m:consumerId><m:messageId>9999999999</m:messageId><m:conversationId/><m:timeToLive>0</m:timeToLive><m:replyCompletionCode>0</m:replyCompletionCode><m:messageDateTimeStamp>2016-02-26T09:59:08-05:00</m:messageDateTimeStamp></m:trackingMessageHeader></m:wsMessageHeader><wsse:Security SOAP-ENV:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsu:Timestamp wsu:Id="Timestamp-746b357f-0cea-461d-ac0f-8ef5ad6259e8" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsu:Created>2016-02-26T14:59:08Z</wsu:Created><wsu:Expires>2016-02-26T15:04:08Z</wsu:Expires></wsu:Timestamp><wsse:BinarySecurityToken wsu:Id="SecurityToken-8350f72a-2248-4ea6-aad1-e00337e621c4" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">MIIDmTCCAwKgAwIBAgIERxqCLDANBgkqhkiG9w0BAQUFADAeMQswCQYDVQQGEwJVUzEPMA0GA1UEChMGU3ByaW50MB4XDTExMDgwMjIwMDc0OVoSDFDSFSDFSDFpU5AxUR/aK1K3taa27HS+WBQYTeMw+Y/LFhp8m+UjHBx/O1kfk4JAz201Kk0HeGgFvt9sscLfK8YD0aavdDJ6Z0rMpHBlcv8VQ7P+1zqJLay3TY+atl9wuD/Q==</wsse:BinarySecurityToken><Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="#Timestamp-746b357f-0cea-461d-ac0f-8ef5ad6259e8">
+  <Transforms>
+    <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+  </Transforms>
+  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+  <DigestValue>3PN/y5WoL+0vInJcn4Yh+gKIT34=</DigestValue>
+</Reference>
+<Reference URI="#Body-15675397-366d-44be-9aab-764978f93139">
+  <Transforms>
+    <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+  </Transforms>
+  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+  <DigestValue>nQ0h6vOZ1pffj6/WxF52DGiSKLo=</DigestValue>
+</Reference>n</SignedInfo>
+<SignatureValue>TuPlRiIZH2G7LdvS0p+COL1HZD223EN5pDhMUNAF/691U6A0kAtguJP5gVGw7IlGi6Qfq8f7MogH4OOA5X/Qoe2OlreKoY2DLTqVidP7VfHtEGvhVRn5BYRVZiU2br/OIAL/cPLt6k458kqtV4YvG29kc6HAUsNVxjRy1s4jSaY=</SignatureValue><KeyInfo><wsse:SecurityTokenReference xmlns=""><wsse:Reference URI="#SecurityToken-8350f72a-2248-4ea6-aad1-e00337e621c4" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/></wsse:SecurityTokenReference></KeyInfo></Signature></wsse:Security></SOAP-ENV:Header><SOAP-ENV:Body wsu:Id="Body-15675397-366d-44be-9aab-764978f93139" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><tns:addForeignDeviceResponse xmlns:tns="http://integration.sprint.com/interfaces/addForeignDevice/v1/addForeignDevice.xsd"><tns:esnMeidHex><%= device_serial_number %></tns:esnMeidHex><tns:availableReasonCode>213</tns:availableReasonCode><tns:availableReasonDescription>SUCCESS_DEVICE_ADDED: Device added/updated successfully to Sprint Inventory.</tns:availableReasonDescription><tns:modelNumber>IPH616GBFGY1</tns:modelNumber></tns:addForeignDeviceResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
