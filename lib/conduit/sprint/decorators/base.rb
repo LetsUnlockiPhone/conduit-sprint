@@ -23,6 +23,10 @@ module Conduit::Sprint::Decorators
       (street + ' ' + street_type).strip
     end
 
+    def meid
+      device_serial_number.upcase unless device_serial_number.blank?
+    end
+
     private
 
     def parsed_address1

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TransferOwnership do
-  let(:device_serial_number)     { '12345678901' }
+  let(:device_serial_number)     { '12345678aaa' }
   let(:transfer_ownership_creds) { credentials.merge(device_serial_number: device_serial_number)  }
 
   let(:transfer_ownership) do
@@ -29,7 +29,7 @@ describe TransferOwnership do
   end
 
   describe 'hex_transfer_ownership' do
-    let(:device_serial_number) { '12345678' }
+    let(:device_serial_number) { '12345aaa' }
 
     let(:hex_unsigned_soap) do
       File.read('./spec/fixtures/requests/transfer_ownership/hex_unsigned_soap.xml')

@@ -20,7 +20,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleSwapDevice/v2/whole
 <sub:mdn>5555555555</sub:mdn>
 <sub:deviceInfoList>
 <sub:deviceInfo>
-<sub:serialNumber>123456789</sub:serialNumber>
+<sub:serialNumber>12345678AAA</sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
 </sub:deviceInfoList>

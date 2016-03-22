@@ -24,7 +24,7 @@
         <whol1:msid>000006785706092</whol1:msid>
         <whol1:deviceInfoList>
           <whol1:deviceInfo>
-            <whol1:serialNumber><%= nid %></whol1:serialNumber>
+            <whol1:serialNumber><%= meid %></whol1:serialNumber>
             <whol1:serialType>E</whol1:serialType>
           </whol1:deviceInfo>
           <% if !iccid.nil? && !iccid.empty? %>
@@ -54,7 +54,7 @@
           <whol1:ip/>
         </whol1:allocatedStaticIpInfo>
         <whol1:deviceDetailInfo>
-          <whol1:serialNumber><%= nid %></whol1:serialNumber>
+          <whol1:serialNumber><%= meid %></whol1:serialNumber>
           <whol1:masterSubsidyLock>311063</whol1:masterSubsidyLock>
         </whol1:deviceDetailInfo>
       </whol1:subscriberInfo>

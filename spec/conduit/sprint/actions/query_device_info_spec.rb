@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QueryDeviceInfo do
-  let(:device_serial_number)     { '123456789012345678' }
+  let(:device_serial_number)     { '123456789012345aaa' }
   let(:creds) do
     credentials.merge(
       device_serial_number: device_serial_number,
@@ -32,7 +32,7 @@ describe QueryDeviceInfo do
   end
 
   describe 'hex_query_device' do
-    let(:device_serial_number) { '123456789ABCDE' }
+    let(:device_serial_number) { '123456789abcde' }
 
     let(:hex_unsigned_soap) do
       File.read('./spec/fixtures/requests/query_device_info/hex_unsigned_soap.xml')

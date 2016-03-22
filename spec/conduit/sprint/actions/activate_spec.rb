@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Activate do
   let(:creds) do
-    credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561',
+    credentials.merge(device_serial_number: '12345678aaa', plan_code: 'TESTPLAN', csa: 'MIAWPB561',
                         service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
   end
   let(:activate) do
@@ -11,7 +11,7 @@ describe Activate do
 
   let(:activate_lte) do
     Activate.new \
-      credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: 'MIAWPB561',
+      credentials.merge(device_serial_number: '12345678aaa', plan_code: 'TESTPLAN', csa: 'MIAWPB561',
                         iccid: '90123456789', service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'])
   end
 
@@ -45,7 +45,7 @@ describe Activate do
   it_should_behave_like 'a 500 error' do
     let(:action) do
       Activate.new \
-        credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', csa: '33415', mock_status: :error)
+        credentials.merge(device_serial_number: '12345678901', plan_code: 'TESTPLAN', csa: '33415', mock_status: :error)
     end
   end
 
@@ -64,7 +64,7 @@ describe Activate do
 
     subject do
       Activate.new \
-        credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN', zip: '33415')
+        credentials.merge(device_serial_number: '12345678901', plan_code: 'TESTPLAN', zip: '33415')
     end
 
     its(:soap_xml) { should eq unsigned_new_csa_soap }
@@ -72,12 +72,12 @@ describe Activate do
 
   context 'an activate with transfer ownership' do
     let(:transfer_ownership_attributes) do
-      credentials.merge(nid: '12345678901')
+      credentials.merge(device_serial_number: '12345678901')
     end
 
     let(:activate) do
       Activate.new \
-        credentials.merge(nid: '12345678901', plan_code: 'TESTPLAN',
+        credentials.merge(device_serial_number: '12345678901', plan_code: 'TESTPLAN',
                           csa: 'MIAWPB561', claim_ownership: true)
     end
 

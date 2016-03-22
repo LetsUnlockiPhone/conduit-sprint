@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ActivatePort do
   let(:port_attributes) do
-    credentials.merge(nid: '12345678901', first_name: 'test', last_name: 'tester', mdn: '5555555555',
+    credentials.merge(device_serial_number: '12345678aaa', first_name: 'test', last_name: 'tester', mdn: '5555555555',
                   service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'], authorized_by: 'customer',
                   city: 'city', state: 'state', zip: '99999', address1: '123 Test St', csa: 'MIAWPB561',
                   carrier_account: '999999', plan_code: 'TESTPLAN', ssn: '')
@@ -32,7 +32,7 @@ describe ActivatePort do
 
   context 'when no street type is given' do
     let(:port_attributes) do
-      credentials.merge(nid: '12345678901', mdn: '5555555555', first_name: 'test', last_name: 'tester',
+      credentials.merge(device_serial_number: '12345678aaa', mdn: '5555555555', first_name: 'test', last_name: 'tester',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
                     city: 'city', state: 'state', zip: '99999', address1: '123 N. Test', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN')
@@ -48,7 +48,7 @@ describe ActivatePort do
 
   context 'when no authorized by is given' do
     let(:port_attributes) do
-      credentials.merge(nid: '12345678901', mdn: '5555555555', first_name: 'test', last_name: 'tester',
+      credentials.merge(device_serial_number: '12345678aaa', mdn: '5555555555', first_name: 'test', last_name: 'tester',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
                     city: 'city', state: 'state', zip: '99999', address1: '123 N. Test St', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN')
@@ -64,7 +64,7 @@ describe ActivatePort do
 
   context 'when no first name and last name given' do
     let(:port_attributes) do
-      credentials.merge(nid: '12345678901', mdn: '5555555555',
+      credentials.merge(device_serial_number: '12345678aaa', mdn: '5555555555',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'],
                     city: 'city', state: 'state', zip: '99999', address1: '123 N. Test St', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN')
@@ -92,7 +92,7 @@ describe ActivatePort do
         :msid           => "000006785706092",
         :effective_date => "2014-10-17",
         :csa            => "MIAWPB561",
-        :esn_dec        => "12345678901",
+        :esn_dec        => "12345678AAA",
         :esn_type       => "E",
         :iccid          => nil,
         :imsi           => nil,
@@ -134,7 +134,7 @@ describe ActivatePort do
 
   context 'an activate port with out csa should fetch a csa' do
     let(:port_attributes) do
-      credentials.merge(nid: '12345678901', first_name: 'test', last_name: 'tester', mdn: '5555555555',
+      credentials.merge(device_serial_number: '12345678aaa', first_name: 'test', last_name: 'tester', mdn: '5555555555',
                     service_codes: ['TESTNVM', 'TESTPMVM', 'TESTINTCL'], authorized_by: 'customer',
                     city: 'city', state: 'state', zip: '99999', address1: '123 N. Test St', csa: 'MIAWPB561',
                     carrier_account: '999999', plan_code: 'TESTPLAN', ssn: '')
@@ -154,7 +154,7 @@ describe ActivatePort do
 
   context 'an activate port with transfer ownership' do
     let(:transfer_ownership_attributes) do
-      credentials.merge(nid: '12345678901')
+      credentials.merge(device_serial_number: '12345678aaa')
     end
 
     let(:activate_port) do

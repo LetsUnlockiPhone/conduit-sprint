@@ -20,7 +20,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/addForeignDevice/v1/addForei
 <sub:addForeignDevice>
 <sub:deviceInfo>
 <sub:deviceDetailInfo>
-<sub:esnMeidDec>12345678901</sub:esnMeidDec>
+<sub:esnMeidDec>12345678AAA</sub:esnMeidDec>
 </sub:deviceDetailInfo>
 <sub:partNumber>PARTNUMBER</sub:partNumber>
 <sub:brandCode>PLD</sub:brandCode>
