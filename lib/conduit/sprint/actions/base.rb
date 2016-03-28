@@ -65,7 +65,7 @@ module Conduit::Driver::Sprint
     end
 
     def perform_request
-      client    = Savon.client(wsdl: wsdl, raise_errors: false, ssl_version: :TLSv1)
+      client    = Savon.client(wsdl: wsdl, raise_errors: false, ssl_version: :TLSv1_2)
       response  = client.call(self.class.operation, xml: signed_soap_xml)
       parser.new(response.xml)
     end
