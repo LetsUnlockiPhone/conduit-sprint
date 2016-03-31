@@ -115,4 +115,23 @@ describe QueryDeviceInfo do
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should eq serializable_hash }
   end
+
+  context 'a failed query device response is returned' do
+    before do
+      creds.merge!(mock_status: :failure)
+    end
+    let(:device_serial_number)     { nil }
+
+    let(:response_errors) do
+      [
+        { code: "210820012", message: "http://144.230.220.92:10002/services/WholesaleWnpService/v1: cvc-simple-type 1: element mdn value '11111111' is not a valid instance of type MobileDirectoryNumberString" },
+        { code: "Client.705", message: "Input validation error" }
+      ]
+    end
+
+    subject                 { query_device.perform }
+    it                      { should be_an_instance_of QueryDeviceInfo::Parser }
+    its(:response_status)   { should eq 'failure'}
+    its(:response_errors)   { should eq response_errors }
+  end
 end
