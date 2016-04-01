@@ -23,6 +23,11 @@ module Conduit::Sprint::Decorators
       (street + ' ' + street_type).strip
     end
 
+    def meid
+      meid = super
+      meid.upcase unless meid.blank?
+    end
+
     private
 
     def parsed_address1

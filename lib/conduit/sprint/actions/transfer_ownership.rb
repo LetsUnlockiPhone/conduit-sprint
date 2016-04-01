@@ -5,7 +5,7 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleDeviceManagementService/v1'
     xsd                 'manageDevicePhoneOwnership/v1/manageDevicePhoneOwnership.xsd'
     operation           :manage_device_phone_ownership
-    required_attributes :device_serial_number
+    required_attributes :meid
     optional_attributes :ownership_code
 
     def initialize(options = {})

@@ -1,9 +1,9 @@
 <sub:manageDevicePhoneOwnership>
 <sub:deviceInfo>
 <% if meid_dec? %>
-<sub:serialNumberDec><%= device_serial_number %></sub:serialNumberDec>
+<sub:serialNumberDec><%= meid %></sub:serialNumberDec>
 <% else %>
-<sub:serialNumberHex><%= device_serial_number %></sub:serialNumberHex>
+<sub:serialNumberHex><%= meid %></sub:serialNumberHex>
 <% end %>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>

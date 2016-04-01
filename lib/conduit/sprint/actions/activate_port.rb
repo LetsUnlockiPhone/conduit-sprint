@@ -5,7 +5,7 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleWnpService/v1'
     xsd                 'wholesaleActivateSubscriptionWithPortIn/v4/wholesaleActivateSubscriptionWithPortInV4.xsd'
     operation           :wholesale_activate_subscription_with_port_in_v4
-    required_attributes :nid, :mdn, :city, :state, :zip, :carrier_account, :plan_code
+    required_attributes :meid, :mdn, :city, :state, :zip, :carrier_account, :plan_code
     optional_attributes :address1, :first_name, :last_name, :business_name,
                         :ssn, :tax_id, :carrier_password, :csa, :service_codes,
                         :iccid, :authorized_by
@@ -34,12 +34,13 @@ module Conduit::Driver::Sprint
     def claim_ownership!
       response = TransferOwnership.new(transfer_ownership_attributes).perform
       if response.response_status == 'failure'
-        raise "Unable to claim ownership of ESN: #{@options[:nid]}"
+        raise "Unable to claim ownership of ESN: #{@options[:meid]}"
       end
     end
 
     def transfer_ownership_attributes
-      credentials.merge(nid: @options[:nid], mock_status: @options[:mock_status])
+      credentials.merge(meid: @options[:meid],
+                        mock_status: @options[:mock_status])
     end
 
     def validate_port_attributes

@@ -19,7 +19,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/wholesaleActivateSubscriptio
 <sub:wholesaleActivateSubscriptionV4>
 <sub:deviceInfoList>
 <sub:deviceInfo>
-<sub:serialNumber>12345678901</sub:serialNumber>
+<sub:serialNumber>12345678AAA</sub:serialNumber>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
 </sub:deviceInfoList>

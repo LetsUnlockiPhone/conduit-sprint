@@ -18,7 +18,7 @@ xmlns:sub="http://integration.sprint.com/interfaces/manageDevicePhoneOwnership/v
 <soapenv:Body>
 <sub:manageDevicePhoneOwnership>
 <sub:deviceInfo>
-<sub:serialNumberDec>12345678901</sub:serialNumberDec>
+<sub:serialNumberDec>12345678AAA</sub:serialNumberDec>
 <sub:serialType>E</sub:serialType>
 </sub:deviceInfo>
 <sub:newPhoneOwnershipCode>PLBL</sub:newPhoneOwnershipCode>
