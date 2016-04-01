@@ -40,6 +40,18 @@ describe AddForeignDevice do
     end
   end
 
+  context "when no consumber_id is passed" do
+    before do
+      creds.delete(:consumer_id)
+      creds[:application_user_id] = 'App User Id'
+    end
+
+    it 'should use app user id transformed' do
+      consumer_id = add_foreign_device.attributes_with_values[:consumer_id]
+      expect(consumer_id).to eql 'appuserid'
+    end
+  end
+
   context 'a successful add_foreign_device response is returned' do
     let(:serializable_hash) do
       {
