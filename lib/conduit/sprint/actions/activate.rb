@@ -5,7 +5,7 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleSubscriptionService/v1'
     xsd                 'wholesaleActivateSubscription/v4/wholesaleActivateSubscriptionV4.xsd'
     operation           :wholesale_activate_subscription_v4
-    required_attributes :device_serial_number, :plan_code
+    required_attributes :meid, :plan_code
     optional_attributes :csa, :zip, :service_codes, :claim_ownership, :iccid
 
     def initialize(options = {})
@@ -46,7 +46,7 @@ module Conduit::Driver::Sprint
     def claim_ownership!
       response = TransferOwnership.new(transfer_ownership_attributes).perform
       if response.response_status == 'failure'
-        raise "Unable to claim ownership of ESN: #{@options[:device_serial_number]}"
+        raise "Unable to claim ownership of ESN: #{@options[:meid]}"
       end
     end
 
@@ -55,7 +55,7 @@ module Conduit::Driver::Sprint
     end
 
     def transfer_ownership_attributes
-      credentials.merge(device_serial_number: @options[:device_serial_number],
+      credentials.merge(meid: @options[:meid],
                         mock_status: @options[:mock_status])
     end
   end

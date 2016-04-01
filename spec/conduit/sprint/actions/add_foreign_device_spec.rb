@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe AddForeignDevice do
-  let(:device_serial_number) { '12345678aaa' }
+  let(:meid) { '12345678aaa' }
   let(:creds) do
     credentials.merge(
       consumer_id: 'consumer_id',
-      device_serial_number: device_serial_number,
+      meid: meid,
       sku_type: 'BYO',
       brand_code: 'PLD',
       part_number: 'PARTNUMBER'

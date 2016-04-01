@@ -5,7 +5,7 @@ module Conduit::Driver::Sprint
     wsdl_service        'WholesaleQueryDeviceInfoService/v1'
     xsd                 'wholesaleValidateDevice/v3/wholesaleValidateDeviceV3.xsd'
     operation           :wholesale_validate_device_v3
-    required_attributes :device_serial_number
+    required_attributes :meid
     optional_attributes :iccid
 
     def test_gateway

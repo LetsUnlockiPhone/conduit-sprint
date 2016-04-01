@@ -24,7 +24,8 @@ module Conduit::Sprint::Decorators
     end
 
     def meid
-      device_serial_number.upcase unless device_serial_number.blank?
+      meid = super
+      meid.upcase unless meid.blank?
     end
 
     private

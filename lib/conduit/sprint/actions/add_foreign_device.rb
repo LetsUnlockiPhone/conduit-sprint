@@ -5,7 +5,7 @@ module Conduit::Driver::Sprint
     wsdl_service        'DeviceManagementService/v1'
     xsd                 'addForeignDevice/v1/addForeignDevice.xsd'
     operation           :add_foreign_device
-    required_attributes :device_serial_number
+    required_attributes :meid
     optional_attributes :part_number, :brand_code, :sku_type, :consumer_id
 
     def initialize(options = {})

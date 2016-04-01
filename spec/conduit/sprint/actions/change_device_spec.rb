@@ -3,9 +3,9 @@ require 'spec_helper'
 describe ChangeDevice do
   let(:change_device) { ChangeDevice.new(creds) }
   let(:mdn)           { '5555555555' }
-  let(:device_serial_number) { '12345678aaa' }
+  let(:meid)          { '12345678aaa' }
   let(:iccid)         { '30112000000123456789' }
-  let(:creds)         { credentials.merge(mdn: mdn, device_serial_number: device_serial_number) }
+  let(:creds)         { credentials.merge(mdn: mdn, meid: meid) }
 
   let(:unsigned_lte_soap) do
     File.read('./spec/fixtures/requests/change_device/unsigned_lte_soap.xml')
@@ -25,7 +25,7 @@ describe ChangeDevice do
 
     context 'with iccid' do
       let(:creds) do
-        credentials.merge(mdn: mdn, device_serial_number: device_serial_number, iccid: iccid)
+        credentials.merge(mdn: mdn, meid: meid, iccid: iccid)
       end
       it { should eq unsigned_lte_soap }
     end
@@ -39,15 +39,15 @@ describe ChangeDevice do
   it_should_behave_like 'a 500 error' do
     let(:action) do
       ChangeDevice.new \
-        credentials.merge(credentials.merge(mdn: mdn, device_serial_number: device_serial_number, mock_status: :error))
+        credentials.merge(credentials.merge(mdn: mdn, meid: meid, mock_status: :error))
     end
   end
 
-  context 'a successful change device with device_serial_number response is returned' do
+  context 'a successful change device with meid response is returned' do
     subject                 { change_device.perform }
     it                      { should be_an_instance_of ChangeDevice::Parser }
     its(:response_status)   { should eq 'success' }
-    its(:nid)               { should eq device_serial_number.upcase }
+    its(:nid)               { should eq meid.upcase }
     its(:mdn)               { should eq mdn }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should_not eq be_empty }
@@ -55,13 +55,13 @@ describe ChangeDevice do
 
   context 'a successful change device with iccid response is returned' do
     let(:creds) do
-      credentials.merge(mdn: mdn, device_serial_number: device_serial_number, iccid: iccid)
+      credentials.merge(mdn: mdn, meid: meid, iccid: iccid)
     end
 
     subject                 { change_device.perform }
     it                      { should be_an_instance_of ChangeDevice::Parser }
     its(:response_status)   { should eq 'success' }
-    its(:nid)               { should eq device_serial_number.upcase }
+    its(:nid)               { should eq meid.upcase }
     its(:mdn)               { should eq mdn }
     its(:response_errors)   { should be_empty }
     its(:serializable_hash) { should_not eq be_empty }
