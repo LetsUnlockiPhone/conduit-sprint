@@ -12,9 +12,7 @@ module Conduit::Driver::Sprint
       super
 
       # Sprint wants a consumer_id in the api call, its the same as app_user_id transformed
-      if !@options[:application_user_id].blank?
-        @options[:consumer_id] ||= @options[:application_user_id].delete(' ').downcase
-      end
+      @options[:consumer_id] ||= @options[:application_user_id]
     end
 
     def test_gateway

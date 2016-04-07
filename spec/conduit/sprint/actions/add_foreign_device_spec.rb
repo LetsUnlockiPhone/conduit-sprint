@@ -46,9 +46,9 @@ describe AddForeignDevice do
       creds[:application_user_id] = 'App User Id'
     end
 
-    it 'should use app user id transformed' do
+    it 'should use app user id' do
       consumer_id = add_foreign_device.attributes_with_values[:consumer_id]
-      expect(consumer_id).to eql 'appuserid'
+      expect(consumer_id).to eql creds[:application_user_id]
     end
   end
 
