@@ -99,11 +99,11 @@ describe TransferOwnership do
 
     let(:response_errors) do
       [
-        { code: '10',         message: 'INVALID_ESN_MEID: esnDec is mandatory' },
-        { code: 'Server.704', message: 'Application processing error' }
+        Conduit::Error.new(code: '10', message: 'INVALID_ESN_MEID: esnDec is mandatory'),
+        Conduit::Error.new(code: 'Server.704', message: 'Application processing error')
       ]
     end
-    
+
     subject                 { transfer_ownership.perform }
     it                      { should be_an_instance_of TransferOwnership::Parser }
     its(:response_status)   { should eq 'failure'}

@@ -12,7 +12,7 @@ describe Restore do
     File.read('./spec/fixtures/requests/restore/signed_soap.xml')
   end
 
-  describe 'soap_xml' do    
+  describe 'soap_xml' do
     subject { restore.soap_xml }
     it      { should eq unsigned_soap }
   end
@@ -43,14 +43,14 @@ describe Restore do
 
     let(:response_errors) do
       [
-        {:code=>"210820012", :message=>"The subscriber does not belong to the 2222333344 Major Account/MVNO"},
-        {:code=>"Server.704", :message=>"Application processing error"}
+        Conduit::Error.new(:code=>"210820012", :message=>"The subscriber does not belong to the 2222333344 Major Account/MVNO"),
+        Conduit::Error.new(:code=>"Server.704", :message=>"Application processing error")
       ]
     end
-    
+
     subject                 { restore.perform }
     it                      { should be_an_instance_of Restore::Parser }
     its(:response_status)   { should eq 'failure'}
     its(:response_errors)   { should eq response_errors }
-  end   
+  end
 end

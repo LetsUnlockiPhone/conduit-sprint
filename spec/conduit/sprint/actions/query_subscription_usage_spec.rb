@@ -35,7 +35,7 @@ describe QuerySubscriptionUsage do
     end
 
     let(:response_errors) do
-      [{ code: "100000297", message: "978000152 - The equipment does not exist" }]
+      [Conduit::Error.new(code: "100000297", message: "978000152 - The equipment does not exist")]
     end
 
     subject                 { query_subscription_usage.perform }
