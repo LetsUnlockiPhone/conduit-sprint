@@ -73,8 +73,8 @@ describe AddForeignDevice do
 
     let(:response_errors) do
       [
-        { code: "264", message: "RESKU_INFO_MISSING: Device re-SKU information not found" },
-        { code: "Server.704", message: "Application Processing Error" }
+        Conduit::Error.new(code: "264", message: "RESKU_INFO_MISSING: Device re-SKU information not found"),
+        Conduit::Error.new(code: "Server.704", message: "Application Processing Error")
       ]
     end
 

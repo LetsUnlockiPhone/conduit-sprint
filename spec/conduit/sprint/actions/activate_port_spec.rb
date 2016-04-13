@@ -197,8 +197,8 @@ describe ActivatePort do
 
     let(:response_errors) do
       [
-        { code: "Client.701", message: "No data found on RATED_FEATURE table for SOC:" },
-        { code: "Client.701", message: "Data not found" }
+        Conduit::Error.new(code: "Client.701", message: "No data found on RATED_FEATURE table for SOC:"),
+        Conduit::Error.new(code: "Client.701", message: "Data not found")
       ]
     end
 

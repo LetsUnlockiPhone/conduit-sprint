@@ -74,8 +74,9 @@ describe ChangeDevice do
 
     let(:response_errors) do
       [
-        { code: "210820012", message: "The subscriber does not belong to the 2222333344 Major Account/MVNO" },
-        { code: "Server.704", message: "Application processing error" }
+        Conduit::Error.new(code: "210820012",
+          message: "The subscriber does not belong to the 2222333344 Major Account/MVNO"),
+        Conduit::Error.new(code: "Server.704", message: "Application processing error")
       ]
     end
 

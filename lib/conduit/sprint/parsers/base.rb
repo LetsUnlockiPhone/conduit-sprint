@@ -56,7 +56,7 @@ module Conduit::Driver::Sprint
             [normalized_fault]
           end
         else
-          [{ message: 'Unexpected response from server.' }]
+          [Conduit::Error.new(message: 'Unexpected response from server.')]
         end
       end
 
@@ -78,18 +78,14 @@ module Conduit::Driver::Sprint
 
       def normalized_provider_errors
         provider_errors.map do |provider_error|
-          {}.tap do |error|
-            error[:code]    = content_for('providerErrorCode', provider_error)
-            error[:message] = content_for('providerErrorText', provider_error)
-          end
+          Conduit::Error.new(message: content_for('providerErrorText', provider_error),
+            code: content_for('providerErrorCode', provider_error))
         end
       end
 
       def normalized_fault
-        {}.tap do |error|
-          error[:code]    = content_for('faultcode', fault)
-          error[:message] = content_for('faultstring', fault)
-        end
+        Conduit::Error.new(message: content_for('faultstring', fault),
+          code: content_for('faultcode', fault))
       end
     end
   end

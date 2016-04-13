@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   # Dependencies
   #
   s.add_dependency 'excon',   '~> 0.44.4'
-  s.add_dependency 'conduit', '~> 0.6.5'
+  s.add_dependency 'conduit', '~> 0.7.0'
   s.add_dependency 'savon'
   s.add_dependency 'signer'
   s.add_dependency 'StreetAddress'
