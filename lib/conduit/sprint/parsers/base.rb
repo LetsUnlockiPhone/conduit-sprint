@@ -51,7 +51,7 @@ module Conduit::Driver::Sprint
           if fault.nil?
             []
           elsif provider_errors.any?
-            normalized_provider_errors
+            prune_generic_errors(normalized_provider_errors)
           else
             [normalized_fault]
           end
@@ -86,6 +86,11 @@ module Conduit::Driver::Sprint
       def normalized_fault
         Conduit::Error.new(message: content_for('faultstring', fault),
           code: content_for('faultcode', fault))
+      end
+
+      def prune_generic_errors(errors)
+        return errors if errors.length == 1
+        errors.reject { |error| error.code == "Server.704" }
       end
     end
   end
