@@ -22,6 +22,7 @@ module Conduit
       action :transfer_ownership
       action :query_device_info
       action :query_port_message
+      action :query_port_in_message
       action :query_port_status
       action :query_subscription_usage
       action :validate_port
